@@ -1,0 +1,94 @@
+{
+  "version": "0.0.0",
+  "private": true,
+  "config": {
+    "commitizen": {
+      "path": "commitizen-emoji"
+    },
+    "commitizenEmoji": {
+      "symbol": true
+    }
+  },
+  "cspell": {
+    "words": [
+      "abcsize",
+      "documentarians",
+      "gitmoji",
+      "slugified",
+      "trpc",
+      "NEXTAUTH",
+      "superjson",
+      "tailwindcss",
+      "typesafe"
+    ]
+  },
+  "devDependencies": {
+    "@changesets/cli": "2.22.0",
+    "@commitlint/config-conventional": "^17.0.3",
+    "commitizen": "4.2.4",
+    "commitizen-emoji": "1.0.5",
+    "commitlint": "17.0.3",
+    "danger": "11.1.1",
+    "eslint": "8.21.0",
+    "eslint-config-acme": "0.0.0",
+    "husky": "8.0.0",
+    "lint-staged": "13.0.3",
+    "npm-run-all": "4.1.5",
+    "pinst": "3.0.0",
+    "prettier": "2.7.1",
+    "syncpack": "8.2.4",
+    "turbo": "latest"
+  },
+  "packageManager": "yarn@3.2.1",
+  "scripts": {
+    "build": "turbo run build",
+    "changeset": "changeset",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "commit": "cz",
+    "danger:local": "danger local --dangerfile dangerfile.ts --base main",
+    "danger:remote": "danger local --dangerfile dangerfile.ts --base origin/main",
+    "dev": "turbo run dev --no-cache --parallel --continue",
+    "format": "run-p format:\\*",
+    "format:markdown": "eslint . --quiet --fix --ext md",
+    "format:turbo": "turbo run format",
+    "lint": "turbo run lint",
+    "postinstall": "husky install",
+    "postpublish": "pinst --enable",
+    "prepublishOnly": "pinst --disable",
+    "release": "turbo run build --filter=docs^... && changeset publish",
+    "syncpack:fix": "run-s syncpack:fix:\\*",
+    "syncpack:fix:format": "syncpack format",
+    "syncpack:fix:mismatches": "syncpack fix-mismatches",
+    "syncpack:lint": "run-s syncpack:lint:\\*",
+    "syncpack:lint:mismatches": "syncpack list-mismatches",
+    "syncpack:lint:semver-ranges": "syncpack lint-semver-ranges",
+    "version-packages": "changeset version"
+  },
+  "syncpack": {
+    "semverGroups": [
+      {
+        "range": "*",
+        "dependencies": [
+          "@acme/**",
+          "eslint-config-acme"
+        ],
+        "packages": [
+          "**"
+        ]
+      }
+    ],
+    "sortFirst": [
+      "name",
+      "version",
+      "description",
+      "repository",
+      "author",
+      "license",
+      "private"
+    ]
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ]
+}

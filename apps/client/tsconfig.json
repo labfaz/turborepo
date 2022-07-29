@@ -1,0 +1,16 @@
+{
+  "extends": "@acme/tsconfig/next.json",
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "rootDir": ".",
+    "paths": {
+      "@root/*": ["./*"],
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "next-auth.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+  ]
+}

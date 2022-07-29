@@ -1,0 +1,34 @@
+{
+  "name": "@acme/e2e",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@cucumber/cucumber": "8.5.0",
+    "@cucumber/messages": "19.1.2",
+    "@cucumber/pretty-formatter": "1.0.0",
+    "@playwright/test": "1.24.0",
+    "fs-extra": "10.1.0"
+  },
+  "devDependencies": {
+    "@acme/tsconfig": "0.0.0",
+    "@types/fs-extra": "9.0.13",
+    "@types/node": "18.6.4",
+    "eslint": "8.21.0",
+    "eslint-config-acme": "0.0.0",
+    "ts-node": "10.9.1",
+    "tsconfig-paths": "4.0.0",
+    "typescript": "4.7.4"
+  },
+  "scripts": {
+    "test": "cucumber-js",
+    "test:all": "cucumber-js e2e/features/**/*.feature",
+    "test:api": "DEBUG=pw:api cucumber-js",
+    "test:debug": "PWDEBUG=1 DEBUG=pw:api cucumber-js",
+    "test:dry": "yarn test:all --dry-run",
+    "test:parallel": "yarn test:all --parallel=2",
+    "test:snippets": "yarn test:dry --format snippets",
+    "test:tags": "yarn test:all --tags",
+    "test:video": "PWVIDEO=1 cucumber-js"
+  }
+}
