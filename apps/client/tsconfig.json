@@ -1,0 +1,25 @@
+{
+  "extends": "@acme/tsconfig/next.json",
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "rootDir": ".",
+    "paths": {
+      "@root/*": ["./*"],
+      "@e2e/*": ["../e2e/*"]
+    },
+    "target": "ES6",
+    "module": "CommonJS",
+    "allowSyntheticDefaultImports": true,
+    "noImplicitReturns": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "next-auth.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "cucumber.mjs"
+  ],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
+}
