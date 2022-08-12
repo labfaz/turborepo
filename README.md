@@ -39,12 +39,12 @@ Clone the design system example locally or [from GitHub](https://github.com/TMTe
 >>> yarn install
 >>> cp .env.example .env
 # Configure your env
->>> cp .env packages/acme-db/.env
+>>> cp .env packages/labfaz-db/.env
 >>> cp .env apps/client/.env
 >>> docker-compose up -d
->>> yarn workspace @acme/db prisma db push
+>>> yarn workspace @labfaz/db prisma db push
 # build core
->>> yarn workspace @acme/core build
+>>> yarn workspace @labfaz/core build
 >>> yarn dev
 ```
 
@@ -77,12 +77,12 @@ This Turborepo includes the following packages and applications:
 - `apps/api`: REST API powered by Express
 - `apps/client`: Create T3 App starter, customized
 - `apps/docs`: Component documentation site with Storybook
-- `packages/@acme/core`: Core React components
-- `packages/@acme/db`: DB Client
-- `packages/@acme/routers`: tRPC routers to interact with DB
-- `packages/@acme/utils`: Shared React utilities
-- `packages/@acme/tsconfig`: Shared `tsconfig.json`s used throughout the Turborepo
-- `packages/eslint-config-acme`: ESLint shared config
+- `packages/@labfaz/core`: Core React components
+- `packages/@labfaz/db`: DB Client
+- `packages/@labfaz/routers`: tRPC routers to interact with DB
+- `packages/@labfaz/utils`: Shared React utilities
+- `packages/@labfaz/tsconfig`: Shared `tsconfig.json`s used throughout the Turborepo
+- `packages/eslint-config-labfaz`: ESLint shared config
 
 Each package and app is 100% [TypeScript](https://www.typescriptlang.org/). Yarn Workspaces enables us to "hoist" dependencies that are shared between packages to the root `package.json`. This means smaller `node_modules` folders and a better local dev experience.
 
@@ -109,10 +109,10 @@ When you push your code to GitHub, the [GitHub Action](https://github.com/change
 turbo run build --filter=docs^... && changeset publish
 ```
 
-Turborepo runs the `build` script for all publishable packages (excluding docs) and publishes the packages to npm. By default, this example includes `acme` as the npm organization. To change this, do the following:
+Turborepo runs the `build` script for all publishable packages (excluding docs) and publishes the packages to npm. By default, this example includes `labfaz` as the npm organization. To change this, do the following:
 
-- Rename folders in `packages/*` to replace `acme` with your desired scope
-- Search and replace `acme` with your desired scope
+- Rename folders in `packages/*` to replace `labfaz` with your desired scope
+- Search and replace `labfaz` with your desired scope
 - Re-run `yarn install`
 
 To publish packages to a public npm organization scope, **add** the following to each of the `package.json`'s
