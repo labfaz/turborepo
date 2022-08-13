@@ -24,8 +24,7 @@
     ]
   },
   "dependencies": {
-    "@mdx-js/preact": "1",
-    "minimist": "1.2.6"
+    "@mdx-js/preact": "1"
   },
   "devDependencies": {
     "@changesets/cli": "2.22.0",
