@@ -48,6 +48,12 @@ Clone the design system example locally or [from GitHub](https://github.com/TMTe
 >>> yarn dev
 ```
 
+### Troubleshooting
+
+- In case the commit hooks do not run, try using [`scripts/husky-chmod`](./scripts/husky-chmod): one liner that modifies the files inside `.husky`, adding the executable permission
+
+- In case of the gitmoji list is outdated, try using [`scripts/fetch-gitmojis`](./scripts/fetch-gitmojis): node script to fetch [gitmoji.dev](gitmoji.dev) gitmoji list from github repo
+
 ### Useful Commands
 
 - `yarn build` - Build all packages and apps
@@ -116,3 +122,7 @@ To publish packages to a public npm organization scope, **add** the following to
 +  "access": "public"
 + },
 ```
+
+### Dependencies vulnerabilities
+
+This repo contains a configuration for [`audit-ci`](https://www.npmjs.com/package/audit-ci) tool and a one liner script [`scripts/audit-ci`](./scripts/audit-ci); feel free to validate your dependencies security locally
