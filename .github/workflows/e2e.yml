@@ -18,7 +18,7 @@ jobs:
 
       - name: 📦 Install dependencies
         run: |
-          yarn install --immutable
+          yarn workspaces focus @acme/e2e
           npx playwright install-deps chromium
 
       - name: Waiting for 200 from the Vercel Preview
