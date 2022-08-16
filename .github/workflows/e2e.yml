@@ -17,7 +17,9 @@ jobs:
           cache-dependency-path: '**/yarn.lock'
 
       - name: 📦 Install dependencies
-        run: yarn install --immutable
+        run: |
+          yarn install --immutable
+          yarn dlx playwright install-deps chromium
 
       - name: Waiting for 200 from the Vercel Preview
         uses: patrickedqvist/wait-for-vercel-preview@v1.2.0
