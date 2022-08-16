@@ -133,6 +133,12 @@ To publish packages to a public npm organization scope, **add** the following to
 cd ../.. && yarn dlx turbo run build --scope=client --include-dependencies --no-deps && yarn workspace @acme/db prisma generate
 ```
 
+- Override `Build and Output Settings > INSTALL COMMAND`
+
+```bash
+yarn workspaces focus @acme/client --production
+```
+
 - Create `Environment Variables`, check `.env` and [`apps/client/.../env-schema.mjs`](apps/client/src/server/env-schema.mjs) for info
 
 Read more @ [vercel.com/docs](https://vercel.com/docs)
