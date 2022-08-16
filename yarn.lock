@@ -2079,13 +2079,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:^17.0.3":
+"@commitlint/cli@npm:17.0.3":
   version: 17.0.3
   resolution: "@commitlint/cli@npm:17.0.3"
   dependencies:
     "@commitlint/format": ^17.0.0
-    "@commitlint/lint": ^17.0.3
-    "@commitlint/load": ^17.0.3
+    "@commitlint/lint": 17.0.3
+    "@commitlint/load": 17.0.3
     "@commitlint/read": ^17.0.0
     "@commitlint/types": ^17.0.0
     execa: ^5.0.0
@@ -2108,7 +2108,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/config-validator@npm:^17.0.3":
+"@commitlint/config-validator@npm:17.0.3":
   version: 17.0.3
   resolution: "@commitlint/config-validator@npm:17.0.3"
   dependencies:
@@ -2145,7 +2145,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/is-ignored@npm:^17.0.3":
+"@commitlint/is-ignored@npm:17.0.3":
   version: 17.0.3
   resolution: "@commitlint/is-ignored@npm:17.0.3"
   dependencies:
@@ -2155,11 +2155,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/lint@npm:^17.0.3":
+"@commitlint/lint@npm:17.0.3":
   version: 17.0.3
   resolution: "@commitlint/lint@npm:17.0.3"
   dependencies:
-    "@commitlint/is-ignored": ^17.0.3
+    "@commitlint/is-ignored": 17.0.3
     "@commitlint/parse": ^17.0.0
     "@commitlint/rules": ^17.0.0
     "@commitlint/types": ^17.0.0
@@ -2167,13 +2167,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/load@npm:>6.1.1, @commitlint/load@npm:^17.0.3":
+"@commitlint/load@npm:17.0.3, @commitlint/load@npm:>6.1.1":
   version: 17.0.3
   resolution: "@commitlint/load@npm:17.0.3"
   dependencies:
-    "@commitlint/config-validator": ^17.0.3
+    "@commitlint/config-validator": 17.0.3
     "@commitlint/execute-rule": ^17.0.0
-    "@commitlint/resolve-extends": ^17.0.3
+    "@commitlint/resolve-extends": 17.0.3
     "@commitlint/types": ^17.0.0
     "@types/node": ">=12"
     chalk: ^4.1.0
@@ -2216,11 +2216,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/resolve-extends@npm:^17.0.3":
+"@commitlint/resolve-extends@npm:17.0.3":
   version: 17.0.3
   resolution: "@commitlint/resolve-extends@npm:17.0.3"
   dependencies:
-    "@commitlint/config-validator": ^17.0.3
+    "@commitlint/config-validator": 17.0.3
     "@commitlint/types": ^17.0.0
     import-fresh: ^3.0.0
     lodash: ^4.17.19
@@ -3371,6 +3371,15 @@ __metadata:
     unist-builder: 2.0.3
     unist-util-visit: 2.0.3
   checksum: 0839b4a3899416326ea6578fe9e470af319da559bc6d3669c60942e456b49a98eebeb3358c623007b4786a2175a450d2c51cd59df64639013c5a3d22366931a6
+  languageName: node
+  linkType: hard
+
+"@mdx-js/preact@npm:1":
+  version: 1.6.22
+  resolution: "@mdx-js/preact@npm:1.6.22"
+  peerDependencies:
+    preact: ^10.4.8
+  checksum: 0a8bb49319a39d1612ead383120ee308c45f0f3c7e1e2a5308f3c898ee9e23f90f06fff6d16e3cb97fad290af943ac2361da736852ada0fa93430dbc72afeaa7
   languageName: node
   linkType: hard
 
@@ -9717,7 +9726,7 @@ __metadata:
   version: 17.0.3
   resolution: "commitlint@npm:17.0.3"
   dependencies:
-    "@commitlint/cli": ^17.0.3
+    "@commitlint/cli": 17.0.3
     "@commitlint/types": ^17.0.0
   bin:
     commitlint: cli.js
@@ -10865,7 +10874,7 @@ __metadata:
   dependencies:
     acorn-node: ^1.8.2
     defined: ^1.0.0
-    minimist: ^1.2.6
+    minimist: 1.2.6
   bin:
     detective: bin/detective.js
   checksum: dc4601bbc6be850edb3c2dab7a0eaf5a6169a15ad201679c66d40ea1986df816eeaecd590047f15b0780285f3eeea13b82dca0d4c52a47e744a571e326a72dc9
@@ -17147,7 +17156,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimist@npm:^1.1.1, minimist@npm:^1.2.0, minimist@npm:^1.2.5, minimist@npm:^1.2.6":
+"minimist@npm:1.2.6, minimist@npm:^1.1.1, minimist@npm:^1.2.0, minimist@npm:^1.2.5":
   version: 1.2.6
   resolution: "minimist@npm:1.2.6"
   checksum: d15428cd1e11eb14e1233bcfb88ae07ed7a147de251441d61158619dfb32c4d7e9061d09cab4825fdee18ecd6fce323228c8c47b5ba7cd20af378ca4048fb3fb
@@ -17263,7 +17272,7 @@ __metadata:
   version: 0.5.6
   resolution: "mkdirp@npm:0.5.6"
   dependencies:
-    minimist: ^1.2.6
+    minimist: 1.2.6
   bin:
     mkdirp: bin/cmd.js
   checksum: 0c91b721bb12c3f9af4b77ebf73604baf350e64d80df91754dc509491ae93bf238581e59c7188360cec7cb62fc4100959245a42cfe01834efedc5e9d068376c2
@@ -20470,6 +20479,7 @@ __metadata:
   dependencies:
     "@changesets/cli": 2.22.0
     "@commitlint/config-conventional": 17.0.3
+    "@mdx-js/preact": 1
     commitizen: 4.2.4
     commitizen-emoji: 1.0.5
     commitlint: 17.0.3
@@ -20481,6 +20491,7 @@ __metadata:
     eslint-config-labfaz: 0.0.0
     husky: 8.0.0
     lint-staged: 13.0.3
+    minimist: 1.2.6
     npm-run-all: 4.1.5
     pinst: 3.0.0
     prettier: 2.7.1
@@ -22360,7 +22371,7 @@ __metadata:
   resolution: "tsconfig-paths@npm:4.0.0"
   dependencies:
     json5: ^2.2.1
-    minimist: ^1.2.6
+    minimist: 1.2.6
     strip-bom: ^3.0.0
   checksum: a8cf746ffe438513a71c70c1bcdee8da7d62ab2af286efbe2728ff55c4d4c92c2aea80a0822982ded6d0a13c7686c24632934d7c0f4f564be9e1b2cdc3d65eea
   languageName: node
@@ -22372,7 +22383,7 @@ __metadata:
   dependencies:
     "@types/json5": ^0.0.29
     json5: ^1.0.1
-    minimist: ^1.2.6
+    minimist: 1.2.6
     strip-bom: ^3.0.0
   checksum: 8afa01c673ebb4782ba53d3a12df97fa837ce524f8ad38ee4e2b2fd57f5ac79abc21c574e9e9eb014d93efe7fe8214001b96233b5c6ea75bd1ea82afe17a4c6d
   languageName: node
