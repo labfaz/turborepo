@@ -4,7 +4,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@cspell/eslint-plugin": "6.4.0",
+    "@cspell/eslint-plugin": "6.6.1",
     "@typescript-eslint/eslint-plugin": "5.30.6",
     "@typescript-eslint/parser": "5.30.6",
     "eslint-config-next": "12.2.2",
@@ -19,7 +19,7 @@
     "eslint-plugin-write-good-comments": "0.1.4"
   },
   "devDependencies": {
-    "eslint": "8.21.0",
+    "eslint": "8.22.0",
     "prettier": "2.7.1"
   },
   "main": "index.js"

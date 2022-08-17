@@ -2666,12 +2666,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cspell/eslint-plugin@npm:6.4.0":
-  version: 6.4.0
-  resolution: "@cspell/eslint-plugin@npm:6.4.0"
+"@cspell/eslint-plugin@npm:6.6.1":
+  version: 6.6.1
+  resolution: "@cspell/eslint-plugin@npm:6.6.1"
   dependencies:
-    cspell-lib: ^6.4.0
-  checksum: 2266bd2e1fc177df57bb86ee06ee4e0392adaa59ad89fbb07c0d20bcd9300f32a299323bb9c6fe15bcbf70c75302aeb9df9bfad60d007811d862bca2d4ebd485
+    cspell-lib: ^6.6.1
+  checksum: 0302f89dbbec8af00bfe6a07a72aeb862cbdf4c4778d05cf41a20ccdda2833972cb48158cc7e669839b1494523b52ff3679269c52d78c15aca681acb02b2a0ea
   languageName: node
   linkType: hard
 
@@ -9331,7 +9331,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cspell-lib@npm:^6.4.0":
+"cspell-lib@npm:^6.6.1":
   version: 6.6.1
   resolution: "cspell-lib@npm:6.6.1"
   dependencies:
@@ -11123,10 +11123,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "eslint-config-labfaz@workspace:packages/eslint-config-labfaz"
   dependencies:
-    "@cspell/eslint-plugin": 6.4.0
+    "@cspell/eslint-plugin": 6.6.1
     "@typescript-eslint/eslint-plugin": 5.30.6
     "@typescript-eslint/parser": 5.30.6
-    eslint: 8.21.0
+    eslint: 8.22.0
     eslint-config-next: 12.2.2
     eslint-config-prettier: 8.3.0
     eslint-plugin-abcsize: 0.0.3
