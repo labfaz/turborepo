@@ -1,11 +1,10 @@
 {
-  "name": "eslint-config-acme",
+  "name": "eslint-config-labfaz",
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
   "dependencies": {
     "@cspell/eslint-plugin": "6.6.1",
-    "@typescript-eslint/eslint-plugin": "5.30.6",
     "@typescript-eslint/parser": "5.30.6",
     "eslint-config-next": "12.2.2",
     "eslint-config-prettier": "8.3.0",

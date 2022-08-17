@@ -1,7 +1,7 @@
 import * as trpc from '@trpc/server';
 import * as trpcExpress from '@trpc/server/adapters/express';
 
-import { PrismaClient } from '@acme/db';
+import { PrismaClient } from '@labfaz/db';
 
 const prisma = new PrismaClient();
 

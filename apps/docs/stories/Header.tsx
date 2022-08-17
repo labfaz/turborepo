@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-import { Button } from '@acme/core';
+import { Button } from '@labfaz/core';
 
 import './header.css';
 
@@ -46,7 +46,7 @@ export const Header = ({
             />
           </g>
         </svg>
-        <h1>Acme</h1>
+        <h1>labfaz</h1>
       </div>
       <div>
         {user ? (

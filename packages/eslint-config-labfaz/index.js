@@ -40,7 +40,7 @@ module.exports = {
           // Packages `react` related packages come first.
           ['^react', '^@?\\w'],
           // Internal packages.
-          ['^(@|components)(/.*|$)', '@(acme|root|e2e)'],
+          ['^(@|components)(/.*|$)', '@(labfaz|root|e2e)'],
           // Side effect imports.
           ['^\\u0000'],
           // Parent imports. Put `..` last.

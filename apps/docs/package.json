@@ -1,9 +1,9 @@
 {
-  "name": "@acme/docs",
+  "name": "@labfaz/docs",
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@acme/core": "0.0.0",
+    "@labfaz/core": "0.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
@@ -23,7 +23,7 @@
     "@vitejs/plugin-react": "2.0.1",
     "babel-loader": "8.2.5",
     "eslint": "8.22.0",
-    "eslint-config-acme": "0.0.0",
+    "eslint-config-labfaz": "0.0.0",
     "eslint-plugin-storybook": "0.6.4",
     "prettier": "2.7.1",
     "serve": "13.0.2",

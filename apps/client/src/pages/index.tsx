@@ -9,7 +9,7 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as z from 'zod';
 
-import { Button } from '@acme/core';
+import { Button } from '@labfaz/core';
 import { trpc } from '@root/utils/trpc';
 
 const schema = z.object({
@@ -105,7 +105,7 @@ const Home: NextPage = () => {
         <div className="flex w-full items-center justify-center pt-6 text-2xl text-blue-500">
           {hello.data ? <p>{hello.data.greeting}</p> : <p>Loading..</p>}
         </div>
-        <Button label="@acme/core/Button" />
+        <Button label="@labfaz/core/Button" />
         <button className="btn">DaisyUI</button>
         <Form />
       </main>
