@@ -1,4 +1,6 @@
 module.exports = {
-  root: true,
-  extends: ['acme'],
+  extends: ['acme', 'plugin:storybook/recommended'],
+  rules: {
+    'storybook/no-uninstalled-addons': ['off'],
+  },
 };
