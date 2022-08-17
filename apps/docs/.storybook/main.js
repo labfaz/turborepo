@@ -1,27 +1,15 @@
-const path = require("path");
-
 module.exports = {
-  stories: ["../stories/**/*.stories.mdx", "../stories/**/*.stories.tsx"],
-  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
-  framework: "@storybook/react",
+  stories: ['../stories/**/*.stories.@(ts|tsx)'],
+  addons: [
+    '@storybook/addon-a11y',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
+  ],
+  framework: '@storybook/react',
   core: {
-    builder: "@storybook/builder-vite",
+    builder: '@storybook/builder-vite',
   },
-  async viteFinal(config, { configType }) {
-    // customize the Vite config here
-    return {
-      ...config,
-      resolve: {
-        alias: [
-          {
-            find: "@labfaz/core",
-            replacement: path.resolve(
-              __dirname,
-              "../../../packages/labfaz-core/"
-            ),
-          },
-        ],
-      },
-    };
+  features: {
+    storyStoreV7: true,
   },
 };

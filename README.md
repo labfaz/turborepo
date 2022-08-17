@@ -130,13 +130,13 @@ To publish packages to a public npm organization scope, **add** the following to
 - Override `Build and Output Settings > BUILD COMMAND`
 
 ```bash
-cd ../.. && yarn dlx turbo run build --scope=client --include-dependencies --no-deps && yarn workspace @acme/db prisma generate
+cd ../.. && yarn dlx turbo run build --scope=client --include-dependencies --no-deps && yarn workspace @labfaz/db prisma generate
 ```
 
 - Override `Build and Output Settings > INSTALL COMMAND`
 
 ```bash
-yarn workspaces focus @acme/client --production
+yarn workspaces focus @labfaz/client --production
 ```
 
 - Create `Environment Variables`, check `.env` and [`apps/client/.../env-schema.mjs`](apps/client/src/server/env-schema.mjs) for info

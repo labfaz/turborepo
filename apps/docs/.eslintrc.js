@@ -1,4 +1,6 @@
 module.exports = {
-  root: true,
-  extends: ['labfaz'],
+  extends: ['labfaz', 'plugin:storybook/recommended'],
+  rules: {
+    'storybook/no-uninstalled-addons': ['off'],
+  },
 };
