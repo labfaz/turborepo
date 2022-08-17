@@ -3223,6 +3223,7 @@ __metadata:
     "@labfaz/tsconfig": 0.0.0
     "@types/react": 18.0.15
     "@types/react-dom": 18.0.6
+    "@typescript-eslint/eslint-plugin": 5.30.6
     eslint: 8.21.0
     eslint-config-labfaz: 0.0.0
     react: 18.2.0
@@ -11124,7 +11125,6 @@ __metadata:
   resolution: "eslint-config-labfaz@workspace:packages/eslint-config-labfaz"
   dependencies:
     "@cspell/eslint-plugin": 6.6.1
-    "@typescript-eslint/eslint-plugin": 5.30.6
     "@typescript-eslint/parser": 5.30.6
     eslint: 8.22.0
     eslint-config-next: 12.2.2
