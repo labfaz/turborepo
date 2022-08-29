@@ -2,11 +2,12 @@ name: Notifier
 
 on:
   issues:
-    types: [opened]
+    types: [opened,closed]
 
 jobs:
 
-  notifyTelegram:
+  notifyTelegramOpened:
+    if: github.event.issue.state == "open"
     runs-on: ubuntu-latest
     steps:
     - name: send custom message
@@ -20,3 +21,20 @@ jobs:
           https://github.com/orgs/labfaz/projects/1
           Link da Issue:
           https://github.com/${{ github.repository }}/issues/${{ github.event.issue.number}}
+    
+  notifyTelegramClosed:
+    if: github.event.issue.state != "open"
+    runs-on: ubuntu-latest
+    steps:
+    - name: send custom message
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        message: |
+          Issue resolvida! Nice demais devs \o/ 🎉🎉
+          Link do Github Projects:
+          https://github.com/orgs/labfaz/projects/1
+          Link da Issue:
+          https://github.com/${{ github.repository }}/issues/${{ github.event.issue.number}}
+  
