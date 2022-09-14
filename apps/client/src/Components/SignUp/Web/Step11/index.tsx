@@ -13,7 +13,7 @@ import {
 } from './style';
 
 interface Step11Props {
-  profilePicture: string;
+  profilePicture: Blob;
 
   use_terms: string;
 }
@@ -30,7 +30,7 @@ export const Step11: FC = () => {
               src={
                 values.profilePicture
                   ? URL.createObjectURL(values.profilePicture)
-                  : undefined
+                  : (undefined as never)
               }
               alt={values.profilePicture ? 'User avatar' : ''}
             />

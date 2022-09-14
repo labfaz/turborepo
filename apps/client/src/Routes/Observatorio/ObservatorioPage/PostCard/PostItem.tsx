@@ -10,6 +10,11 @@ export interface PostItemProps {
   post: ObservatorioPost;
 }
 
+type ImageType = {
+  url: string;
+  alternativeText: string;
+};
+
 export const PostItem: FC<PostItemProps> = ({ post }) => {
   const isMobile = useMobile();
 
@@ -19,7 +24,7 @@ export const PostItem: FC<PostItemProps> = ({ post }) => {
         <Mobile
           title={post.title}
           description={post.description}
-          image={post.image}
+          image={post.image as ImageType}
           created_at={post.created_at}
           id={post.id}
         />
@@ -27,7 +32,7 @@ export const PostItem: FC<PostItemProps> = ({ post }) => {
         <Web
           title={post.title}
           description={post.description}
-          image={post.image}
+          image={post.image as ImageType}
           created_at={post.created_at}
           id={post.id}
         />

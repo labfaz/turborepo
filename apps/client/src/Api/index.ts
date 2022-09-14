@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-import { getApiUrl, getStrapiUrl } from '@labfaz/server-conn-info';
+import {
+  getApiUrl,
+  getStrapiUrl,
+} from '../../../../packages/server-conn-info/';
 
 // create axios instance to connect to main server
 export const api = axios.create({

@@ -1,5 +1,9 @@
 import React, { lazy, Suspense } from 'react';
-import { Route, RouteComponentProps, Switch } from 'react-router-dom';
+import {
+  Route,
+  // RouteComponentProps,
+  Switch,
+} from 'react-router-dom';
 import LoadingFullPage from 'Components/LoadingFullPage';
 import { Router } from 'Routes';
 
@@ -22,11 +26,11 @@ export const PeopleExample: Router = ({ match }) => {
 
       {/* show de uma pessoa */}
       <Route path={`${path}/:id`}>
-        {({ match }: RouteComponentProps<{ id: string }>) => (
-          <Suspense fallback={<LoadingFullPage />}>
-            <ShowPersonExample id={Number(match?.params.id)} />
-          </Suspense>
-        )}
+        {/* {({ match }: RouteComponentProps<{ id: string }>) => ( */}
+        <Suspense fallback={<LoadingFullPage />}>
+          <ShowPersonExample id={Number(match?.params.id)} />
+        </Suspense>
+        {/* )} */}
       </Route>
     </Switch>
   );
