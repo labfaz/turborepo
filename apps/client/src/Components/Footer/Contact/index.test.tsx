@@ -4,10 +4,11 @@ import render from 'Utils/render';
 import Contact from './';
 
 const mockedData = {
-  phone: 912345678,
+  phone: '912345678',
   email: 'contato@labfaz.com.br',
 };
 
+// eslint-disable-next-line @cspell/spellchecker
 it('renders Contact subcomponent', () => {
   expect(() =>
     render(<Contact phone={mockedData.phone} email={mockedData.email} />)

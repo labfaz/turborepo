@@ -10,7 +10,7 @@ module.exports = {
     'prettier',
     'abcsize',
     'write-good-comments',
-    'i18next',
+    // 'i18next',
   ],
   extends: [
     'eslint:recommended',
