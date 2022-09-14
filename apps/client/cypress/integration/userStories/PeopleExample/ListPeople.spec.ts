@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import { getStrapiHost } from '../../../../../../packages/server-conn-info/';
+import { getStrapiHost } from '@labfaz/server-conn-info';
 
 context('ListPeople', () => {
   beforeEach(() => {
