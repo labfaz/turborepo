@@ -1,13 +1,13 @@
 import React, { FC, useState } from 'react';
-import { FaAngleUp, FaAngleDown } from 'react-icons/fa';
-
+import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
 import { Title } from 'Components/Typography/Title';
 
-import { Container, Haeder, Button, Description, ContentDiv } from './styles';
+import { Button, Container, ContentDiv, Description, Header } from './styles';
 
 interface DrawerProps {
   description?: string;
   teamName?: string;
+  children?: React.ReactNode;
 }
 
 export const Drawer: FC<DrawerProps> = ({
@@ -27,10 +27,10 @@ export const Drawer: FC<DrawerProps> = ({
           <FaAngleDown size={35} color="white" />
         )}
       </Button>
-      <Haeder isOpen={isVisible}>
+      <Header isOpen={isVisible}>
         <Title level={1}> {teamName} </Title>
         <Description isOpen={isVisible}> {description} </Description>
-      </Haeder>
+      </Header>
       <ContentDiv isOpen={isVisible}>{children}</ContentDiv>
     </Container>
   );

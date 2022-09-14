@@ -1,30 +1,28 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-
+import { StaticRouter } from 'react-router-dom';
 import Render from 'Utils/render';
+
 import { ExternalLinkButton } from './';
 
 it('renders external link button component', () => {
   expect(() =>
     Render(
-      <BrowserRouter>
-        <ExternalLinkButton
-          href="https://google.com.br"
-          children="External Button"
-        />
-      </BrowserRouter>
+      <StaticRouter>
+        <ExternalLinkButton href="https://google.com.br">
+          External Button
+        </ExternalLinkButton>
+      </StaticRouter>
     )
   ).not.toThrow();
 });
 
 describe('Check content of Button component', () => {
   const { getByText } = Render(
-    <BrowserRouter>
-      <ExternalLinkButton
-        href="https://google.com.br"
-        children="External Button"
-      />
-    </BrowserRouter>
+    <StaticRouter>
+      <ExternalLinkButton href="https://google.com.br">
+        External Button
+      </ExternalLinkButton>
+    </StaticRouter>
   );
 
   it('check render of button content', () => {

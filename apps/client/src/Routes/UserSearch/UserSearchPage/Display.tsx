@@ -1,28 +1,27 @@
 import React, { FC, useState } from 'react';
+import { UserSearchParams, useUserSearch } from 'Api/UserSearch';
+import Loading from 'Components/Loading';
+import { Pagination } from 'Components/Pagination/Static';
+import { Text } from 'Components/Typography/Text';
+import { Title } from 'Components/Typography/Title';
+import Wireframe from 'Components/Wireframe';
+import useTimeout from 'Hooks/useTimeout';
+import { getUserName } from 'Utils/userUtils';
 
 import Form from '../Form';
-import SelectInput from '../Form/Select';
 import OptionGender from '../Form/Options/OptionGender';
-import OptionsExperience from '../Form/Options/OptionsExperience';
 import OptionIsPcD from '../Form/Options/OptionIsPcd';
+import OptionsExperience from '../Form/Options/OptionsExperience';
+import SelectInput from '../Form/Select';
 import UserCard from '../UserCard';
-import Wireframe from 'Components/Wireframe';
-import Loading from 'Components/Loading';
-import useTimeout from 'Hooks/useTimeout';
-import { Title } from 'Components/Typography/Title';
-import { Text } from 'Components/Typography/Text';
-import { Pagination } from 'Components/Pagination/Static';
 
-import { UserSearchParams, useUserSearch } from 'Api/UserSearch';
-
-import { FormDiv, OptionsDiv, Header, ContentDiv } from './style';
-import { getUserName } from 'Utils/userUtils';
+import { ContentDiv, FormDiv, Header, OptionsDiv } from './style';
 
 export type Fields = 'areas' | 'serviços' | 'diversidade' | 'experiência';
 
 interface UserSearchInterface {
   title?: string;
-  description?: string;
+  description: string;
 }
 
 export const Display: FC<UserSearchInterface> = ({ title, description }) => {
@@ -31,9 +30,9 @@ export const Display: FC<UserSearchInterface> = ({ title, description }) => {
     city: '',
     area: '',
     nonMenOnly: false,
-    LBTQOnly: false,
+    LGBTQOnly: false,
     drtOnly: false,
-    cpnjOnly: false,
+    CNPJOnly: false,
     ceacOnly: false,
     meiOnly: false,
     pcdOnly: false,
@@ -63,24 +62,23 @@ export const Display: FC<UserSearchInterface> = ({ title, description }) => {
       <ContentDiv>
         {users && !isLoading && done ? (
           <Pagination items={users}>
-            {(users) =>
-              users.map((user, index) => {
-                const { id, isVerified } = user;
-                const name = getUserName(user);
-                const area = user.artist.technical.area;
-                const photo = user.artist.photo_url;
-                const description = user.artist.technical.area[0].describe;
-                const data = {
-                  id,
-                  isVerified,
-                  name,
-                  area,
-                  photo,
-                  description,
-                };
-                return <UserCard data={data} key={index} />;
-              })
-            }
+            {users.map((user, index) => {
+              const { id, isVerified } = user;
+              const name = getUserName(user);
+              const area = user.artist.technical.area;
+              const photo = user.artist.photo_url;
+              const description = user.artist.technical.area[0]
+                ?.describe as string;
+              const data = {
+                id,
+                isVerified,
+                name,
+                area,
+                photo,
+                description,
+              };
+              return <UserCard data={data} key={index} />;
+            })}
           </Pagination>
         ) : (
           <Loading />

@@ -1,15 +1,15 @@
 import React, { FC } from 'react';
 import { StaffObject } from 'Api/AboutUs';
-
-import { Card, CardThumb, CardBody, Circle, ImageCircle } from '../styles';
 import { Text } from 'Components/Typography/Text';
+
+import { Card, CardBody, CardThumb, Circle, ImageCircle } from '../styles';
 
 interface StaffCardProps {
   data: StaffObject;
 }
 
 export const StaffCard: FC<StaffCardProps> = ({ data }) => {
-  const { name, tag, text, image } = data!;
+  const { name, tag, text, image } = data || null;
 
   return (
     <Card>

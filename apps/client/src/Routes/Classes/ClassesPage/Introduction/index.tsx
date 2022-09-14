@@ -1,8 +1,13 @@
 import React, { FC } from 'react';
-
-import { Container, TitleWrapper, MainTitle, TitleText, Image } from './styles';
-
 import { CoursesPageIntroduction } from 'Api/CoursesPageIntroduction';
+
+import {
+  Container,
+  MainTitle,
+  StyledImage,
+  TitleText,
+  TitleWrapper,
+} from './styles';
 
 export interface Props {
   data: CoursesPageIntroduction;
@@ -11,7 +16,7 @@ export interface Props {
 const Introduction: FC<Props> = ({ data }) => {
   return (
     <Container>
-      <Image src={data.image.url} alt={data.image.alternativeText} />
+      <StyledImage src={data.image.url} alt={data.image.alternativeText} />
       <TitleWrapper>
         <MainTitle>{data.title}</MainTitle>
         <TitleText>{data.description}</TitleText>

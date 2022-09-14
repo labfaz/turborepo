@@ -11,7 +11,7 @@ export const Container = styled.div<ContainerProps>`
   flex-direction: column;
 
   position: relative;
-  .obrigatory {
+  .required {
     color: #fc0061;
     display: inline;
     font-size: var(--font-size-default);

@@ -1,24 +1,24 @@
 import React, { FC } from 'react';
+import { formatPostDate } from 'Utils/formatPostDate';
+import type { Image } from 'Utils/Image';
 
 import {
+  Button,
+  ButtonLayer,
+  ButtonText,
+  Date,
+  DateContainer,
+  Description,
+  Divisor,
   MainTextContainer,
   PostTitle,
-  Description,
-  Image,
-  Button,
-  ButtonText,
-  ButtonLayer,
-  DateContainer,
-  Date,
-  Divisor,
+  StyledImage,
 } from './styles';
-
-import { formatPostDate } from 'Utils/formatPostDate';
 
 interface DisplayProps {
   title: string;
   description: string;
-  image: any;
+  image: Image | null;
   created_at: string;
   id: number;
 }
@@ -31,7 +31,7 @@ export const Web: FC<DisplayProps> = ({
   id,
 }) => {
   const yearRegExp = /[0-9]{4}/;
-  const isYear = yearRegExp.test(formatPostDate(created_at)?.hour);
+  const isYear = yearRegExp.test(formatPostDate(created_at)?.hour as string);
 
   const route = `/blog/${id}`;
 
@@ -40,7 +40,7 @@ export const Web: FC<DisplayProps> = ({
       <MainTextContainer to={route}>
         <PostTitle>{title}</PostTitle>
         <Description>{description}</Description>
-        {!!image && <Image src={image.url} alt={image.alternativeText} />}
+        {!!image && <StyledImage src={image.url} alt={image.alternativeText} />}
         <ButtonLayer />
         <Button href={route}>
           <ButtonText>leia mais</ButtonText>

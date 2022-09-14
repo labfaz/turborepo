@@ -1,9 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-
-import RecoverPage from './Display';
 import { RecoverData } from 'Api/RecoverPassImage';
 import { mockImage } from 'Utils/Image';
+
+import RecoverPage from './Display';
 
 const image = mockImage({
   url: 'https://images.fineartamerica.com/images-medium-large/reflections-of-longs-peak-vertical-image-james-bo-insogna.jpg',

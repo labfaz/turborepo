@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-
-import { LoginContainer } from './style';
 import { EditProfile } from 'Components/EditProfile';
 import Wireframe from 'Components/Wireframe';
-import useMobile from 'Hooks/useMobile';
 import { User } from 'Context/LoggedUserToken';
+import useMobile from 'Hooks/useMobile';
+
+import { LoginContainer } from './style';
 
 interface DisplayProps {
   button_type: 'submit' | 'button' | 'reset';

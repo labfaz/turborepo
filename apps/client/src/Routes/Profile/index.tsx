@@ -1,10 +1,13 @@
 import React, { lazy } from 'react';
-import { Route, RouteComponentProps, Switch, Redirect } from 'react-router-dom';
-
-import { Router } from 'Routes';
-
-import usePageview from 'Hooks/usePageView';
+import {
+  Redirect,
+  Route,
+  // RouteComponentProps,
+  Switch,
+} from 'react-router-dom';
 import { useCurrentUserToken } from 'Context/LoggedUserToken';
+import usePageview from 'Hooks/usePageView';
+import { Router } from 'Routes';
 
 const PersonalProfilePage = lazy(() => import('./PersonalProfilePage'));
 const UsersProfilePage = lazy(() => import('./UsersProfilePage'));
@@ -28,9 +31,9 @@ export const Profile: Router = ({ match }) => {
       </Route>
 
       <Route path={`${path}/:id`}>
-        {({ match }: RouteComponentProps<{ id: string }>) => (
-          <UsersProfilePage id={String(match?.params.id)} />
-        )}
+        {/* {({ match }: RouteComponentProps<{ id: string }>) => ( */}
+        <UsersProfilePage id={String(match?.params.id)} />
+        {/* )} */}
       </Route>
     </Switch>
   );

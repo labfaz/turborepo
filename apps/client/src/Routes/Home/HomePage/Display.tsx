@@ -1,16 +1,13 @@
 import React, { FC } from 'react';
-
-import Wireframe from 'Components/Wireframe';
-import Partners from 'Components/Partners';
-import Presentation from 'Components/Presentation';
-// import CoursesPresentation from "Components/CoursesPresentation";
-import Banner from 'Components/Banner';
-
-import useMobile from 'Hooks/useMobile';
-
+import { Homepage } from 'Api/Homepage';
 import { HomepageBannerInfo } from 'Api/HomepageBannerInfo';
 import { HomePartners } from 'Api/HomePartners';
-import { Homepage } from 'Api/Homepage';
+// import CoursesPresentation from "Components/CoursesPresentation";
+import Banner from 'Components/Banner';
+import Partners from 'Components/Partners';
+import Presentation from 'Components/Presentation';
+import Wireframe from 'Components/Wireframe';
+import useMobile from 'Hooks/useMobile';
 // import { CoursePresentation } from "Api/CoursePresentation";
 
 export interface DisplayProps {

@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import { SkipContent } from './style';
 
@@ -9,7 +9,7 @@ export const Web: FC<TSkipNavProps> = (props) => {
   const [isContrasted, setIsContrasted] = useState(false);
 
   const toggleHighContrast = () => {
-    let contrastedState = !isContrasted;
+    const contrastedState = !isContrasted;
     setIsContrasted(contrastedState);
     if (props && props.updateParentContrasted) {
       props.updateParentContrasted(contrastedState);

@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
-
-import LogoFooter from '../Logo';
-import Contact from '../Contact';
-import { FooterContainer } from './style';
 import { SocialNetworksLabfaz } from 'Api/SocialNetworksLabfaz';
+
+import Contact from '../Contact';
+import LogoFooter from '../Logo';
+
+import { FooterContainer } from './style';
 
 interface Props {
   data: SocialNetworksLabfaz;

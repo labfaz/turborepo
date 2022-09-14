@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
-
+/* eslint-disable @cspell/spellchecker */
 import { TextInput } from 'Components/Inputs/TextInput';
+import styled, { css } from 'styled-components';
 import { DesktopSmall } from 'Utils/breakpoints';
 
 export const Container = styled.div`
@@ -29,7 +29,7 @@ export const Container = styled.div`
       `)}
     }
 
-    .obrigatory {
+    .required {
       color: red;
       display: inline;
     }

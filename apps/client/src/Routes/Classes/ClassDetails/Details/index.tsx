@@ -1,22 +1,21 @@
 import React, { FC } from 'react';
-
-import {
-  Container,
-  ImageContainer,
-  Image,
-  TextSubContainer,
-  TextContainer,
-  TextBackground,
-  SubscribeText,
-  ActivityContainer,
-  ActivityTitle,
-  ActivityItem,
-  ListsList,
-} from './styles';
-
 import { format } from 'date-fns';
 
 import { Button } from '../../SubscriptionButton';
+
+import {
+  ActivityContainer,
+  ActivityItem,
+  ActivityTitle,
+  Container,
+  ImageContainer,
+  ListsList,
+  StyledImage,
+  SubscribeText,
+  TextBackground,
+  TextContainer,
+  TextSubContainer,
+} from './styles';
 
 export interface Props {
   id: string;
@@ -51,7 +50,7 @@ export const Details: FC<Props> = ({
   return (
     <Container>
       <ImageContainer>
-        <Image src={banner} alt="Imagem do banner" />
+        <StyledImage src={banner} alt="Imagem do banner" />
       </ImageContainer>
       <TextContainer>
         <TextSubContainer>
@@ -66,7 +65,7 @@ export const Details: FC<Props> = ({
             )}
             <Button
               courseId={id}
-              isAvailabe={available}
+              isAvailable={available}
               link={link}
               hasSubscription={has_subscription}
             >

@@ -1,7 +1,6 @@
-import styled from 'styled-components';
-
-import { Field } from 'formik';
 import { Text } from 'Components/Typography/Text';
+import { Field } from 'formik';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -45,7 +44,7 @@ export const TextLabel = styled(Text)`
     top: 1.7rem;
   }
 
-  .obrigatory {
+  .required {
     color: red;
     display: inline;
   }

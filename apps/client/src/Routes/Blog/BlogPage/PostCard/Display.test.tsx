@@ -1,7 +1,7 @@
 import React from 'react';
-import render from 'Utils/render';
-import { BrowserRouter } from 'react-router-dom';
+import { StaticRouter } from 'react-router-dom';
 import { formatPostDate } from 'Utils/formatPostDate';
+import render from 'Utils/render';
 
 import Display from './Display';
 
@@ -26,18 +26,18 @@ const postCardExample = [
 it('renders blog post component', () => {
   expect(() =>
     render(
-      <BrowserRouter>
+      <StaticRouter>
         <Display posts={postCardExample} />
-      </BrowserRouter>
+      </StaticRouter>
     )
   ).not.toThrow();
 });
 
 describe('Check content of PostCard component', () => {
   const { getByText } = render(
-    <BrowserRouter>
+    <StaticRouter>
       <Display posts={postCardExample} />
-    </BrowserRouter>
+    </StaticRouter>
   );
 
   it('checks if title rendered', () => {
@@ -46,16 +46,20 @@ describe('Check content of PostCard component', () => {
   });
 
   it('checks if weekday rendered', () => {
-    const weekday = getByText(formatPostDate('2021-06-29T23:50:54.596Z')?.day);
+    const weekday = getByText(
+      formatPostDate('2021-06-29T23:50:54.596Z')?.day as string
+    );
     expect(weekday).toHaveTextContent(
-      formatPostDate('2021-06-29T23:50:54.596Z')?.day
+      formatPostDate('2021-06-29T23:50:54.596Z')?.day as string
     );
   });
 
   it('checks if hour rendered', () => {
-    const hour = getByText(formatPostDate('2021-06-29T23:50:54.596Z')?.hour);
+    const hour = getByText(
+      formatPostDate('2021-06-29T23:50:54.596Z')?.hour as string
+    );
     expect(hour).toHaveTextContent(
-      formatPostDate('2021-06-29T23:50:54.596Z')?.hour
+      formatPostDate('2021-06-29T23:50:54.596Z')?.hour as string
     );
   });
 

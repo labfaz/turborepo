@@ -1,7 +1,6 @@
-import styled, { css } from 'styled-components';
-
 import { Text } from 'Components/Typography/Text';
-import { Mobile, DesktopSmall, Desktop } from 'Utils/breakpoints';
+import styled, { css } from 'styled-components';
+import { Desktop, DesktopSmall, Mobile } from 'Utils/breakpoints';
 
 export const ContactContainer = styled.div`
   display: flex;

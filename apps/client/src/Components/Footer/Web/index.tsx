@@ -1,23 +1,21 @@
 import React, { FC } from 'react';
+import { SocialNetworksLabfaz } from 'Api/SocialNetworksLabfaz';
 
+import Contact from '../Contact';
 import LogoFooter from '../Logo';
 import Navigation from '../Navigation';
 import NewsLetter from '../Newsletter';
-import Contact from '../Contact';
 
 import { FooterContainer } from './style';
 
-import { SocialNetworksLabfaz } from 'Api/SocialNetworksLabfaz';
-
 interface Props {
   data: SocialNetworksLabfaz;
-  id?: string;
 }
 
-const Web: FC<Props> = ({ data, id }) => {
+const Web: FC<Props> = ({ data }) => {
   return (
     <FooterContainer>
-      <div className="miniContainer" id={id}>
+      <div className="miniContainer">
         <LogoFooter data={data} />
         <Navigation />
         <NewsLetter />

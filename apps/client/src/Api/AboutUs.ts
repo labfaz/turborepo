@@ -41,7 +41,7 @@ export const fetchAboutUsData = () =>
       about_us_data,
     }));
 
-export const useAboutUsdata = () =>
+export const useAboutUsData = () =>
   useFetchApi<AboutUsData>('/about-us', fetchAboutUsData);
 
 export const fetchTeamData = () =>

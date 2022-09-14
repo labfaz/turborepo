@@ -1,8 +1,7 @@
+import React, { lazy } from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { useCurrentUserToken } from 'Context/LoggedUserToken';
 import usePageview from 'Hooks/usePageView';
-import React, { lazy } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
-
 import { Router } from 'Routes';
 
 const EditProfilePage = lazy(() => import('./EditProfilePage'));

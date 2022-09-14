@@ -1,12 +1,11 @@
-import styled, { css } from 'styled-components';
-
-import {
-  MobileSmall,
-  Mobile,
-  DesktopSmall,
-  MobileLarge,
-} from 'Utils/breakpoints';
 import { Text } from 'Components/Typography/Text';
+import styled, { css } from 'styled-components';
+import {
+  DesktopSmall,
+  Mobile,
+  MobileLarge,
+  MobileSmall,
+} from 'Utils/breakpoints';
 
 interface MessageProps {
   isError?: boolean;

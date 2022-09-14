@@ -1,7 +1,6 @@
-import styled, { css } from 'styled-components';
-
-import { Field } from 'formik';
 import { Text } from 'Components/Typography/Text';
+import { Field } from 'formik';
+import styled, { css } from 'styled-components';
 import { DesktopSmall } from 'Utils/breakpoints';
 
 export const Container = styled.div`
@@ -47,7 +46,7 @@ export const TextLabel = styled(Text)`
 
   color: #fafafa;
 
-  .obrigatory {
+  .required {
     color: red;
     display: inline;
   }

@@ -1,11 +1,12 @@
+import Image from 'next/image';
 import styled, { css } from 'styled-components';
 import {
-  Mobile,
+  Desktop,
+  DesktopLarge,
   DesktopSmall,
+  Mobile,
   MobileLarge,
   MobileSmall,
-  DesktopLarge,
-  Desktop,
 } from 'Utils/breakpoints';
 
 interface WrapperProps {
@@ -103,7 +104,7 @@ export const Container = styled.div<ContainerProps>`
   `)}
 `;
 
-export const Image = styled.img<ImageProps>`
+export const StyledImage = styled(Image)<ImageProps>`
   width: 100%;
   object-fit: contain;
   object-position: center center;

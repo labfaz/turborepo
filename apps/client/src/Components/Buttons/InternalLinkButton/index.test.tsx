@@ -1,24 +1,24 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-
+import { StaticRouter } from 'react-router-dom';
 import Render from 'Utils/render';
+
 import { InternalLinkButton } from './';
 
 it('renders internal link button component', () => {
   expect(() =>
     Render(
-      <BrowserRouter>
-        <InternalLinkButton href="/blog" children="Internal Button" />
-      </BrowserRouter>
+      <StaticRouter>
+        <InternalLinkButton href="/blog">Internal Button</InternalLinkButton>
+      </StaticRouter>
     )
   ).not.toThrow();
 });
 
 describe('Check content of Button component', () => {
   const { getByText } = Render(
-    <BrowserRouter>
-      <InternalLinkButton href="/blog" children="Internal Button" />
-    </BrowserRouter>
+    <StaticRouter>
+      <InternalLinkButton href="/blog">Internal Button</InternalLinkButton>
+    </StaticRouter>
   );
 
   it('check render of button content', () => {

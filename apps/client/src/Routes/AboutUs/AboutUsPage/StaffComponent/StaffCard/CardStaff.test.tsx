@@ -1,11 +1,11 @@
+/* eslint-disable @cspell/spellchecker */
 import React from 'react';
-import render from 'Utils/render';
-
-import { BrowserRouter } from 'react-router-dom';
-
-import StaffCard from '.';
+import { StaticRouter } from 'react-router-dom';
 import { StaffObject } from 'Api/AboutUs';
 import { mockImage } from 'Utils/Image';
+import render from 'Utils/render';
+
+import StaffCard from '.';
 
 const image = mockImage({
   url: 'https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
@@ -28,18 +28,18 @@ describe('Staff card component', () => {
   it('Should render without error', () => {
     expect(() =>
       render(
-        <BrowserRouter>
+        <StaticRouter>
           <StaffCard data={mockedData} />
-        </BrowserRouter>
+        </StaticRouter>
       )
     ).not.toThrow();
   });
 
   it('Should render staff image with src', () => {
     const component = render(
-      <BrowserRouter>
+      <StaticRouter>
         <StaffCard data={mockedData} />
-      </BrowserRouter>
+      </StaticRouter>
     );
 
     const Card = component.getAllByRole('generic', { hidden: true });
@@ -53,9 +53,9 @@ describe('Staff card component', () => {
 
   it('Should have a tag text', () => {
     const component = render(
-      <BrowserRouter>
+      <StaticRouter>
         <StaffCard data={mockedData} />
-      </BrowserRouter>
+      </StaticRouter>
     );
 
     const element = component.getByText(mockedData.tag);
@@ -65,9 +65,9 @@ describe('Staff card component', () => {
 
   it('Should rander staff name', () => {
     const component = render(
-      <BrowserRouter>
+      <StaticRouter>
         <StaffCard data={mockedData} />
-      </BrowserRouter>
+      </StaticRouter>
     );
 
     const element = component.getByText(mockedData.name);
@@ -77,14 +77,14 @@ describe('Staff card component', () => {
 
   it('Should render all text data', () => {
     const component = render(
-      <BrowserRouter>
+      <StaticRouter>
         <StaffCard data={mockedData} />
-      </BrowserRouter>
+      </StaticRouter>
     );
 
     const Div = component.getAllByRole('generic');
 
-    const paragraphs = Div[0].querySelectorAll('p');
+    const paragraphs = Div[0]?.querySelectorAll('p') || [];
 
     expect(paragraphs[2]).toBeVisible();
   });

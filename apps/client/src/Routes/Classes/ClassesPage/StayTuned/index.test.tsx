@@ -1,10 +1,10 @@
+/* eslint-disable @cspell/spellchecker */
 import React from 'react';
+import { StaticRouter } from 'react-router-dom';
+import { ApiStayTuned } from 'Api/StayTuned';
 import render from 'Utils/render';
-import { BrowserRouter } from 'react-router-dom';
 
 import StayTuned from '.';
-
-import { ApiStayTuned } from 'Api/StayTuned';
 
 const example: ApiStayTuned = {
   title: 'Lorem & Ipsum',
@@ -24,18 +24,18 @@ const example: ApiStayTuned = {
 it('renders StayTuned', () => {
   expect(() =>
     render(
-      <BrowserRouter>
+      <StaticRouter>
         <StayTuned data={example} />
-      </BrowserRouter>
+      </StaticRouter>
     )
   ).not.toThrow();
 });
 
 describe('Check content of StayTuned', () => {
   const { getByText, getByRole } = render(
-    <BrowserRouter>
+    <StaticRouter>
       <StayTuned data={example} />
-    </BrowserRouter>
+    </StaticRouter>
   );
 
   it('checks if title rendered', () => {

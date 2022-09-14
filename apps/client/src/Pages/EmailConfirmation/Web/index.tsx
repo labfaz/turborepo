@@ -1,16 +1,16 @@
 import React, { FC } from 'react';
-
 import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
 import { navLinks } from 'Utils/navLinks';
 
 import Image from '../Image';
-import { TitleText, TextWrapper, Rectangle2, Content } from './style';
+
+import { Content, Rectangle2, TextWrapper, TitleText } from './style';
 
 export const Web: FC = () => {
   return (
     <Content>
       <Rectangle2>
-        <Image />
+        <Image alt="Erro" />
         <TextWrapper>
           <TitleText>Email confirmado</TitleText>
           <InternalLinkButton

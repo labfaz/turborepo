@@ -1,3 +1,4 @@
+/* eslint-disable @cspell/spellchecker */
 import { strapi } from 'Api';
 import useFetchApi from 'Hooks/useFetchApi';
 

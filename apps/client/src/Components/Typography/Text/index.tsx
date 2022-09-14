@@ -7,5 +7,5 @@ export interface TextProps {
 }
 
 export const Text: FC<TextProps> = ({ children, ...props }) => {
-  return <StyledText children={children} {...props} />;
+  return <StyledText {...props}>{children}</StyledText>;
 };

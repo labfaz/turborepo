@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
 
 import Image from '../Image';
+
 import {
-  TitleText,
-  TextWrapper,
-  SubtitleText,
-  Rectangle2,
   Content,
+  Rectangle2,
+  SubtitleText,
+  TextWrapper,
+  TitleText,
 } from './style';
 
 export interface Props {
@@ -18,9 +19,9 @@ export const Web: FC<Props> = ({ status, message }) => {
   return (
     <Content>
       <Rectangle2>
-        <Image />
+        <Image alt="Imagem de erro" />
         <TextWrapper>
-          <TitleText>
+          <TitleText level={2}>
             Ops...
             <br />
             Parece que algo deu errado

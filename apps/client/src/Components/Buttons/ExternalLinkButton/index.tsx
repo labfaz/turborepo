@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 
-import { ButtonProps } from '../ButtonProps';
+import type { ButtonProps } from '../ButtonProps';
+
 import { StyledButton } from './style';
 
 export const ExternalLinkButton: FC<ButtonProps> = ({
@@ -15,9 +16,10 @@ export const ExternalLinkButton: FC<ButtonProps> = ({
         target="_blank"
         rel="noopener"
         href={href}
-        children={children}
         {...props}
-      />
+      >
+        {children}
+      </StyledButton>
     </>
   );
 };

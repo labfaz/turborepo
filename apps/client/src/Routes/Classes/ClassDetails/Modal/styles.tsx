@@ -1,6 +1,6 @@
+import { ExternalLinkButton } from 'Components/Buttons/ExternalLinkButton';
 import styled, { css } from 'styled-components';
 import { DesktopSmall, Mobile } from 'Utils/breakpoints';
-import { ExternalLinkButton } from 'Components/Buttons/ExternalLinkButton';
 
 interface ModalProps {
   isOpen: boolean;

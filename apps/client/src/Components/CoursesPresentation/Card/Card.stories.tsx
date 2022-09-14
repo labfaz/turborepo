@@ -1,8 +1,9 @@
+/* eslint-disable @cspell/spellchecker */
 import React from 'react';
+import { StaticRouter } from 'react-router-dom';
 import { storiesOf } from '@storybook/react';
-import { BrowserRouter } from 'react-router-dom';
-
 import { CoursePresentation } from 'Api/CoursePresentation';
+
 import Card from './index';
 
 const sampleCard: CoursePresentation = {
@@ -27,7 +28,7 @@ const cards = Array.from({ length: 4 }, () => sampleCard);
 storiesOf('Components/CoursesPresentation/Cards', module)
   .addParameters({ component: Card })
   .add('responsive', () => (
-    <BrowserRouter>
+    <StaticRouter>
       <Card courses={cards} isMobile={true} />
-    </BrowserRouter>
+    </StaticRouter>
   ));

@@ -1,8 +1,9 @@
-import styled, { css } from 'styled-components';
-import { Title } from 'Components/Typography/Title';
-import { Text } from 'Components/Typography/Text';
 import { ExternalLinkButton } from 'Components/Buttons/ExternalLinkButton';
-import { Mobile, DesktopSmall } from 'Utils/breakpoints';
+import { Text } from 'Components/Typography/Text';
+import { Title } from 'Components/Typography/Title';
+import Image from 'next/image';
+import styled, { css } from 'styled-components';
+import { DesktopSmall, Mobile } from 'Utils/breakpoints';
 
 export const Wrapper = styled.div`
   height: 365px;
@@ -31,7 +32,7 @@ export const Wrapper = styled.div`
   `)}
 `;
 
-export const Image = styled.img`
+export const StyledImage = styled(Image)`
   width: 45%;
   height: 100%;
   object-fit: cover;
@@ -76,7 +77,7 @@ export const TextWrapper = styled.div`
 
 export const MainTitle = styled(Title)`
   color: var(--color-text-white);
-  font-size: var(--font-size-title-xlarge);
+  font-size: var(--font-size-title-x-large);
   line-height: 1;
 
   ${Mobile(css`
@@ -118,7 +119,7 @@ export const Button = styled(ExternalLinkButton)`
   border: none;
   border-radius: 2.16px;
 
-  background-color: rbga(297, 0, 97, 1);
+  background-color: rgba(297, 0, 97, 1);
   box-shadow: 1px 1px 0px rgba(255, 236, 153, 1);
 
   :hover {

@@ -1,20 +1,21 @@
 import React, { FC } from 'react';
 import { useFormikContext } from 'formik';
+import Image from 'next/image';
 
 import {
-  Container,
-  ContentContainer,
-  Content,
   AvatarInput,
-  Input,
-  InputCheckBoxContainer,
   Button,
+  Container,
+  Content,
+  ContentContainer,
+  Input,
   InputCheckbox,
+  InputCheckBoxContainer,
   InputTextContainer,
 } from './style';
 
 interface Step18Props {
-  profilePicture: string;
+  profilePicture: Blob;
 
   password: string;
   confirm_password: string;
@@ -29,11 +30,11 @@ export const Step18: FC = () => {
       <ContentContainer>
         <Content>
           <AvatarInput>
-            <img
+            <Image
               src={
                 values.profilePicture
                   ? URL.createObjectURL(values.profilePicture)
-                  : undefined
+                  : (undefined as never)
               }
               alt={values.profilePicture ? 'User avatar' : ''}
             />
@@ -44,7 +45,7 @@ export const Step18: FC = () => {
               name="password"
               label="Escolha uma senha"
               placeholder="Digite uma senha"
-              obrigatory
+              required
             />
           </InputTextContainer>
           <InputTextContainer>
@@ -52,7 +53,7 @@ export const Step18: FC = () => {
               name="confirm_password"
               label="Confirmar Senha"
               placeholder="Digite novamente a senha"
-              obrigatory
+              required
             />
           </InputTextContainer>
 

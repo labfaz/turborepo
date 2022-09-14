@@ -1,4 +1,7 @@
+/* eslint-disable @cspell/spellchecker */
 import { User } from 'Context/LoggedUserToken';
+import { exception } from 'Utils/debugger';
+
 import {
   facebookUserRegex,
   instagramUserRegex,
@@ -16,9 +19,10 @@ export const getUserName = ({ artist }: User) =>
     : artist.name;
 
 const badInputLink = (media: string, input: string) => {
-  console.error(
-    `tried to get ${media} link from string, but invalid format given. input:`,
-    input
+  exception(
+    'User utils',
+    `tried to get ${media} link from string, but invalid format given. input: ` +
+      input
   );
   return '';
 };
@@ -36,7 +40,7 @@ const getHandle =
       const handle = groups[groupName];
       // hardcoded fix for youtube id
       if (groupName === 'channelId' && !!handle) return `youtube`;
-      if (!!handle) return handle;
+      if (handle) return handle;
     }
     return badInputLink(mediaName, linkOrHandle);
   };

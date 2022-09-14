@@ -1,5 +1,4 @@
 import React, { FC, useEffect } from 'react';
-
 import { useConfirmEmail } from 'Api/ConfirmEmail';
 import LoadingFullPage from 'Components/LoadingFullPage';
 import Error from 'Pages/Error';

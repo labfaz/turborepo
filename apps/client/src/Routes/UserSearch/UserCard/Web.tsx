@@ -1,18 +1,22 @@
+/* eslint-disable @cspell/spellchecker */
 import React, { FC } from 'react';
-import {
-  Container,
-  Image,
-  TextWrapper,
-  CardTitle,
-  LabelWrapper,
-  Description,
-  Button,
-  VerifiedWrapper,
-  VerifiedText,
-  TitleWrapper,
-} from './styles';
+import Image from 'next/image';
+
 import Label from '../../../Components/Label';
 import { getIcon } from '../../../Utils/IconDictionary';
+
+import {
+  Button,
+  CardTitle,
+  Container,
+  Description,
+  LabelWrapper,
+  StyledImage,
+  TextWrapper,
+  TitleWrapper,
+  VerifiedText,
+  VerifiedWrapper,
+} from './styles';
 import verifiedIcon from './verified.png';
 
 interface UserCardData {
@@ -39,7 +43,7 @@ export const Web: FC<UserCardData> = ({ data }) => {
           <CardTitle>{name}</CardTitle>
           {isVerified ? (
             <VerifiedWrapper>
-              <img src={verifiedIcon} alt="verificade" />
+              <Image src={verifiedIcon} alt="verificade" />
               <VerifiedText>Verificado Backstage</VerifiedText>
             </VerifiedWrapper>
           ) : (
@@ -61,7 +65,7 @@ export const Web: FC<UserCardData> = ({ data }) => {
         <Description>{description}</Description>
         <Button href={`/perfil/${id}`}>visualizar perfil</Button>
       </TextWrapper>
-      <Image src={photo} />
+      <StyledImage src={photo} />
     </Container>
   );
 };

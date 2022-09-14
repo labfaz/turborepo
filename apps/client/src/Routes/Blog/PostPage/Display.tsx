@@ -1,10 +1,8 @@
 import React, { FC } from 'react';
-
-import Wireframe from 'Components/Wireframe';
-import Banner from 'Components/Banner';
-
 import { BlogBannerInfo } from 'Api/BlogBannerInfo';
 import { BlogPost } from 'Api/BlogPost';
+import Banner from 'Components/Banner';
+import Wireframe from 'Components/Wireframe';
 
 import PostDetails from './PostDetails/Display';
 

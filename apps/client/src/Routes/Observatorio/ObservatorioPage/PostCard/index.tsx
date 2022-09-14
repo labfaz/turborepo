@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-
 import { useObservatorioPosts } from 'Api/ObservatorioPost';
 import Loading from 'Components/Loading';
 
@@ -11,7 +10,7 @@ export const PostCard: FC = () => {
   if (result.isLoading) return <Loading />;
   if (result.error) return <div>error: {result.error.message}</div>;
 
-  return <Display posts={result.data!} />;
+  return <Display posts={result.data || null} />;
 };
 
 export default PostCard;

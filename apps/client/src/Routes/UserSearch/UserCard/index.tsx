@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
-
 import useMobile from 'Hooks/useMobile';
 
-import Web from './Web';
 import Mobile from './Mobile';
+import Web from './Web';
 
 interface UserCardData {
   data: {

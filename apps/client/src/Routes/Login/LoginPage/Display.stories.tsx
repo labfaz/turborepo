@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import Login from './Display';
 
-const mockCallback = () => {};
+const mockCallback = () => undefined;
 
 storiesOf('Pages/Login', module)
   .addParameters({ component: Login })

@@ -1,23 +1,24 @@
 import React, { FC } from 'react';
-import {
-  Container,
-  CardContainer,
-  MainText,
-  CardImage,
-  DescriptionBox,
-  CardDescription,
-  CardTitle,
-  CardSubtitle,
-  BottomWrapper,
-  DateWrapper,
-  DateText,
-  ButtonWrapper,
-  ButtonLayer,
-  Button,
-  ButtonText,
-} from './styles';
 import { CoursePresentation } from 'Api/CoursePresentation';
 import { format } from 'date-fns';
+
+import {
+  BottomWrapper,
+  Button,
+  ButtonLayer,
+  ButtonText,
+  ButtonWrapper,
+  CardContainer,
+  CardDescription,
+  CardImage,
+  CardSubtitle,
+  CardTitle,
+  Container,
+  DateText,
+  DateWrapper,
+  DescriptionBox,
+  MainText,
+} from './styles';
 
 interface DisplayProps {
   courses: CoursePresentation[];
@@ -35,7 +36,7 @@ const Card: FC<DisplayProps> = ({ courses, isMobile }): JSX.Element => {
   return (
     <Container>
       {courses.map((item, index) => {
-        // Show only two cards if it's a mobile screen
+        // Show two cards if it's a mobile screen
         if (isMobile && index > 1) {
           return <React.Fragment key={index} />;
         } else {

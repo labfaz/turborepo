@@ -1,8 +1,9 @@
-import { SocialNetworksLabfaz } from 'Api/SocialNetworksLabfaz';
+/* eslint-disable @cspell/spellchecker */
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-
+import { StaticRouter } from 'react-router-dom';
+import { SocialNetworksLabfaz } from 'Api/SocialNetworksLabfaz';
 import render from 'Utils/render';
+
 import Header from '.';
 
 const mockedData: SocialNetworksLabfaz = {
@@ -18,18 +19,18 @@ const mockedData: SocialNetworksLabfaz = {
 it('renders header component', () => {
   expect(() =>
     render(
-      <BrowserRouter>
+      <StaticRouter>
         <Header data={mockedData} />
-      </BrowserRouter>
+      </StaticRouter>
     )
   ).not.toThrow();
 });
 
-describe('Check links succesfully redirects to another page', () => {
+describe('Check links successfully redirects to another page', () => {
   const { getByTestId } = render(
-    <BrowserRouter>
+    <StaticRouter>
       <Header data={mockedData} />
-    </BrowserRouter>
+    </StaticRouter>
   );
   it('check link to facebook', () => {
     expect(getByTestId('facebook')).toHaveAttribute(

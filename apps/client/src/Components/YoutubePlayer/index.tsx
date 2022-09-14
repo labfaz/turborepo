@@ -1,3 +1,4 @@
+/* eslint-disable @cspell/spellchecker */
 import React, { FC, useMemo } from 'react';
 import YouTube from 'react-youtube';
 

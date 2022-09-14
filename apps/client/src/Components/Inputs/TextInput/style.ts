@@ -12,7 +12,7 @@ export const Container = styled.div<ContainerProps>`
 
   position: relative;
 
-  .obrigatory {
+  .required {
     color: #fc0061;
     font-size: var(--font-size-default);
     padding: 0;

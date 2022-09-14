@@ -1,9 +1,9 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-
-import render from 'Utils/render';
-import BlogPageDisplay from './Display';
+import { StaticRouter } from 'react-router-dom';
 import { BlogBannerInfo } from 'Api/BlogBannerInfo';
+import render from 'Utils/render';
+
+import BlogPageDisplay from './Display';
 
 describe('Blog Page', () => {
   it('renders without exploding', () => {
@@ -21,9 +21,9 @@ describe('Blog Page', () => {
     };
     expect(() =>
       render(
-        <BrowserRouter>
+        <StaticRouter>
           <BlogPageDisplay data={mockedData} posts={[]} />
-        </BrowserRouter>
+        </StaticRouter>
       )
     ).not.toThrow();
   });
@@ -42,9 +42,9 @@ describe('Blog Page', () => {
       },
     };
     const { getByRole } = render(
-      <BrowserRouter>
+      <StaticRouter>
         <BlogPageDisplay data={mockedData} posts={[]} />
-      </BrowserRouter>
+      </StaticRouter>
     );
 
     expect(getByRole('heading', { level: 1 })).toHaveTextContent('Blog');

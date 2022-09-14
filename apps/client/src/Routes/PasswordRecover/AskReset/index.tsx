@@ -1,10 +1,9 @@
 import React, { FC } from 'react';
-
-import Display from './Display';
-
 import { useRecoverPassImage } from 'Api/RecoverPassImage';
 import LoadingFullPage from 'Components/LoadingFullPage';
 import Error from 'Pages/Error';
+
+import Display from './Display';
 
 export const AskResetPage: FC = () => {
   const response = useRecoverPassImage();

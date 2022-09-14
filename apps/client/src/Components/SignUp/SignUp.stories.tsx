@@ -1,13 +1,13 @@
 import React from 'react';
+import { StaticRouter } from 'react-router-dom';
 import { storiesOf } from '@storybook/react';
-import { BrowserRouter } from 'react-router-dom';
 
 import SignUp from './';
 
 storiesOf('Components/SignUp', module)
   .addParameters({ component: SignUp })
   .add('SignUp', () => (
-    <BrowserRouter>
+    <StaticRouter>
       <SignUp button_type="button" />
-    </BrowserRouter>
+    </StaticRouter>
   ));

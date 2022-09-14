@@ -1,25 +1,25 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { StaticRouter } from 'react-router-dom';
 import { navLinks } from 'Utils/navLinks';
-
 import render from 'Utils/render';
+
 import { Login } from './index';
 
 it('renders login component', () => {
   expect(() =>
     render(
-      <BrowserRouter>
-        <Login onSubmit={() => {}} />
-      </BrowserRouter>
+      <StaticRouter>
+        <Login onSubmit={() => undefined} />
+      </StaticRouter>
     )
   ).not.toThrow();
 });
 
 describe('Check content of Login component', () => {
   const { getByText } = render(
-    <BrowserRouter>
-      <Login onSubmit={() => {}} />
-    </BrowserRouter>
+    <StaticRouter>
+      <Login onSubmit={() => undefined} />
+    </StaticRouter>
   );
 
   it('checks if title rendered', () => {
@@ -29,19 +29,19 @@ describe('Check content of Login component', () => {
 
   it('checks if subtitle rendered', () => {
     const title = getByText(
-      'Laboratorio dos Fazeres e Saberes Tecnicos da Economia Criativa'
+      'Laboratório dos Fazeres e Saberes Técnicos da Economia Criativa'
     );
     expect(title).toHaveTextContent(
-      'Laboratorio dos Fazeres e Saberes Tecnicos da Economia Criativa'
+      'Laboratório dos Fazeres e Saberes Técnicos da Economia Criativa'
     );
   });
 });
 
 describe('Check user session links', () => {
   const { getByText } = render(
-    <BrowserRouter>
-      <Login onSubmit={() => {}} />
-    </BrowserRouter>
+    <StaticRouter>
+      <Login onSubmit={() => undefined} />
+    </StaticRouter>
   );
   it('check SignIn button', () => {
     expect(getByText('ENTRAR').closest('button')).toHaveTextContent('ENTRAR');

@@ -236,7 +236,7 @@ export const Header = styled.div`
   `)}
 
   h1 {
-    font-size: var(--font-size-xxlarge);
+    font-size: var(--font-size-xx-large);
     color: white;
     margin: 0;
     margin-top: 1.2em;

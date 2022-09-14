@@ -1,11 +1,9 @@
-import React, { FC, SetStateAction, Dispatch } from 'react';
-
+import React, { Dispatch, FC, SetStateAction } from 'react';
 import { UserSearchParams } from 'Api/UserSearch';
+import { Title } from 'Components/Typography/Title';
+import { Areas, CidadesDF, CidadesEntorno } from 'Utils/selectOptionsData';
 
 import { Select, SelectDiv } from '../../UserSearchPage/style';
-import { Title } from 'Components/Typography/Title';
-
-import { CidadesDF, CidadesEntorno, Areas } from 'Utils/selectOptionsData';
 
 interface CitySelectProps {
   label: 'cidade' | 'area';

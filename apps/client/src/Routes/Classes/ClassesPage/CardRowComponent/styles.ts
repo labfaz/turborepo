@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
-import { Title } from 'Components/Typography/Title';
 import { Text } from 'Components/Typography/Text';
+import { Title } from 'Components/Typography/Title';
+import styled, { css } from 'styled-components';
 import { DesktopSmall, Mobile } from 'Utils/breakpoints';
 
 interface Props {
@@ -36,12 +36,12 @@ export const Wrapper = styled.div<Props>`
 export const MainTitle = styled(Title)<TitleProps>`
   color: ${(props) =>
     props.fontColor ? props.fontColor : 'var(--color-text-white)'};
-  font-size: var(--font-size-title-xlarge);
+  font-size: var(--font-size-title-x-large);
   line-height: 1;
   margin: 60px 0 0 60px;
 
   ${Mobile(css`
-    font-size: var(--font-size-title-xlarge);
+    font-size: var(--font-size-title-x-large);
     margin: 40px 0 20px 23px;
   `)}
 `;

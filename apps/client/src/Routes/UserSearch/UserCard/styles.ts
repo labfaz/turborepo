@@ -1,8 +1,10 @@
-import styled, { css } from 'styled-components';
-import { Title } from '../../../Components/Typography/Title';
-import { Text } from '../../../Components/Typography/Text';
 import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
+import Image from 'next/image';
+import styled, { css } from 'styled-components';
 import { DesktopSmall, Mobile } from 'Utils/breakpoints';
+
+import { Text } from '../../../Components/Typography/Text';
+import { Title } from '../../../Components/Typography/Title';
 
 export const Container = styled.div`
   width: 100%;
@@ -25,7 +27,7 @@ export const Container = styled.div`
   `)}
 `;
 
-export const Image = styled.img`
+export const StyledImage = styled(Image)`
   width: 40%;
   height: 100%;
   object-fit: cover;

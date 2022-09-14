@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
 import {
-  MobileSmall,
-  Mobile,
-  DesktopSmall,
   DesktopLarge,
+  DesktopSmall,
+  Mobile,
+  MobileSmall,
 } from 'Utils/breakpoints';
 
 interface ModalProps {
@@ -32,7 +32,7 @@ export const ModalDiv = styled.div`
 
   h3 {
     color: white;
-    font-size: var(--font-size-title-xlarge);
+    font-size: var(--font-size-title-x-large);
     max-width: 90%;
     margin-top: 1rem;
     margin-bottom: 1rem;

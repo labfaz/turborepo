@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-
-import { LoginContainer } from './style';
 import { SignUp } from 'Components/SignUp';
 import Wireframe from 'Components/Wireframe';
 import useMobile from 'Hooks/useMobile';
+
+import { LoginContainer } from './style';
 
 interface DisplayProps {
   button_type: 'submit' | 'button' | 'reset';

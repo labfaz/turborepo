@@ -3,7 +3,7 @@ import useFetchApi from 'Hooks/useFetchApi';
 
 export interface HomePartners {
   name: string;
-  logo: any;
+  logo: typeof Image;
 }
 
 export const fetchHomePartner = (id: number) =>

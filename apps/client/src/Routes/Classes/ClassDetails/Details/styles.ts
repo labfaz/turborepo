@@ -1,5 +1,6 @@
-import styled, { css } from 'styled-components';
 import { Text } from 'Components/Typography/Text';
+import Image from 'next/image';
+import styled, { css } from 'styled-components';
 import { DesktopSmall } from 'Utils/breakpoints';
 
 export const ListsList = styled.div`
@@ -27,7 +28,7 @@ export const ImageContainer = styled.div`
   `)}
 `;
 
-export const Image = styled.img`
+export const StyledImage = styled(Image)`
   width: 100%;
   height: 400px;
   border-radius: 21px 21px 0 0;

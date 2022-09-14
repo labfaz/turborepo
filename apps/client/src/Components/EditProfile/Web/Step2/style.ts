@@ -1,7 +1,6 @@
-import styled, { css } from 'styled-components';
-
-import { Text } from 'Components/Typography/Text';
 import { TextInput } from 'Components/Inputs/TextInput';
+import { Text } from 'Components/Typography/Text';
+import styled, { css } from 'styled-components';
 import { DesktopSmall } from 'Utils/breakpoints';
 
 export const Container = styled.div`
@@ -19,7 +18,7 @@ export const Container = styled.div`
       font-size: var(--font-size-short);
     `)}
 
-    .obrigatory {
+    .required {
       display: inline;
       color: red;
 
@@ -131,7 +130,7 @@ export const InputFileText = styled(Text)`
   color: #c4c4c4;
 `;
 
-export const PrivacityText = styled(Text)`
+export const PrivacyText = styled(Text)`
   width: 27rem;
   font-size: var(--font-size-small);
   line-height: 16px;
@@ -169,7 +168,7 @@ export const InputRadioContainer = styled.div`
   }
 `;
 
-export const InformartionText = styled(Text)`
+export const InformationText = styled(Text)`
   font-size: var(--font-size-small);
   width: 26rem;
 

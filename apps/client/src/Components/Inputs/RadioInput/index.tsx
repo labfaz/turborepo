@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { IoMdInformationCircle } from 'react-icons/io';
 
 import { Container, Input } from './style';
+
 export interface InputProps {
   label?: string;
   placeholder?: string;
@@ -15,20 +16,21 @@ export interface InputProps {
   id?: string;
   paddingLeft?: number;
   information?: string;
+  children?: React.ReactNode;
 }
 
 export const RadioInput: FC<InputProps> = ({
   label,
-  type,
-  placeholder,
-  width,
+  // type,
+  // placeholder,
+  // width,
   paddingLeft,
   value,
-  inputMask,
-  text,
-  height,
+  // inputMask,
+  // text,
+  // height,
   information,
-  children,
+  // children,
   id,
   ...props
 }) => {

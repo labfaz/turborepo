@@ -1,11 +1,11 @@
+/* eslint-disable @cspell/spellchecker */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-
 import { BlogBannerInfo } from 'Api/BlogBannerInfo';
+import { BlogPost } from 'Api/BlogPost';
 import { mockImage } from 'Utils/Image';
 
 import PostPage from './Display';
-import { BlogPost } from 'Api/BlogPost';
 
 const data: BlogBannerInfo = {
   title: 'Blog',

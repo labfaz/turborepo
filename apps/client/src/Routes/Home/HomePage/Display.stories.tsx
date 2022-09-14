@@ -1,9 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-
-import HomePage, { DisplayProps } from './Display';
 import { HomepageBannerInfo } from 'Api/HomepageBannerInfo';
 import { mockImage } from 'Utils/Image';
+
+import HomePage, { DisplayProps } from './Display';
 
 const data: HomepageBannerInfo = {
   title: 'LABFAZ',

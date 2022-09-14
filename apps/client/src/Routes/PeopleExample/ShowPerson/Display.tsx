@@ -9,7 +9,7 @@ export const Display: FC<DisplayProps> = ({ person }) => {
   return (
     <div>
       <p>
-        hello, {person.name}, i see you're {person.age}
+        hello, {person.name}, i see you&apos;re {person.age}
       </p>
     </div>
   );

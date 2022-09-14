@@ -1,32 +1,33 @@
+/* eslint-disable @cspell/spellchecker */
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-
+import { StaticRouter } from 'react-router-dom';
 import Render from 'Utils/render';
+
 import Banner from './';
 
 it('renders header component', () => {
   expect(() =>
     Render(
-      <BrowserRouter>
+      <StaticRouter>
         <Banner
           title="LABFAZ"
           subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta ligula nibh, nec interdum nunc maximus at."
           hrefKnowMore="/about"
         />
-      </BrowserRouter>
+      </StaticRouter>
     )
   ).not.toThrow();
 });
 
 describe('Check content of Banner component', () => {
   const { getByText } = Render(
-    <BrowserRouter>
+    <StaticRouter>
       <Banner
         title="LABFAZ"
         subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta ligula nibh, nec interdum nunc maximus at."
         hrefKnowMore="/about"
       />
-    </BrowserRouter>
+    </StaticRouter>
   );
   it('check render of title', () => {
     expect(getByText('LABFAZ')).toHaveTextContent('LABFAZ');

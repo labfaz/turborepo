@@ -1,7 +1,5 @@
-import styled, { css } from 'styled-components';
-
 import { PasswordInput } from 'Components/Inputs/PasswordInput';
-
+import styled, { css } from 'styled-components';
 import { DesktopSmall } from 'Utils/breakpoints';
 
 export const Container = styled.div`

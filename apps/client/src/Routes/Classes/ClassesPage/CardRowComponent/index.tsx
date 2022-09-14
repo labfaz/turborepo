@@ -1,22 +1,19 @@
 import React, { FC, useRef } from 'react';
-
-import {
-  MainTitle,
-  Wrapper,
-  Subtitle,
-  Divisor,
-  ClassesWrapper,
-  CardWrapper,
-  IconContainer,
-} from './styles';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { Course } from 'Api/Courses';
+import useMobile from 'Hooks/useMobile';
 
 import Card from '../Card';
 
-import { Course } from 'Api/Courses';
-
-import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
-
-import useMobile from 'Hooks/useMobile';
+import {
+  CardWrapper,
+  ClassesWrapper,
+  Divisor,
+  IconContainer,
+  MainTitle,
+  Subtitle,
+  Wrapper,
+} from './styles';
 
 export interface Props {
   title: string;
@@ -37,8 +34,10 @@ export const CardRowComponent: FC<Props> = ({
 
   const handleNav = (direction: string) => {
     if (direction === 'left') {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       return cardRef ? (cardRef.current!.scrollLeft -= 250) : null;
     } else {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       return cardRef ? (cardRef.current!.scrollLeft += 250) : null;
     }
   };
@@ -72,7 +71,7 @@ export const CardRowComponent: FC<Props> = ({
                 key={item.id}
                 id={item.id}
                 name={item.name}
-                tag={item.tags[0]}
+                tag={item.tags[0] as string}
                 short_description={item.short_description}
                 available={item.available}
                 banner={item.banner}

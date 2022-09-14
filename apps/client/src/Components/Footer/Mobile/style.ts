@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FooterContainer = styled.div`
-  background: var(--backgound-black-gray);
+  background: var(--background-black-gray);
   .miniContainer {
     display: flex;
     flex-direction: column;

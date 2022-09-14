@@ -1,39 +1,35 @@
 import React, { FC, useCallback, useContext, useState } from 'react';
-import * as yup from 'yup';
 import { useHistory } from 'react-router-dom';
-import { Formik, Form } from 'formik';
-
-import { login } from 'Api/Session';
 import { ErrorObject } from 'Api';
-
-import useQueries from 'Hooks/useUrlQueries';
-
+import { useLoginInfo } from 'Api/LoginAssets';
+import { login } from 'Api/Session';
 import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
+import { Modal } from 'Components/Modal/LoginModal';
 import { CurrentUserTokenContext } from 'Context/LoggedUserToken';
+import { ShowForgotPassword } from 'FeatureFlags';
+import { Form, Formik } from 'formik';
+import useQueries from 'Hooks/useUrlQueries';
+import { navLinks } from 'Utils/navLinks';
+import * as yup from 'yup';
 
 import Icon from './Icon.svg';
-
 import {
-  Container,
-  FormContainer,
-  LeftSide,
-  RightSide,
   Button,
-  InputTextContainer,
-  RegisterButton,
-  InputText,
-  NavLink,
-  // LoginTitle,
-  LabfazText,
   ButtonContainer,
   CheckboxInputContainer,
-  InputPassword,
+  Container,
+  FormContainer,
   Img,
+  InputPassword,
+  InputText,
+  InputTextContainer,
+  // LoginTitle,
+  LabfazText,
+  LeftSide,
+  NavLink,
+  RegisterButton,
+  RightSide,
 } from './style';
-import { useLoginInfo } from 'Api/LoginAssets';
-import { showForgotPassword } from 'FeatureFlags';
-import { navLinks } from 'Utils/navLinks';
-import { Modal } from 'Components/Modal/LoginModal';
 
 interface FormProps {
   email: string;
@@ -46,8 +42,9 @@ export interface LoginComponentProps {
   buttonType?: 'submit' | 'button' | 'reset';
 }
 
-export type FormSubmitFn = (values: FormProps) => any;
+export type FormSubmitFn = (values: FormProps) => void;
 
+// eslint-disable-next-line abcsize/abcsize
 export const Login: FC<LoginComponentProps> = ({ buttonType }) => {
   const { setToken } = useContext(CurrentUserTokenContext);
   const [error, setError] = useState<ErrorObject | undefined>(undefined);
@@ -131,12 +128,12 @@ export const Login: FC<LoginComponentProps> = ({ buttonType }) => {
                     </RegisterButton>
                   </ButtonContainer>
 
-                  {showForgotPassword && (
+                  {ShowForgotPassword() && (
                     <NavLink to={navLinks.forgotPass.path}>
                       {navLinks.forgotPass.label}
                     </NavLink>
                   )}
-                  {error && error.message === 'Email confimation needed' && (
+                  {error && error.message === 'Email confirmation needed' && (
                     <span onClick={() => setIsVisible(true)}>
                       {' '}
                       Reenviar email de confirmação ?{' '}
@@ -155,10 +152,9 @@ export const Login: FC<LoginComponentProps> = ({ buttonType }) => {
         )}
       </FormContainer>
       <Modal isVisible={isVisible} setFunction={setIsVisible} />
-      <LabfazText
-        level={2}
-        children="Laboratorio dos Fazeres e Saberes Tecnicos da Economia Criativa"
-      />
+      <LabfazText level={2}>
+        Laboratório dos Fazeres e Saberes Técnicos da Economia Criativa
+      </LabfazText>
     </Container>
   );
 };

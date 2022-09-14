@@ -1,27 +1,27 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-
+import { StaticRouter } from 'react-router-dom';
 import render from 'Utils/render';
+
 import Web from '.';
 
-const exampleStatus: number = 500;
-const exampleMessage: string = 'Internal server error';
+const exampleStatus = 500;
+const exampleMessage = 'Internal server error';
 
 it('renders web error component', () => {
   expect(() =>
     render(
-      <BrowserRouter>
+      <StaticRouter>
         <Web status={exampleStatus} message={exampleMessage} />
-      </BrowserRouter>
+      </StaticRouter>
     )
   ).not.toThrow();
 });
 
 describe('Check if content of error page', () => {
   const { getByText, getAllByRole } = render(
-    <BrowserRouter>
+    <StaticRouter>
       <Web status={exampleStatus} message={exampleMessage} />
-    </BrowserRouter>
+    </StaticRouter>
   );
 
   it('renders error image', () => {

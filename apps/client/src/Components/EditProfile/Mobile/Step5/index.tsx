@@ -1,14 +1,13 @@
 import React, { FC } from 'react';
-
 import { RadioInput } from 'Components/Inputs/RadioInput';
+import { useFormikContext } from 'formik';
 
 import {
   Container,
-  ContentContainer,
   Content,
+  ContentContainer,
   InputRadioContainer,
 } from './style';
-import { useFormikContext } from 'formik';
 
 interface Step5Props {
   artist: {
@@ -24,7 +23,7 @@ export const Step5: FC = () => {
       <ContentContainer>
         <Content>
           <label htmlFor="gender" className="radioLabel">
-            Qual a sua orientação sexual? <p className="obrigatory"> *</p>
+            Qual a sua orientação sexual? <p className="required"> *</p>
             {errors.artist?.sexual_orientation && (
               <span className="errorMessage">
                 {errors.artist.sexual_orientation}

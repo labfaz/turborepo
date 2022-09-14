@@ -1,8 +1,7 @@
-import styled, { css } from 'styled-components';
-
-import { Mobile, MobileSmall } from 'Utils/breakpoints';
 import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
 import { Title } from 'Components/Typography/Title';
+import styled, { css } from 'styled-components';
+import { Mobile, MobileSmall } from 'Utils/breakpoints';
 
 export interface Props {
   align: string;
@@ -41,15 +40,15 @@ export const Container = styled.div<Props>`
 
 export const TitleBanner = styled(Title)`
   color: var(--color-text-beige);
-  font-size: var(--font-size-title-xxxlarge);
+  font-size: var(--font-size-title-xxx-large);
   font-weight: bold;
 
   ${Mobile(css`
-    font-size: var(--font-size-title-xxlarge);
+    font-size: var(--font-size-title-xx-large);
   `)}
 
   ${MobileSmall(css`
-    font-size: var(--font-size-title-xlarge);
+    font-size: var(--font-size-title-x-large);
   `)}
 `;
 

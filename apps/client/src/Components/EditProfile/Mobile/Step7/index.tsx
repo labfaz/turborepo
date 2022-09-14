@@ -1,13 +1,14 @@
+/* eslint-disable @cspell/spellchecker */
+import type { ChangeEvent } from 'react';
 import React, { FC } from 'react';
-
 import { TextInput } from 'Components/Inputs/TextInput';
 import { useFormikContext } from 'formik';
 import { OnlyNumbers } from 'Utils/inputRegex';
 
 import {
   Container,
-  ContentContainer,
   Content,
+  ContentContainer,
   InputTextContainer,
 } from './style';
 
@@ -23,7 +24,7 @@ export const Step7: FC = () => {
               name="email"
               label="Email"
               placeholder="Digite seu email"
-              obrigatory
+              required
               disabled
             />
           </InputTextContainer>
@@ -33,7 +34,7 @@ export const Step7: FC = () => {
               name="artist.contact.whatsapp"
               label="Celular com WhatsApp"
               inputMask="(99) 9 9999-9999"
-              onChange={(ev: any) =>
+              onChange={(ev: ChangeEvent<HTMLInputElement>) =>
                 setFieldValue('whatsapp', OnlyNumbers(ev.target.value))
               }
               placeholder="Digite seu número"
@@ -43,8 +44,8 @@ export const Step7: FC = () => {
           <InputTextContainer>
             <TextInput
               name="artist.contact.facebook"
-              label="FaceBook"
-              placeholder="@seufacebook"
+              label="Facebook"
+              placeholder="@seu_facebook"
             />
           </InputTextContainer>
 
@@ -52,7 +53,7 @@ export const Step7: FC = () => {
             <TextInput
               name="artist.contact.instagram"
               label="Instagram"
-              placeholder="@seuinstagram"
+              placeholder="@seu_instagram"
             />
           </InputTextContainer>
         </Content>

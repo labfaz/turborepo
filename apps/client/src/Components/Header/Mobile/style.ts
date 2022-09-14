@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-
 import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
+import styled from 'styled-components';
 
 export interface PropsCloseMenu {
   open: boolean;
@@ -11,7 +10,7 @@ export interface PropsButton {
 export const Container = styled.div`
   z-index: 920;
   .navBar {
-    background-color: var(--backgound-black-gray);
+    background-color: var(--background-black-gray);
     display: flex;
     position: fixed;
     height: 100vh;
@@ -94,7 +93,7 @@ export const CloseMenu = styled.div<PropsCloseMenu>`
 `;
 
 export const ContainerIcon = styled.div`
-  background-color: var(--backgound-black-gray);
+  background-color: var(--background-black-gray);
   display: flex;
   padding: 0.5rem 0;
   justify-content: center;

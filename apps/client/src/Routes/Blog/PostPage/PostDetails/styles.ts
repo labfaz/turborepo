@@ -1,7 +1,7 @@
+import { Text } from 'Components/Typography/Text';
+import { Title } from 'Components/Typography/Title';
 import styled, { css } from 'styled-components';
 import { Mobile } from 'Utils/breakpoints';
-import { Title } from 'Components/Typography/Title';
-import { Text } from 'Components/Typography/Text';
 
 interface DateProps {
   size: string;

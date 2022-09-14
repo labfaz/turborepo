@@ -1,13 +1,13 @@
+import type { ChangeEvent } from 'react';
 import React, { FC } from 'react';
-
 import { TextInput } from 'Components/Inputs/TextInput';
 import { useFormikContext } from 'formik';
 import { OnlyNumbers } from 'Utils/inputRegex';
 
 import {
   Container,
-  ContentContainer,
   Content,
+  ContentContainer,
   InputTextContainer,
 } from './style';
 
@@ -24,10 +24,10 @@ export const Step3: FC = () => {
               label="CPF"
               placeholder="Digite seu cpf"
               inputMask="999.999.999-99"
-              onChange={(ev: any) =>
+              onChange={(ev: ChangeEvent<HTMLInputElement>) =>
                 setFieldValue('artist.cpf', ev.target.value)
               }
-              // obrigatory
+              // required
             />
           </InputTextContainer>
 
@@ -36,11 +36,11 @@ export const Step3: FC = () => {
               name="artist.birthday"
               label="Data de nascimento"
               inputMask="99/99/9999"
-              onChange={(ev: any) =>
+              onChange={(ev: ChangeEvent<HTMLInputElement>) =>
                 setFieldValue('artist.birthday', OnlyNumbers(ev.target.value))
               }
               placeholder="Digite sua data de nascimento"
-              obrigatory
+              required
             />
           </InputTextContainer>
 
@@ -48,20 +48,20 @@ export const Step3: FC = () => {
             <TextInput
               name="artist.rg"
               label="RG"
-              onChange={(ev: any) =>
+              onChange={(ev: ChangeEvent<HTMLInputElement>) =>
                 setFieldValue('artist.rg', OnlyNumbers(ev.target.value))
               }
               placeholder="Digite seu rg"
-              // obrigatory
+              // required
             />
           </InputTextContainer>
 
           <InputTextContainer>
             <TextInput
               name="artist.expedition_department"
-              label="Orgão expedidor"
-              placeholder="Digite o orgão expedidor"
-              // obrigatory
+              label="Órgão expedidor"
+              placeholder="Digite o órgão expedidor"
+              // required
             />
           </InputTextContainer>
         </Content>

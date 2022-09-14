@@ -1,10 +1,9 @@
 import React, { FC } from 'react';
-
-import Display from './Display';
-
 import { useFetchUserSearchBannerInfo } from 'Api/UserSearchBanner';
 import LoadingFullPage from 'Components/LoadingFullPage';
 import Error from 'Pages/Error';
+
+import Display from './Display';
 
 export const UserSearchPage: FC = () => {
   const response = useFetchUserSearchBannerInfo();

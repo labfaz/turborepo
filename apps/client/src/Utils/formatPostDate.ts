@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
 
 // return time difference in days
-export const timeDifference = (date: any, actualDate: any) => {
+export const timeDifference = (date: Date, actualDate: Date) => {
   const dateUtc = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate());
   const actualDateUtc = Date.UTC(
     actualDate.getFullYear(),
@@ -49,8 +49,8 @@ export const formatPostDate = (value: string) => {
   const dayDifference = timeDifference(date, today);
   const dateInfo = `${date}`.split(' ');
 
-  let index = dateInfo[4].lastIndexOf(':');
-  const dateHour = dateInfo[4].substring(0, index);
+  const index = dateInfo[4]?.lastIndexOf(':');
+  const dateHour = dateInfo[4]?.substring(0, index);
 
   if (dayDifference === 0) {
     return {
@@ -64,7 +64,7 @@ export const formatPostDate = (value: string) => {
     };
   } else if (dayDifference > 1 && dayDifference < 7) {
     return {
-      day: formatWeekDay(dateInfo[0]),
+      day: formatWeekDay(dateInfo[0] as string),
       hour: dateHour,
     };
   } else {

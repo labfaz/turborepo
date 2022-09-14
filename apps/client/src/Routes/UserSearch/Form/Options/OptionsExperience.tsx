@@ -1,22 +1,21 @@
 import React, { Dispatch, FC, SetStateAction } from 'react';
+import { UserSearchParams } from 'Api/UserSearch';
+import { Title } from 'Components/Typography/Title';
+// import { Text } from "Components/Typography/Text"
+import { Experience } from 'Utils/selectOptionsData';
+
 import {
-  OptionDiv,
-  BadgeInput,
   BadgeDiv,
+  BadgeInput,
+  OptionDiv,
   OptionWrapper,
 } from '../../UserSearchPage/style';
 
-import { Title } from 'Components/Typography/Title';
-// import { Text } from "Components/Typography/Text"
-
-import { Experience } from 'Utils/selectOptionsData';
-
-import { UserSearchParams } from 'Api/UserSearch';
 interface OptionsProps {
   setFunction: Dispatch<SetStateAction<UserSearchParams>>;
 }
 
-type SearchKeys = 'drtOnly' | 'cpnjOnly' | 'ceacOnly' | 'meiOnly';
+type SearchKeys = 'drtOnly' | 'CNPJOnly' | 'ceacOnly' | 'meiOnly';
 
 export const OptionsExperience: FC<OptionsProps> = ({ setFunction }) => {
   return (

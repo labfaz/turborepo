@@ -1,5 +1,19 @@
+/* eslint-disable @cspell/spellchecker */
+/* eslint-disable abcsize/abcsize */
 import React, { FC, useRef, useState } from 'react';
-import { Formik, FormikConfig, FormikValues, Form } from 'formik';
+import { useHistory } from 'react-router';
+import { ErrorObject } from 'Api';
+import { EditProfile } from 'Api/EditProfile';
+import { User } from 'Context/LoggedUserToken';
+import { Form, Formik, FormikConfig, FormikValues } from 'formik';
+import {
+  facebookUserRegex,
+  instagramUserRegex,
+  linkedinUserRegex,
+  tiktokUserRegex,
+  twitterUserRegex,
+  youtubeUserRegex,
+} from 'Utils/regex';
 import * as yup from 'yup';
 
 import { Step1 } from './Step1';
@@ -20,31 +34,17 @@ import { Step15 } from './Step15';
 import { Step16 } from './Step16';
 import { Step17 } from './Step17';
 import { Step18 } from './Step18';
-
 import {
-  FormTitle,
-  FormContainer,
-  NextButton,
-  SessionContainer,
   BackButton,
   ButtonContainer,
-  FormHeader,
-  RightSession,
   ErrorModalContainer,
+  FormContainer,
+  FormHeader,
+  FormTitle,
+  NextButton,
+  RightSession,
+  SessionContainer,
 } from './style';
-
-import {
-  facebookUserRegex,
-  instagramUserRegex,
-  linkedinUserRegex,
-  tiktokUserRegex,
-  twitterUserRegex,
-  youtubeUserRegex,
-} from 'Utils/regex';
-import { User } from 'Context/LoggedUserToken';
-import { EditProfile } from 'Api/EditProfile';
-import { useHistory } from 'react-router';
-import { ErrorObject } from 'Api';
 
 interface ButtonProps {
   buttonType: 'button' | 'submit' | 'reset' | undefined;
@@ -93,7 +93,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token }) => {
             address: {
               city: data?.artist.address.city,
               cep: data?.artist.address.cep,
-              neighbourhood: data?.artist.address.neighbourhood,
+              neighborhood: data?.artist.address.neighborhood,
               number: data?.artist.address.number,
               complement: data?.artist.address.complement,
               residency: data?.artist.address.residency,
@@ -121,11 +121,11 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token }) => {
               profession: data?.artist.technical.profession,
               areas: {
                 technical_formation:
-                  data?.artist.technical.area[0].technical_formation,
-                name: data?.artist.technical.area[0].name,
-                describe: data?.artist.technical.area[0].describe,
-                started_year: data?.artist.technical.area[0].started_year,
-                certificate: data?.artist.technical.area[0].certificate.map(
+                  data?.artist.technical.area[0]?.technical_formation,
+                name: data?.artist.technical.area[0]?.name,
+                describe: data?.artist.technical.area[0]?.describe,
+                started_year: data?.artist.technical.area[0]?.started_year,
+                certificate: data?.artist.technical.area[0]?.certificate.map(
                   (certificate) => certificate.name
                 ),
               },
@@ -136,7 +136,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token }) => {
           token,
           buttonDisabled: false,
         }}
-        onSubmit={() => {}}
+        onSubmit={() => undefined}
       >
         <FormikStep
           validationSchema={yup.object({
@@ -186,7 +186,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token }) => {
                 // .required('Rg é obrigatório')
                 .min(7, 'Rg incompleto'),
               expedition_department: yup.string(),
-              // .required('Orgão expedidor obrigatório'),
+              // .required('Órgão expedidor obrigatório'),
             }),
           })}
         >
@@ -298,7 +298,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token }) => {
             artist: yup.object({
               address: yup.object({
                 cep: yup.string(), //.required('CEP obrigatório'),
-                neighbourhood: yup.string(), //.required('Bairro obrigatório'),
+                neighborhood: yup.string(), //.required('Bairro obrigatório'),
                 number: yup.string(), //.required('Número obrigatório'),
                 complement: yup.string(), //.required('Endereço obrigatório'),
               }),
@@ -407,10 +407,10 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token }) => {
 
         <FormikStep
           validationSchema={yup.object({
-            old_password: yup.string().min(6, 'Senha no minimo 6 digítos'),
-            password: yup.string().min(6, 'Senha no minimo 6 digítos'),
+            old_password: yup.string().min(6, 'Senha no mínimo 6 dígitos'),
+            password: yup.string().min(6, 'Senha no mínimo 6 dígitos'),
             confirm_password: yup.string().when('password', {
-              is: (val) => (val && val.length > 0 ? true : false),
+              is: (val: string) => (val && val.length > 0 ? true : false),
               then: yup
                 .string()
                 .oneOf([yup.ref('password')], 'Senhas não são iguais.'),
@@ -424,19 +424,22 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token }) => {
   );
 };
 
-export interface FormikStepProps
-  extends Pick<FormikConfig<FormikValues>, 'children' | 'validationSchema'> {}
+export type FormikStepProps = Pick<
+  FormikConfig<FormikValues>,
+  'children' | 'validationSchema'
+>;
 
 export function FormikStep({ children }: FormikStepProps) {
   return <>{children}</>;
 }
 
+// eslint-disable-next-line complexity
 function FormikStepper({
   children,
   ...props
 }: FormikConfig<FormikValues & ButtonProps>) {
   const childrenArray = React.Children.toArray(
-    children
+    children as React.ReactNode
   ) as React.ReactElement<FormikStepProps>[];
 
   const [step, setStep] = useState(0);
@@ -460,8 +463,8 @@ function FormikStepper({
   return (
     <Formik
       {...props}
-      validationSchema={currentChild.props.validationSchema}
-      onSubmit={async (values: any) => {
+      validationSchema={currentChild?.props.validationSchema}
+      onSubmit={async (values: FormikValues) => {
         if (isLastStep()) {
           values.buttonDisabled = true;
 
@@ -506,15 +509,13 @@ function FormikStepper({
               history.push('/profile');
             })
             .catch((err) => [setError(err.message), setErrorModal(true)]);
-
-          // console.log(values)
         } else {
           setStep((currentStep) => currentStep + 1);
         }
       }}
     >
       <Form>
-        <FormTitle level={1} children="Cadastre-se" />
+        <FormTitle level={1}>Cadastre-se</FormTitle>
         {/* <SignUpText>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta
           ligula nibh, nec interdum nunc maximus at.
@@ -525,7 +526,7 @@ function FormikStepper({
               <ErrorModalContainer ref={modalRef} isOpen={errorModal}>
                 <div className="errorModalContainer">
                   <h1>Ops... algo deu errado</h1>
-                  <h2>{error}</h2>
+                  <h2>{error?.message}</h2>
 
                   <button
                     type="button"

@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect, MutableRefObject, useCallback } from 'react';
+import { MutableRefObject, useCallback, useLayoutEffect, useRef } from 'react';
 
 const isBrowser = typeof window !== `undefined`;
 
@@ -40,7 +40,7 @@ export const useScrollPosition = (
 ) => {
   const position = useRef(getScrollPosition({ useWindow }));
 
-  let throttleTimeout = useRef<number | null>(null);
+  const throttleTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const callback = useCallback(() => {
     const currPos = getScrollPosition({ element, useWindow });

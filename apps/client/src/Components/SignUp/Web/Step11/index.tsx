@@ -1,16 +1,16 @@
 import React, { FC } from 'react';
-
+import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
 import { useFormikContext } from 'formik';
+import Image from 'next/image';
 
 import {
+  AvatarInput,
   Container,
   Content,
-  AvatarInput,
   Input,
-  PasswordInputContainer,
   InputCheckBoxContainer,
+  PasswordInputContainer,
 } from './style';
-import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
 
 interface Step11Props {
   profilePicture: string;
@@ -26,7 +26,7 @@ export const Step11: FC = () => {
       <div className="centralContent">
         <Content>
           <AvatarInput>
-            <img
+            <Image
               src={
                 values.profilePicture
                   ? URL.createObjectURL(values.profilePicture)
@@ -40,7 +40,7 @@ export const Step11: FC = () => {
               name="password"
               label="Escolha uma senha"
               placeholder="Digite uma senha"
-              obrigatory
+              required
             />
           </PasswordInputContainer>
 
@@ -49,7 +49,7 @@ export const Step11: FC = () => {
               name="confirm_password"
               label="Confirmar Senha"
               placeholder="Digite novamente a senha"
-              obrigatory
+              required
             />
           </PasswordInputContainer>
 

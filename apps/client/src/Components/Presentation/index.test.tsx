@@ -1,13 +1,14 @@
+/* eslint-disable @cspell/spellchecker */
 import React from 'react';
-
 import render from 'Utils/render';
-import Presentation from './';
+
 import Display from './Display';
+import Presentation from './';
 
 it('renders Presentation component', () => {
-  const mockedTitle: string = 'Exemplo';
-  const mockedSubtitle: string = 'Exemplo';
-  const mockedVideo: string = 'https://www.youtube.com/watch?v=UrUJyKsLQeU';
+  const mockedTitle = 'Exemplo';
+  const mockedSubtitle = 'Exemplo';
+  const mockedVideo = 'https://www.youtube.com/watch?v=UrUJyKsLQeU';
 
   expect(() =>
     render(

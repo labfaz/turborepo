@@ -1,13 +1,12 @@
 import React, { FC } from 'react';
-
-import { Container, Span } from '../styles';
-import WithImageContainerForm from 'Components/WithImageContainerForm';
+import { RecoverData } from 'Api/RecoverPassImage';
 import Footer from 'Components/Footer';
+import FullPage from 'Components/FullPage';
 import Header from 'Components/Header';
 import RecoverForm from 'Components/PasswordRecover';
+import WithImageContainerForm from 'Components/WithImageContainerForm';
 
-import { RecoverData } from 'Api/RecoverPassImage';
-import FullPage from 'Components/FullPage';
+import { Container, Span } from '../styles';
 
 interface DisplayProps {
   image: RecoverData;
@@ -24,7 +23,7 @@ export const Display: FC<DisplayProps> = ({ image }) => {
       </Container>
       <Span>
         {' '}
-        Laboratorio dos Fazeres e Saberes Tecnicos da Economia Criativa{' '}
+        Laboratório dos Fazeres e Saberes Técnicos da Economia Criativa{' '}
       </Span>
       <Footer />
     </FullPage>

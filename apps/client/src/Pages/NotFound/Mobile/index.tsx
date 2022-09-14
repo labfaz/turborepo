@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-
-import Header from 'Components/Header';
-import Image from '../Image';
-import { Container, Text, Rectangle } from 'Pages/Construction/Mobile/style';
 import Footer from 'Components/Footer';
+import Header from 'Components/Header';
+import { Container, Rectangle, Text } from 'Pages/Construction/Mobile/style';
+
+import Image from '../Image';
 
 export const Mobile: FC = () => {
   return (
@@ -11,7 +11,7 @@ export const Mobile: FC = () => {
       <Header />
       <div>
         <Rectangle>
-          <Image />
+          <Image alt="Não encontrado" />
         </Rectangle>
         <Rectangle invert={true}>
           <Text level={1}>A página que você está procurando não existe</Text>

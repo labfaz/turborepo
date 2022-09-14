@@ -1,6 +1,6 @@
+import { useMutation } from 'react-query';
 import { api, ErrorObject } from 'Api';
 import { AxiosResponse } from 'axios';
-import { useMutation } from 'react-query';
 
 interface ConfirmationReturn {
   message: string;

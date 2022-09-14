@@ -1,23 +1,29 @@
 import React, { FC } from 'react';
-import { useFormikContext } from 'formik';
-
-import { SelectInput } from 'Components/Inputs/SelectInput';
 import { RadioInput } from 'Components/Inputs/RadioInput';
-
+import { SelectInput } from 'Components/Inputs/SelectInput';
+import { TextInput } from 'Components/Inputs/TextInput';
+import { useFormikContext } from 'formik';
 import { CidadesDF, CidadesEntorno, Estados } from 'Utils/selectOptionsData';
 
 import {
   Container,
-  ContentContainer,
   Content,
+  ContentContainer,
   InputRadioContainer,
-  SelectContainer,
   InputTextContainer,
+  SelectContainer,
 } from './style';
-import { TextInput } from 'Components/Inputs/TextInput';
+
+type Step9Values = {
+  artist: {
+    address: {
+      residency?: string;
+    };
+  };
+};
 
 export const Step9: FC = () => {
-  const { values } = useFormikContext<any>();
+  const { values } = useFormikContext<Step9Values>();
 
   return (
     <Container>
@@ -57,7 +63,7 @@ export const Step9: FC = () => {
                 name="artist.address.state"
                 label="Qual seu estado?"
                 options={Estados}
-                obrigatory
+                required
               />
             </SelectContainer>
           )}
@@ -68,7 +74,7 @@ export const Step9: FC = () => {
                 name="artist.address.city"
                 label="Cidade"
                 options={CidadesDF}
-                obrigatory
+                required
               />
             </SelectContainer>
           )}
@@ -79,7 +85,7 @@ export const Step9: FC = () => {
                 name="artist.address.city"
                 label="Cidade"
                 options={CidadesEntorno}
-                obrigatory
+                required
               />
             </SelectContainer>
           )}
@@ -90,7 +96,7 @@ export const Step9: FC = () => {
                 name="artist.address.city"
                 label="Cidade"
                 placeholder="Digite o nome de sua cidade"
-                obrigatory
+                required
               />
             </InputTextContainer>
           )}

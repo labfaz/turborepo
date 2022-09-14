@@ -1,19 +1,19 @@
+/* eslint-disable @cspell/spellchecker */
+import type { ChangeEvent } from 'react';
 import React, { FC } from 'react';
-import { useFormikContext } from 'formik';
-
 import { RadioInput } from 'Components/Inputs/RadioInput';
-
+import { useFormikContext } from 'formik';
 import { OnlyNumbers } from 'Utils/inputRegex';
 
 import {
+  CnpjText,
   Container,
+  InputRadioContainer,
+  InputText,
   LeftSide,
   LeftSideContent,
   RightSide,
   RightSideContent,
-  InputText,
-  CnpjText,
-  InputRadioContainer,
 } from './style';
 
 interface Step10Props {
@@ -43,7 +43,7 @@ export const Step10: FC = () => {
         <LeftSideContent>
           <div className="container">
             <label htmlFor="is_drt" className="radioLabel">
-              Você possui Certificação/DRT? <p className="obrigatory"> *</p>
+              Você possui Certificação/DRT? <p className="required"> *</p>
               <span className="errorMessage">
                 {errors.artist?.technical?.is_drt &&
                   errors.artist.technical.is_drt}
@@ -81,7 +81,7 @@ export const Step10: FC = () => {
 
           <div className="container">
             <label htmlFor="is_ceac" className="radioLabel">
-              Você possui CEAC? <p className="obrigatory"> *</p>
+              Você possui CEAC? <p className="required"> *</p>
               <span className="errorMessage">
                 {errors.artist?.technical?.is_ceac &&
                   errors.artist.technical.is_ceac}
@@ -119,7 +119,7 @@ export const Step10: FC = () => {
 
           <div className="container">
             <label htmlFor="is_cnpj" className="radioLabel">
-              Você possui CNPJ? <p className="obrigatory"> *</p>
+              Você possui CNPJ? <p className="required"> *</p>
               <span className="errorMessage">
                 {errors.artist?.technical?.is_cnpj &&
                   errors.artist.technical.is_cnpj}
@@ -159,7 +159,7 @@ export const Step10: FC = () => {
                   placeholder="Digite seu CNPJ"
                   label="Número do CNPJ"
                   inputMask="99.999.999/9999-99"
-                  onChange={(ev: any) =>
+                  onChange={(ev: ChangeEvent<HTMLInputElement>) =>
                     setFieldValue('cnpj_number', OnlyNumbers(ev.target.value))
                   }
                 />

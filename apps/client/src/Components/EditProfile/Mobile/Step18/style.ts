@@ -1,7 +1,6 @@
-import styled from 'styled-components';
-
-import { PasswordInput } from 'Components/Inputs/PasswordInput';
 import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
+import { PasswordInput } from 'Components/Inputs/PasswordInput';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;

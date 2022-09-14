@@ -1,28 +1,32 @@
 import React, { FC } from 'react';
-
 import { useFormikContext } from 'formik';
+import Image from 'next/image';
 
 import {
+  AvatarInput,
   Container,
   Content,
-  AvatarInput,
   Input,
   PasswordInputContainer,
 } from './style';
 
+type Step11FormikValues = {
+  profilePicture: Blob;
+};
+
 export const Step11: FC = () => {
-  const { values } = useFormikContext<any>();
+  const { values } = useFormikContext<Step11FormikValues>();
 
   return (
     <Container>
       <div className="centralContent">
         <Content>
           <AvatarInput>
-            <img
+            <Image
               src={
-                values.profilePicture?.name
+                values.profilePicture
                   ? URL.createObjectURL(values.profilePicture)
-                  : values.profilePicture
+                  : (undefined as never)
               }
               alt={values.profilePicture ? 'User avatar' : ''}
             />

@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
-
-import useMobile from 'Hooks/useMobile';
 import Web from 'Components/SkipNav/Web';
+import useMobile from 'Hooks/useMobile';
 
 type TSkipNavProps = {
   setIsContrasted?: (newValue: boolean | undefined) => void;

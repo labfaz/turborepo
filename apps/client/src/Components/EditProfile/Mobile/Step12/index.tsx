@@ -1,26 +1,25 @@
-import { useFormikContext } from 'formik';
 import React, { FC, useRef, useState } from 'react';
 import { IoMdArrowDropdownCircle } from 'react-icons/io';
-import { RadioInput } from 'Components/Inputs/RadioInput';
 import { FileInput } from 'Components/Inputs/FileInput';
-
+import { RadioInput } from 'Components/Inputs/RadioInput';
+import { useFormikContext } from 'formik';
 import { deficiencyOptions } from 'Utils/selectOptionsData';
 
 import {
-  Container,
-  ContentContainer,
-  TextLabel,
-  Content,
-  InputRadioContainer,
-  SelectContainer,
-  InputSelect,
-  OptionsContainer,
   CheckboxContainer,
+  Container,
+  Content,
+  ContentContainer,
+  FileContainer,
   InputCheckbox,
+  InputRadioContainer,
+  InputSelect,
   InputSmallText,
   InputText,
   InputTextContainer,
-  FileContainer,
+  OptionsContainer,
+  SelectContainer,
+  TextLabel,
 } from './style';
 
 interface Step12Props {
@@ -38,7 +37,7 @@ export const Step12: FC = () => {
   const [isDeficiencyOptionsOpen, setIsDeficiencyOptionsOpen] = useState(false);
   const modalRefDeficiencies = useRef<HTMLInputElement | null>(null);
 
-  const closeModal = (e: any) => {
+  const closeModal = (e: React.MouseEvent<HTMLDivElement>) => {
     if (modalRefDeficiencies.current === e.target) {
       setIsDeficiencyOptionsOpen(false);
     }
@@ -82,7 +81,7 @@ export const Step12: FC = () => {
             </FileContainer>
           )}
 
-          {values.deficiencies?.find((values: any) => values === 'Outro') && (
+          {values.deficiencies?.find((value: string) => value === 'Outro') && (
             <InputTextContainer>
               <TextLabel>Qual outra deficiência?</TextLabel>
 

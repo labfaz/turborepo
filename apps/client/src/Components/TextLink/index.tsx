@@ -1,6 +1,8 @@
+/* eslint-disable @cspell/spellchecker */
 import React, { FC } from 'react';
-import { HtmlLink } from './HtmlLink';
 import { YoutubePlayer } from 'Components/YoutubePlayer';
+
+import { HtmlLink } from './HtmlLink';
 
 export interface Props {
   href: string;
@@ -16,7 +18,7 @@ export const Link: FC<Props> = ({ href, value }) => {
     ready = true;
   }
 
-  let address = ready ? href : 'https://' + href;
+  const address = ready ? href : 'https://' + href;
 
   if (
     address.match(

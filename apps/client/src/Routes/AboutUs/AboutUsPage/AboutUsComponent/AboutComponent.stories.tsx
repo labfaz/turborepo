@@ -1,9 +1,10 @@
+/* eslint-disable @cspell/spellchecker */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-
-import About from '.';
 import { DataObject } from 'Api/AboutUs';
 import { mockImage } from 'Utils/Image';
+
+import About from '.';
 
 const image = mockImage({
   url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsegredosdomundo.r7.com%2Fwp-content%2Fuploads%2F2019%2F10%2Fornitorrinco-principais-caracteristicas-10-curiosidades-4.jpg&f=1&nofb=1',

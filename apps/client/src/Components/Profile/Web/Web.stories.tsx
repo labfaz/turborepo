@@ -1,6 +1,6 @@
 // import React from 'react'
 // import { storiesOf } from '@storybook/react'
-// import { BrowserRouter } from 'react-router-dom'
+// import { StaticRouter } from 'react-router-dom'
 
 // import Web from './'
 // // import { User } from 'Context/LoggedUserToken'
@@ -8,7 +8,7 @@
 // storiesOf('Components/Profile', module)
 //   .addParameters({ component: Web })
 //   .add('web', () => (
-//     <BrowserRouter>
+//     <StaticRouter>
 //       <Web personalProfilePage={false} />
-//     </BrowserRouter>
+//     </StaticRouter>
 //   ))

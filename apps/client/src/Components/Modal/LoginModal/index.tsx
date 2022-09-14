@@ -1,19 +1,18 @@
 import React, { FC, useState } from 'react';
+import { ResendEmail } from 'Api/ResendEmail';
+import { TextInput } from 'Components/Inputs/TextInput';
+import { FormButton } from 'Components/PasswordRecover/styles';
+import { Text } from 'Components/Typography/Text';
+import { Title } from 'Components/Typography/Title';
+import { Form, Formik } from 'formik';
 
 import {
-  ModalDiv,
-  ModalContent,
-  Container,
-  ModalLine,
   Button,
+  Container,
+  ModalContent,
+  ModalDiv,
+  ModalLine,
 } from '../styles';
-import { FormButton } from 'Components/PasswordRecover/styles';
-import { Title } from 'Components/Typography/Title';
-import { Text } from 'Components/Typography/Text';
-import { TextInput } from 'Components/Inputs/TextInput';
-import { Formik, Form } from 'formik';
-
-import { ResendEmail } from 'Api/ResendEmail';
 
 interface ModalProps {
   isVisible: boolean;

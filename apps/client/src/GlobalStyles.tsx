@@ -24,26 +24,26 @@ export const GlobalStyles = createGlobalStyle`
     --background-light-white: #FAFAFA;
     --background-dark-dark-gray: #2a2a2a;
     --background-green: #2daf2f;
-    --backgound-black-gray: #090909;
+    --background-black-gray: #090909;
 
     --button-color-yellow: #FFEC99;
     --button-color-pink: #FC0061;
 
-    --font-size-title-xxxxlarge: 72px;
-    --font-size-title-xxxlarge: 64px;
-    --font-size-title-xxlarge: 56px;
-    --font-size-title-xlarge: 48px;
-    --font-size-title: 35px;
-    --font-size-title-medium: 30px;
-    --font-size-title-small: 28px;
-    --font-size-subtitle: 24px;
-    --font-size-title-smaller: 22px;
-    --font-size-title-short: 20px;
-    --font-size-default: 18px;
-    --font-size-large: 16px;
-    --font-size-medium: 14px;
-    --font-size-short: 12px;
-    --font-size-small: 10px;
+    --font-size-title-xxxx-large: 4.5rem;
+    --font-size-title-xxx-large: 4rem;
+    --font-size-title-xx-large: 3.5rem;
+    --font-size-title-x-large: 3rem;
+    --font-size-title: 2.1875rem;
+    --font-size-title-medium: 1.875rem;
+    --font-size-title-small: 1.75rem;
+    --font-size-subtitle: 1.5rem;
+    --font-size-title-smaller: 1.375rem;
+    --font-size-title-short: 1.25rem;
+    --font-size-default: 1.125rem;
+    --font-size-large: 1rem;
+    --font-size-medium: 0.875rem;
+    --font-size-short: 0.75rem;
+    --font-size-small: 0.625rem;
     
     --line-height-default: 48.72px; 
     --line-height-small: 25px; 
@@ -57,7 +57,7 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     font-family: "Cairo", sans-serif;
     font-size: var(--font-size-default);
-    color: var(--colot-text-white);
+    color: var(--color-text-white);
 
     scroll-behavior: smooth;
   }

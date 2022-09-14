@@ -1,35 +1,43 @@
+/* eslint-disable @cspell/spellchecker */
+import type { ChangeEvent } from 'react';
 import React, { FC } from 'react';
-import { useFormikContext } from 'formik';
-
 import { RadioInput } from 'Components/Inputs/RadioInput';
+import { SelectInput } from 'Components/Inputs/SelectInput';
 import { TextInput } from 'Components/Inputs/TextInput';
 import { Text } from 'Components/Typography/Text';
-
+import { useFormikContext } from 'formik';
 import { OnlyNumbers } from 'Utils/inputRegex';
+import { CidadesDF, CidadesEntorno, Estados } from 'Utils/selectOptionsData';
 
 import {
   Container,
+  InputRadioContainer,
+  InputText,
+  InputTextContainer,
+  LeftSelectContainer,
   LeftSide,
   LeftSideContent,
   RightSide,
   RightSideContent,
-  InputRadioContainer,
   SelectContainer,
-  InputText,
-  LeftSelectContainer,
-  InputTextContainer,
 } from './style';
-import { SelectInput } from 'Components/Inputs/SelectInput';
-import { CidadesDF, CidadesEntorno, Estados } from 'Utils/selectOptionsData';
+
+type Step1FormikValues = {
+  artist: {
+    address: {
+      residency: string;
+    };
+  };
+};
 
 export const Step1: FC = () => {
-  const { values, setFieldValue } = useFormikContext<any>();
+  const { values, setFieldValue } = useFormikContext<Step1FormikValues>();
   const checkCEP = (cep: string) => {
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
       .then((res) => res.json())
       .then((data) => {
         setFieldValue('artist.address.address', data.logradouro);
-        setFieldValue('artist.address.neighbourhood', data.bairro);
+        setFieldValue('artist.address.neighborhood', data.bairro);
         setFieldValue('artist.address.city', data.localidade);
         setFieldValue('artist.address.state', data.uf);
         setFieldValue('artist.address.complement', data.complemento);
@@ -45,7 +53,7 @@ export const Step1: FC = () => {
               name="artist.name"
               label="Nome"
               placeholder="Digite seu nome"
-              obrigatory
+              required
             />
           </InputTextContainer>
 
@@ -79,10 +87,10 @@ export const Step1: FC = () => {
                 label="CPF"
                 placeholder="Digite seu cpf"
                 inputMask="999.999.999-99"
-                onChange={(ev: any) =>
+                onChange={(ev: ChangeEvent<HTMLInputElement>) =>
                   setFieldValue('artist.cpf', ev.target.value)
                 }
-                // obrigatory
+                // required
               />
             </InputTextContainer>
 
@@ -91,11 +99,11 @@ export const Step1: FC = () => {
                 name="artist.birthday"
                 label="Data de nascimento"
                 inputMask="99/99/9999"
-                onChange={(ev: any) =>
+                onChange={(ev: ChangeEvent<HTMLInputElement>) =>
                   setFieldValue('artist.birthday', OnlyNumbers(ev.target.value))
                 }
                 placeholder="Digite sua data de nascimento"
-                obrigatory
+                required
               />
             </InputTextContainer>
           </div>
@@ -105,20 +113,20 @@ export const Step1: FC = () => {
               <TextInput
                 name="artist.rg"
                 label="RG"
-                onChange={(ev: any) =>
+                onChange={(ev: ChangeEvent<HTMLInputElement>) =>
                   setFieldValue('artist.rg', OnlyNumbers(ev.target.value))
                 }
                 placeholder="Digite seu rg"
-                // obrigatory
+                // required
               />
             </InputTextContainer>
 
             <InputTextContainer>
               <TextInput
                 name="artist.expedition_department"
-                label="Orgão expedidor"
-                placeholder="Digite o orgão expedidor"
-                // obrigatory
+                label="Órgão expedidor"
+                placeholder="Digite o órgão expedidor"
+                // required
               />
             </InputTextContainer>
           </div>
@@ -162,7 +170,7 @@ export const Step1: FC = () => {
                   name="artist.address.state"
                   label="Qual seu estado?"
                   options={Estados}
-                  obrigatory
+                  required
                 />
               </LeftSelectContainer>
             )}
@@ -175,7 +183,7 @@ export const Step1: FC = () => {
                   name="artist.address.city"
                   label="Qual sua cidade do DF?"
                   options={CidadesDF}
-                  obrigatory
+                  required
                 />
               </SelectContainer>
             )}
@@ -186,7 +194,7 @@ export const Step1: FC = () => {
                   name="artist.address.city"
                   label="Qual cidade do Entorno?"
                   options={CidadesEntorno}
-                  obrigatory
+                  required
                 />
               </SelectContainer>
             )}
@@ -197,7 +205,7 @@ export const Step1: FC = () => {
                   name="artist.address.city"
                   label="Cidade"
                   placeholder="Digite o nome de sua cidade"
-                  obrigatory
+                  required
                 />
               </InputTextContainer>
             )}
@@ -208,8 +216,8 @@ export const Step1: FC = () => {
                 label="CEP"
                 placeholder="Digite seu cep"
                 inputMask="99999-999"
-                // obrigatory
-                onChange={(ev: any) => {
+                // required
+                onChange={(ev: ChangeEvent<HTMLInputElement>) => {
                   if (OnlyNumbers(ev.target.value).length === 8) {
                     checkCEP(OnlyNumbers(ev.target.value));
                   }
@@ -225,16 +233,16 @@ export const Step1: FC = () => {
                 name="artist.address.address"
                 label="Endereco"
                 placeholder="Digite seu logradouro"
-                // obrigatory
+                // required
               />
             </InputTextContainer>
 
             <InputTextContainer>
               <TextInput
-                name="artist.address.neighbourhood"
+                name="artist.address.neighborhood"
                 label="Bairro"
                 placeholder="Digite seu bairro"
-                // obrigatory
+                // required
               />
             </InputTextContainer>
           </div>
@@ -245,13 +253,13 @@ export const Step1: FC = () => {
                 name="artist.address.number"
                 label="Numero"
                 placeholder="Digite seu número"
-                onChange={(ev: any) =>
+                onChange={(ev: ChangeEvent<HTMLInputElement>) =>
                   setFieldValue(
                     'artist.address.number',
                     OnlyNumbers(ev.target.value)
                   )
                 }
-                // obrigatory
+                // required
               />
             </InputTextContainer>
 

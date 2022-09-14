@@ -1,13 +1,13 @@
+/* eslint-disable @cspell/spellchecker */
 import React, { FC } from 'react';
-
+import { RadioInput } from 'Components/Inputs/RadioInput';
 import { TextInput } from 'Components/Inputs/TextInput';
 import { useFormikContext } from 'formik';
-import { RadioInput } from 'Components/Inputs/RadioInput';
 
 import {
   Container,
-  ContentContainer,
   Content,
+  ContentContainer,
   InputRadioContainer,
 } from './style';
 
@@ -26,7 +26,7 @@ export const Step4: FC = () => {
       <ContentContainer>
         <Content>
           <label htmlFor="gender" className="radioLabel">
-            Gênero <p className="obrigatory"> *</p>
+            Gênero <p className="required"> *</p>
             {errors.artist?.gender && (
               <span className="errorMessage">{errors.artist.gender}</span>
             )}
@@ -82,7 +82,7 @@ export const Step4: FC = () => {
             className="radioLabel"
             style={{ marginTop: '1.54rem' }}
           >
-            Identidade de Genero <p className="obrigatory"> *</p>
+            Identidade de Gênero <p className="required"> *</p>
             {errors.artist?.gender_identity && (
               <span className="errorMessage">
                 {errors.artist.gender_identity}

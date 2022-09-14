@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
 import { Image } from 'Utils/Image';
 
-import { Container, Frame, ImageDiv, PageTitle, Content, Line } from './style';
+import { Container, Content, Frame, ImageDiv, Line, PageTitle } from './style';
 
 interface ContainerProps {
   image: Image;
   title: string;
+  children?: React.ReactNode;
 }
 
 export const WithImageContainerForm: FC<ContainerProps> = ({

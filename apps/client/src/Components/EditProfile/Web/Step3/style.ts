@@ -1,8 +1,7 @@
-import styled, { css } from 'styled-components';
-
-import { Field } from 'formik';
-import { Text } from 'Components/Typography/Text';
 import { TextInput } from 'Components/Inputs/TextInput';
+import { Text } from 'Components/Typography/Text';
+import { Field } from 'formik';
+import styled, { css } from 'styled-components';
 import { DesktopSmall } from 'Utils/breakpoints';
 
 export const Container = styled.div`
@@ -162,7 +161,7 @@ export const InputFileText = styled(Text)`
   color: #c4c4c4;
 `;
 
-export const PrivacityText = styled(Text)`
+export const PrivacyText = styled(Text)`
   width: 27rem;
   font-size: var(--font-size-small);
   line-height: 16px;

@@ -1,9 +1,10 @@
+/* eslint-disable @cspell/spellchecker */
 import React from 'react';
+import { StaticRouter } from 'react-router-dom';
 import { storiesOf } from '@storybook/react';
-import { BrowserRouter } from 'react-router-dom';
-
-import { Homepage } from 'Api/Homepage';
 import { CoursePresentation } from 'Api/CoursePresentation';
+import { Homepage } from 'Api/Homepage';
+
 import CoursesPresentation from './Display';
 
 const texts: Homepage = {
@@ -36,7 +37,7 @@ const courses = Array.from({ length: 4 }, () => sampleCourse);
 storiesOf('Components/CoursesPresentation', module)
   .addParameters({ component: CoursesPresentation })
   .add('responsive', () => (
-    <BrowserRouter>
+    <StaticRouter>
       <CoursesPresentation texts={texts} courses={courses} />
-    </BrowserRouter>
+    </StaticRouter>
   ));

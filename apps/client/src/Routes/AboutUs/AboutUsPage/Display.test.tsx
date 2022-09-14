@@ -1,11 +1,12 @@
+/* eslint-disable @cspell/spellchecker */
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-
-import render from 'Utils/render';
-import Display from './Display';
-import { AboutUsData, TeamsData, Team, StaffObject } from 'Api/AboutUs';
-import { mockImage } from 'Utils/Image';
+import { StaticRouter } from 'react-router-dom';
+import { AboutUsData, StaffObject, Team, TeamsData } from 'Api/AboutUs';
 import { AboutUsBannerInfo } from 'Api/AboutUsBannerInfo';
+import { mockImage } from 'Utils/Image';
+import render from 'Utils/render';
+
+import Display from './Display';
 
 describe('About us page', () => {
   const image = mockImage({
@@ -65,26 +66,26 @@ describe('About us page', () => {
   it('renders without exploding', () => {
     expect(() =>
       render(
-        <BrowserRouter>
+        <StaticRouter>
           <Display
             banner_data={bannerData}
             about_data={mockedData}
             team={mockedTeamData}
           />
-        </BrowserRouter>
+        </StaticRouter>
       )
     ).not.toThrow();
   });
 
   it('Renders banner component', () => {
     const Page = render(
-      <BrowserRouter>
+      <StaticRouter>
         <Display
           banner_data={bannerData}
           about_data={mockedData}
           team={mockedTeamData}
         />
-      </BrowserRouter>
+      </StaticRouter>
     );
     const banner = Page.getAllByRole('heading');
 
@@ -93,13 +94,13 @@ describe('About us page', () => {
 
   it('displays the data message', () => {
     const { getAllByRole } = render(
-      <BrowserRouter>
+      <StaticRouter>
         <Display
           banner_data={bannerData}
           about_data={mockedData}
           team={mockedTeamData}
         />
-      </BrowserRouter>
+      </StaticRouter>
     );
 
     expect(getAllByRole('heading', { level: 1 })[0]).toHaveTextContent(

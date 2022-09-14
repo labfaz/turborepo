@@ -1,9 +1,11 @@
 import React, { lazy } from 'react';
-import { Route, Switch, RouteComponentProps } from 'react-router-dom';
-
-import { Router } from 'Routes';
-
+import {
+  Route,
+  // RouteComponentProps,
+  Switch,
+} from 'react-router-dom';
 import usePageView from 'Hooks/usePageView';
+import { Router } from 'Routes';
 
 const AskResetPage = lazy(() => import('./AskReset'));
 const ResetEmail = lazy(() => import('./ResetEmail'));
@@ -11,6 +13,7 @@ const ResetEmail = lazy(() => import('./ResetEmail'));
 export const PasswordRecover: Router = ({ match }) => {
   const { path = 'recover' } = match ?? {};
 
+  // eslint-disable-next-line @cspell/spellchecker
   usePageView({ name: 'recuperacao', path });
 
   return (
@@ -20,9 +23,9 @@ export const PasswordRecover: Router = ({ match }) => {
       </Route>
 
       <Route path={`${path}/:token`}>
-        {({ match }: RouteComponentProps<{ token: string }>) => (
-          <ResetEmail token={match?.params.token} />
-        )}
+        {/* {({ match }: RouteComponentProps<{ token: string }>) => ( */}
+        <ResetEmail token={match?.params.token as string} />
+        {/* )} */}
       </Route>
     </Switch>
   );

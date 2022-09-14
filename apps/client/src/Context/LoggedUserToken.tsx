@@ -1,13 +1,14 @@
-import React, { FC, createContext, useMemo, useContext } from 'react';
-
-import useLocalStorage from 'Hooks/useLocalStorage';
+/* eslint-disable @cspell/spellchecker */
+import React, { createContext, FC, useContext, useMemo } from 'react';
 import { useCurrentUser } from 'Api/Profile';
+import useLocalStorage from 'Hooks/useLocalStorage';
+import { debug } from 'Utils/debugger';
 
 export interface IAddress {
   cep: string;
   city: string;
   complement: string;
-  neighbourhood: string;
+  neighborhood: string;
   number: number;
   residency: string;
   state: string;
@@ -73,7 +74,7 @@ export interface IArtist {
   sexual_orientation: string;
   gender: string;
   race: string;
-  gender_specifics: GenderSpecific;
+  gender_specifics?: GenderSpecific;
   expedition_department: string;
   address: IAddress;
   contact: IContact;
@@ -109,6 +110,9 @@ type loggedIn = {
   token: string;
   isLoggedIn: true;
 };
+
+type TCurrentUserProvider = { children?: React.ReactNode };
+
 export type CurrentUserToken = notLoggedIn | loggedIn;
 
 export const CurrentUserTokenContext = createContext<CurrentUserToken>(
@@ -116,7 +120,7 @@ export const CurrentUserTokenContext = createContext<CurrentUserToken>(
 );
 export const useCurrentUserToken = () => useContext(CurrentUserTokenContext);
 
-export const CurrentUserProvider: FC = ({ children }) => {
+export const CurrentUserProvider: FC<TCurrentUserProvider> = ({ children }) => {
   const [token, setToken] = useLocalStorage<string | undefined>(
     'token',
     undefined
@@ -132,7 +136,7 @@ export const CurrentUserProvider: FC = ({ children }) => {
   }, [token, setToken]);
 
   if (process.env.NODE_ENV === 'development')
-    console.log('user context.', currentUserValue);
+    debug('Logged User Token', 'user context.' + currentUserValue);
 
   return (
     <CurrentUserTokenContext.Provider value={currentUserValue}>
@@ -145,16 +149,16 @@ export const CurrentUserProvider: FC = ({ children }) => {
   );
 };
 
-export const UserUpdateChecker: FC<{ token: string }> = ({
-  token: contextToken,
-  children,
-}) => {
+export const UserUpdateChecker: FC<{
+  token: string;
+  children: React.ReactNode;
+}> = ({ token: contextToken, children }) => {
   // call API
   const currentlyLoggedUser = useCurrentUser(contextToken);
   const { setToken } = useCurrentUserToken();
 
   if (currentlyLoggedUser.error?.response?.data.code === 401) {
-    // console.log("user unlogged. removing token")
+    // console.log("user no longer logged. removing token")
     setToken(undefined);
   }
 

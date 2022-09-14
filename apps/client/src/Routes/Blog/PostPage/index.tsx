@@ -1,14 +1,12 @@
+/* eslint-disable @cspell/spellchecker */
 import React, { FC } from 'react';
-
-import Display from './Display';
-
-import Error from 'Pages/Error';
-import LoadingFullPage from 'Components/LoadingFullPage';
-
-import { mockImage } from 'Utils/Image';
-
 import { useBlogBannerInfo } from 'Api/BlogBannerInfo';
 import { useBlogPost } from 'Api/BlogPost';
+import LoadingFullPage from 'Components/LoadingFullPage';
+import Error from 'Pages/Error';
+import { mockImage } from 'Utils/Image';
+
+import Display from './Display';
 
 interface RouteParams {
   id: number;
@@ -40,7 +38,7 @@ export const PostPage: FC<RouteParams> = ({ id }) => {
 
   if (result.error) {
     // console.log(result.error);
-    return <Display data={mockBannerInfo} post={post.data!} />;
+    return <Display data={mockBannerInfo} post={post.data || null} />;
   }
 
   return <Display data={result.data} post={post.data} />;

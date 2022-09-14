@@ -1,14 +1,12 @@
+/* eslint-disable @cspell/spellchecker */
 import React, { FC } from 'react';
-
-import Display from './Display';
-
-import Error from 'Pages/Error';
+import { useBlogBannerInfo } from 'Api/BlogBannerInfo';
+import { useBlogPosts } from 'Api/BlogPost';
 import LoadingFullPage from 'Components/LoadingFullPage';
-
+import Error from 'Pages/Error';
 import { mockImage } from 'Utils/Image';
 
-import { useBlogPosts } from 'Api/BlogPost';
-import { useBlogBannerInfo } from 'Api/BlogBannerInfo';
+import Display from './Display';
 
 export const BlogPage: FC = () => {
   const bannerInfo = useBlogBannerInfo();
@@ -36,7 +34,7 @@ export const BlogPage: FC = () => {
 
   if (bannerInfo.error) {
     // console.log(bannerInfo.error);
-    return <Display data={mockBannerInfo} posts={posts.data!} />;
+    return <Display data={mockBannerInfo} posts={posts.data || null} />;
   }
 
   return <Display data={bannerInfo.data} posts={posts.data} />;

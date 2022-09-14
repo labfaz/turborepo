@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
 import {
-  Mobile,
-  MobileSmall,
   DesktopSmall,
+  Mobile,
   MobileLarge,
+  MobileSmall,
 } from 'Utils/breakpoints';
 
 interface ImageCircleProps {
@@ -46,7 +46,7 @@ export const StaffHeader = styled.div`
 
   .level-1 {
     color: var(--color-text-white);
-    font-size: var(--font-size-title-xxlarge);
+    font-size: var(--font-size-title-xx-large);
   }
 
   .level-3 {

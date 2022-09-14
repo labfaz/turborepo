@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-
-import { Text } from 'Components/Typography/Text';
+/* eslint-disable @cspell/spellchecker */
 import { TextInput } from 'Components/Inputs/TextInput';
+import { Text } from 'Components/Typography/Text';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -67,7 +67,7 @@ export const LabelText = styled(Text)`
     font-size: var(--font-size-small);
   }
 
-  .obrigatory {
+  .required {
     display: inline;
     color: red;
   }
@@ -90,7 +90,7 @@ export const CnpjContainer = styled.div`
   scroll-snap-align: start;
 `;
 
-export const CpnjContent = styled.div`
+export const CnpjContent = styled.div`
   margin-top: 5rem;
   width: 13.3rem;
 `;

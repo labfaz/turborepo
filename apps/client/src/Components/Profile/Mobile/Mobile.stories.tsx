@@ -1,13 +1,13 @@
 // import React from 'react'
 // import { storiesOf } from '@storybook/react'
-// import { BrowserRouter } from 'react-router-dom'
+// import { StaticRouter } from 'react-router-dom'
 
 // import Mobile from './'
 
 // storiesOf('Components/Profile', module)
 //   .addParameters({ component: Mobile })
 //   .add('mobile', () => (
-//     <BrowserRouter>
+//     <StaticRouter>
 //       <Mobile PersonalProfilePage={false} />
-//     </BrowserRouter>
+//     </StaticRouter>
 //   ))

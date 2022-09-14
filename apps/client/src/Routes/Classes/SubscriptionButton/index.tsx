@@ -1,19 +1,19 @@
 import React, { FC, useCallback } from 'react';
-
-import { useSubscription, useSubscribeToCouse } from 'Api/Courses';
+import { useHistory } from 'react-router-dom';
+import { useSubscribeToCouse, useSubscription } from 'Api/Courses';
 import { useCurrentUserToken } from 'Context/LoggedUserToken';
+import { exception } from 'Utils/debugger';
+import { navLinks } from 'Utils/navLinks';
 
 import { ButtonStyled, Link } from './styles';
-
-import { useHistory } from 'react-router-dom';
-import { navLinks } from 'Utils/navLinks';
 
 export interface ButtonProps {
   requestStatus?: 'pending' | 'accepted' | 'denied' | undefined;
   courseId: string;
-  isAvailabe?: boolean;
+  isAvailable?: boolean;
   hasSubscription?: boolean;
   link: string;
+  children?: React.ReactNode;
 }
 
 export interface SubscriptionDeps {
@@ -30,20 +30,21 @@ export interface SubscriptionDeps {
     | undefined;
 }
 
+const status = {
+  pending: 'EM ANÁLISE',
+  denied: 'NÃO ACEITO',
+};
+
 export const Button: FC<ButtonProps> = ({
   hasSubscription,
-  isAvailabe,
+  isAvailable,
   courseId,
   link,
 }) => {
   const history = useHistory();
   const user = useCurrentUserToken();
-  const status = {
-    pending: 'EM ANÁLISE',
-    denied: 'NÃO ACEITO',
-  };
 
-  const tratedLink = link?.startsWith('https') ? link : `https://${link}`;
+  const treatedLink = link?.startsWith('https') ? link : `https://${link}`;
 
   const { isLoading, data, refetch } = useSubscription(courseId, user.token);
   const {
@@ -66,7 +67,7 @@ export const Button: FC<ButtonProps> = ({
   }
 
   if (error) {
-    console.log('erro em inscrição: ', error);
+    exception('subscriptionButton', 'erro em inscrição: ' + error);
     return <ButtonStyled disabled>ERRO TENTE DE NOVO MAIS TARDE</ButtonStyled>;
   }
 
@@ -74,7 +75,7 @@ export const Button: FC<ButtonProps> = ({
     return <ButtonStyled>Loading...</ButtonStyled>;
   }
 
-  if (!isAvailabe) {
+  if (!isAvailable) {
     return <ButtonStyled disabled>INDISPONÍVEL</ButtonStyled>;
   }
 
@@ -88,7 +89,7 @@ export const Button: FC<ButtonProps> = ({
     (data?.exists && data?.request.status === 'accepted')
   ) {
     return (
-      <Link href={tratedLink} target="_blank" rel="noopener noreferrer">
+      <Link href={treatedLink} target="_blank" rel="noopener noreferrer">
         ENTRAR NO CURSO
       </Link>
     );

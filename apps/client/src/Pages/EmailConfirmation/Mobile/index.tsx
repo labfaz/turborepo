@@ -1,22 +1,24 @@
 import React, { FC } from 'react';
-import Image from '../Image';
-import {
-  ErrorContainer,
-  TitleText,
-  SubtitleText,
-  MobileRectangle,
-  ImageRectangle,
-  TopWrapper,
-} from './styles';
 import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
 import { navLinks } from 'Utils/navLinks';
+
+import Image from '../Image';
+
+import {
+  ErrorContainer,
+  ImageRectangle,
+  MobileRectangle,
+  SubtitleText,
+  TitleText,
+  TopWrapper,
+} from './styles';
 
 export const Mobile: FC = () => {
   return (
     <ErrorContainer>
       <TopWrapper>
         <ImageRectangle>
-          <Image />
+          <Image alt="Erro" />
         </ImageRectangle>
       </TopWrapper>
       <MobileRectangle invert={true}>

@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
-
-import { ModalDiv, ModalContent, Container, ModalLine } from '../styles';
-import { FormButton } from 'Components/PasswordRecover/styles';
-import { Title } from 'Components/Typography/Title';
-import { Text } from 'Components/Typography/Text';
-import SocialMediaIcons from 'Components/SocialMediaIcons';
 import { useHistory } from 'react-router-dom';
+import { FormButton } from 'Components/PasswordRecover/styles';
+import SocialMediaIcons from 'Components/SocialMediaIcons';
+import { Text } from 'Components/Typography/Text';
+import { Title } from 'Components/Typography/Title';
+
+import { Container, ModalContent, ModalDiv, ModalLine } from '../styles';
 
 interface ModalProps {
   isVisible: boolean;
@@ -31,11 +31,7 @@ export const Modal: FC<ModalProps> = ({
           <Title level={3}> SENHA ALTERADA COM SUCESSO </Title>
           <ModalLine />
           <ModalContent>
-            <Text
-              css={{
-                marginTop: '61px',
-              }}
-            >
+            <Text>
               {' '}
               Parabéns o sua senha foi alterada com sucesso! Volte para a tela
               de login para logar com a sua nova senha.{' '}
@@ -64,16 +60,12 @@ export const Modal: FC<ModalProps> = ({
         </Title>
         <ModalLine />
         <ModalContent>
-          <Text
-            css={{
-              marginTop: '61px',
-            }}
-          >
+          <Text>
             {' '}
             {title
               ? `O email com as instruções para recuperar senha foram enviadas para ${userEmail}.\n \n
-            Cheque sua caixa de mensgems ou em alguns minutos tente novamente`
-              : 'Tente entrar em contato com a nossa equipe, pelos meios de comunicaca e midias abaixo, para resolver o seu problema.'}{' '}
+            Cheque sua caixa de mensagens ou em alguns minutos tente novamente`
+              : 'Tente entrar em contato com a nossa equipe, pelos meios de comunicação e mídias abaixo, para resolver o seu problema.'}{' '}
           </Text>
           {!title ? (
             <>

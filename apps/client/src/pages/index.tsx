@@ -7,6 +7,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { debug } from 'Utils/debugger';
 import * as z from 'zod';
 
 import { Button } from '@labfaz/core';
@@ -29,7 +30,7 @@ function Form() {
 
   return (
     /* eslint-disable-next-line no-console */
-    <form onSubmit={handleSubmit((d) => console.log(d))}>
+    <form onSubmit={handleSubmit((d) => debug('Pages Index', d))}>
       <input
         aria-invalid={errors.name ? 'true' : 'false'}
         {...register('name')}

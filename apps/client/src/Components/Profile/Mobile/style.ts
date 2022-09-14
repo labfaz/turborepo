@@ -68,7 +68,7 @@ export const UserBasicInformation = styled.div`
       height: 28px;
     }
 
-    .downloadables {
+    .downloadable {
       display: flex;
       flex-direction: column;
       gap: 0.5rem;

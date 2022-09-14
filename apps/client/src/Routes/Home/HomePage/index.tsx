@@ -1,13 +1,10 @@
 import React, { FC } from 'react';
-
-import Error from 'Pages/Error';
-
-import LoadingFullPage from 'Components/LoadingFullPage';
-
 import { useHomepage, useHomepagePresentationInfo } from 'Api/Homepage';
 // import { useCoursePresentations } from "Api/CoursePresentation"
 import { useHomepageBannerInfo } from 'Api/HomepageBannerInfo';
 import { useHomePartners } from 'Api/HomePartners';
+import LoadingFullPage from 'Components/LoadingFullPage';
+import Error from 'Pages/Error';
 
 import Display from './Display';
 
@@ -74,7 +71,7 @@ export const HomePage: FC = () => {
       subtitle={homepagePresentation.data.SubTitle}
       video={homepagePresentation.data.Video}
       partners={partners.data}
-      coursesText={coursesText.data!}
+      coursesText={coursesText.data}
       // coursesData={coursesData.data!}
     />
   );

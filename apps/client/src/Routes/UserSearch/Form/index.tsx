@@ -1,10 +1,13 @@
 import React, { Dispatch, FC, SetStateAction } from 'react';
-import { SearchButton, SearchDiv, InputSearch } from './style';
 import { FiSearch } from 'react-icons/fi';
 import { UserSearchParams } from 'Api/UserSearch';
+
+import { InputSearch, SearchButton, SearchDiv } from './style';
+
 interface FormProps {
   setFunction: Dispatch<SetStateAction<UserSearchParams>>;
   onInput: () => void;
+  children?: React.ReactNode;
 }
 
 export const Form: FC<FormProps> = ({ setFunction, onInput, children }) => {

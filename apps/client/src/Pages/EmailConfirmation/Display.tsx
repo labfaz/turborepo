@@ -1,9 +1,9 @@
-import useMobile from 'Hooks/useMobile';
 import React, { FC } from 'react';
-
-import Web from './Web';
-import Mobile from './Mobile';
 import Wireframe from 'Components/Wireframe';
+import useMobile from 'Hooks/useMobile';
+
+import Mobile from './Mobile';
+import Web from './Web';
 
 export const Display: FC = () => {
   const isMobile = useMobile();

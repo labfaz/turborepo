@@ -1,26 +1,24 @@
-import React from "react"
-
+import React from 'react';
+import Helmet from 'react-helmet';
+import { StaticRouter } from 'react-router-dom';
 // import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks'
 import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
   ArgsTable,
+  Description,
   DocsContainer,
+  Primary,
   Stories,
-} from '@storybook/addon-docs/blocks'
+  Subtitle,
+  Title,
+} from '@storybook/addon-docs/blocks';
+import { createGlobalStyle } from 'styled-components';
 
-import { createGlobalStyle } from "styled-components"
-import { BrowserRouter } from 'react-router-dom'
-import Helmet from "react-helmet"
-
-import GlobalStyles from "../src/GlobalStyles"
-import GlobalContext from "../src/Context"
+import GlobalContext from '../src/Context';
+import GlobalStyles from '../src/GlobalStyles';
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
-  
+  actions: { argTypesRegex: '^on[A-Z].*' },
+
   // for stories documentation
   docs: {
     container: DocsContainer,
@@ -35,7 +33,7 @@ export const parameters = {
       </>
     ),
   },
-}
+};
 
 const BodyStyle = createGlobalStyle`
   body {
@@ -43,40 +41,44 @@ const BodyStyle = createGlobalStyle`
     padding: 0 !important;
     min-height: 100vh;
   }
-`
+`;
 
-const injectGlobalStylesAndTheme = Story => (
+const injectGlobalStylesAndTheme = (Story) => (
   <>
-      <GlobalStyles />
-      <BodyStyle />
-      <Story />
+    <GlobalStyles />
+    <BodyStyle />
+    <Story />
   </>
-)
+);
 
-const injectGoogleFonts = Story => (
+const injectGoogleFonts = (Story) => (
   <>
     <Helmet>
-      <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&amp;display=swap" rel="stylesheet" />
+      {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+      <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&amp;display=swap"
+        rel="stylesheet"
+      />
     </Helmet>
     <Story />
   </>
-)
+);
 
-const injectReactRouter = Story => (
-  <BrowserRouter>
+const injectReactRouter = (Story) => (
+  <StaticRouter>
     <Story />
-  </BrowserRouter>
-)
+  </StaticRouter>
+);
 
-const injectGlobalContext = Story => (
+const injectGlobalContext = (Story) => (
   <GlobalContext>
     <Story />
   </GlobalContext>
-)
+);
 
 export const decorators = [
   injectGlobalStylesAndTheme,
   injectGoogleFonts,
   injectReactRouter,
   injectGlobalContext,
-]
+];

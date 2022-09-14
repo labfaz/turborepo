@@ -1,5 +1,6 @@
-import styled, { css } from 'styled-components';
 import { Text } from 'Components/Typography/Text';
+import Image from 'next/image';
+import styled, { css } from 'styled-components';
 import { Mobile } from 'Utils/breakpoints';
 
 interface Props {
@@ -34,8 +35,8 @@ export const LabelText = styled(Text)<StyleProps>`
   `)}
 `;
 
-export const LabelImage = styled.img<Props>`
-  display: ${(props) => (props.icon ? 'flex' : 'none')};
+export const LabelImage = styled(Image)`
+  display: ${(props: Props) => (props.icon ? 'flex' : 'none')};
   width: 28px;
   height: 28px;
   border-radius: 50%;

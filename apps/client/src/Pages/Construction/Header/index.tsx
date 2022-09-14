@@ -1,15 +1,16 @@
+/* eslint-disable @cspell/spellchecker */
 import React, { FC } from 'react';
 import {
   FaFacebookSquare,
-  FaTwitterSquare,
   FaGooglePlusSquare,
-  FaLinkedin,
   FaInstagramSquare,
+  FaLinkedin,
+  FaTwitterSquare,
 } from 'react-icons/fa';
-
-import Logo from 'Components/Logo';
-import { Container, Icon, IconsDiv } from './style';
 import { SocialNetworksLabfaz } from 'Api/SocialNetworksLabfaz';
+import Logo from 'Components/Logo';
+
+import { Container, Icon, IconsDiv } from './style';
 
 export interface Props {
   data: SocialNetworksLabfaz;

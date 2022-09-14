@@ -1,13 +1,13 @@
 import React from 'react';
+import { StaticRouter } from 'react-router-dom';
 import { storiesOf } from '@storybook/react';
-import { BrowserRouter } from 'react-router-dom';
 
 import { InternalLinkButton } from './';
 
 storiesOf('Components/InternalLinkButton', module)
   .addParameters({ component: InternalLinkButton })
   .add('internalLinkButton', () => (
-    <BrowserRouter>
-      <InternalLinkButton href="/blog" children="Internal Button" />
-    </BrowserRouter>
+    <StaticRouter>
+      <InternalLinkButton href="/blog">Internal Button</InternalLinkButton>
+    </StaticRouter>
   ));

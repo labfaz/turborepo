@@ -1,19 +1,16 @@
 import React, { FC } from 'react';
-
-import {
-  MainTextContainer,
-  PostTitle,
-  BottomWrapper,
-  DateContainer,
-  Date,
-  Divisor,
-} from './styles';
-
+import Markdown from 'Components/Markdown';
+import SocialMediaIcons from 'Components/SocialMediaIcons';
 import { formatPostDate } from 'Utils/formatPostDate';
 
-import Markdown from 'Components/Markdown';
-
-import SocialMediaIcons from 'Components/SocialMediaIcons';
+import {
+  BottomWrapper,
+  Date,
+  DateContainer,
+  Divisor,
+  MainTextContainer,
+  PostTitle,
+} from './styles';
 
 interface DisplayProps {
   title: string;

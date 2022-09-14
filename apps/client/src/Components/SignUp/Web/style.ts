@@ -1,6 +1,5 @@
-import styled, { css } from 'styled-components';
-
 import { Title } from 'Components/Typography/Title';
+import styled, { css } from 'styled-components';
 import { DesktopSmall } from 'Utils/breakpoints';
 
 interface StepProps {
@@ -22,11 +21,11 @@ export const Container = styled.div`
   `)}
 `;
 export const FormTitle = styled(Title)`
-  font-size: var(--font-size-title-xlarge);
+  font-size: var(--font-size-title-x-large);
   color: #fc0061;
 
   ${DesktopSmall(css`
-    font-size: var(--font-size-title-xlarge);
+    font-size: var(--font-size-title-x-large);
   `)}
 `;
 
@@ -71,7 +70,7 @@ export const NextButton = styled.button`
   right: 6rem;
   bottom: 2.2rem;
 
-  background-color: rbga(297, 0, 97, 1);
+  background-color: rgba(297, 0, 97, 1);
   box-shadow: 1px 1px 0px rgba(255, 236, 153, 1);
   border: none;
 

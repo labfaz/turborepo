@@ -1,3 +1,4 @@
+/* eslint-disable @cspell/spellchecker */
 /// <reference types="react-scripts" />
 
 type flagType = 'true' | 'false' | '';
@@ -26,6 +27,6 @@ declare namespace NodeJS {
     REACT_APP_SHOW_FORGOT_PASSWORD: flagType;
     REACT_APP_SHOW_EDIT_PROFILE: flagType;
     // tools
-    REACT_APP_SHOW_RQUERY_DEVTOOLS: flagType;
+    REACT_APP_SHOW_R_QUERY_DEVTOOLS: flagType;
   }
 }

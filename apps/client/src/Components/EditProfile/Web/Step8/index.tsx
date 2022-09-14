@@ -1,7 +1,7 @@
-import { useFormikContext } from 'formik';
 import React, { FC } from 'react';
+import { useFormikContext } from 'formik';
 
-import { Container, Content, TextLabel, InputText } from './style';
+import { Container, Content, InputText, TextLabel } from './style';
 
 interface ErrorProps {
   artist: {
@@ -22,7 +22,7 @@ export const Step8: FC = () => {
         <Content>
           <TextLabel>
             Sobre o meu trabalho: Descreva quais são as atividades e serviços
-            oferecidos por você.<p className="obrigatory"> *</p>
+            oferecidos por você.<p className="required"> *</p>
           </TextLabel>
 
           {errors.artist?.technical?.areas?.describe && (

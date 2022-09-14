@@ -1,14 +1,12 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { StaticRouter } from 'react-router-dom';
 import VLibras from '@djpfs/react-vlibras';
-
-import { showRoutes } from 'FeatureFlags';
 import GlobalContext from 'Context';
+import { ShowRoutes } from 'FeatureFlags';
 import GlobalStyles from 'GlobalStyles';
-import Routes from 'Routes';
-
 import useGoogleAnalytics from 'Hooks/useInitializeGA';
-import Contruction from 'Pages/Construction';
+import Construction from 'Pages/Construction';
+import Routes from 'Routes';
 
 export const App = () => {
   useGoogleAnalytics();
@@ -18,12 +16,12 @@ export const App = () => {
       <VLibras />
       <GlobalStyles />
       <GlobalContext>
-        {showRoutes ? (
+        {ShowRoutes() ? (
           <Routes />
         ) : (
-          <BrowserRouter>
-            <Contruction />
-          </BrowserRouter>
+          <StaticRouter>
+            <Construction />
+          </StaticRouter>
         )}
       </GlobalContext>
     </>

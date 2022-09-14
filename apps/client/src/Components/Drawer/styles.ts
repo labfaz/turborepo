@@ -1,10 +1,9 @@
 import styled, { css } from 'styled-components';
-
 import {
-  DesktopSmall,
   DesktopLarge,
-  MobileSmall,
+  DesktopSmall,
   MobileLarge,
+  MobileSmall,
 } from 'Utils/breakpoints';
 
 interface VisibilityProps {
@@ -63,7 +62,7 @@ export const Container = styled.div<VisibilityProps>`
   `)}
 `;
 
-export const Haeder = styled.div<VisibilityProps>`
+export const Header = styled.div<VisibilityProps>`
   position: relative;
   display: flex;
   align-items: center;

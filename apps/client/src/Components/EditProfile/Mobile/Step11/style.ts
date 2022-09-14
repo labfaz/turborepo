@@ -1,9 +1,8 @@
-import styled from 'styled-components';
-
-import { Text } from 'Components/Typography/Text';
-import { RadioInput } from 'Components/Inputs/RadioInput';
 import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
+import { RadioInput } from 'Components/Inputs/RadioInput';
 import { TextInput } from 'Components/Inputs/TextInput';
+import { Text } from 'Components/Typography/Text';
+import styled from 'styled-components';
 
 interface ContentProps {
   isOpen: boolean;
@@ -47,7 +46,7 @@ export const LabelText = styled(Text)`
     white-space: nowrap;
   }
 
-  .obrigatory {
+  .required {
     display: inline;
     color: red;
   }

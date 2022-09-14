@@ -1,16 +1,17 @@
+/* eslint-disable @cspell/spellchecker */
 import React, { FC } from 'react';
-import { useFormikContext } from 'formik';
-
 import { FileInput } from 'Components/Inputs/FileInput';
 import { SelectInput } from 'Components/Inputs/SelectInput';
+import { useFormikContext } from 'formik';
+import Image from 'next/image';
 
 import {
-  Container,
-  ContentContainer,
-  Content,
   AvatarInput,
-  SelectContainer,
+  Container,
+  Content,
+  ContentContainer,
   FileInputContainer,
+  SelectContainer,
 } from './style';
 
 interface FileProps {
@@ -20,7 +21,7 @@ interface FileProps {
 }
 
 interface Step2Props {
-  profilePicture: any;
+  profilePicture: Blob;
   artist: {
     name: string;
     social_name: string;
@@ -43,11 +44,11 @@ export const Step2: FC = () => {
       <ContentContainer>
         <Content>
           <AvatarInput>
-            <img
+            <Image
               src={
-                values.profilePicture?.name
+                values.profilePicture
                   ? URL.createObjectURL(values.profilePicture)
-                  : values.profilePicture
+                  : (undefined as never)
               }
               alt={values.profilePicture ? 'User avatar' : ''}
             />
@@ -66,7 +67,7 @@ export const Step2: FC = () => {
               label="Nome principal"
               name="artist.show_name"
               options={options}
-              obrigatory
+              required
             />
           </SelectContainer>
         </Content>

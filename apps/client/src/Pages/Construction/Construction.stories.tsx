@@ -1,11 +1,11 @@
+/* eslint-disable @cspell/spellchecker */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-
 import { SocialNetworksLabfaz } from 'Api/SocialNetworksLabfaz';
 
-import Construction from '.';
-import Web from './Web';
 import Mobile from './Mobile';
+import Web from './Web';
+import Construction from '.';
 
 const data: SocialNetworksLabfaz = {
   email: 'test@test.com',

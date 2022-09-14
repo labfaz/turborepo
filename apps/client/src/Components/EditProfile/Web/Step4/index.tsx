@@ -1,32 +1,31 @@
 import React, { FC } from 'react';
-import { useFormikContext } from 'formik';
-import { RadioInput } from 'Components/Inputs/RadioInput';
-
 import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
-import { TextInput } from 'Components/Inputs/TextInput';
 import { FileInput } from 'Components/Inputs/FileInput';
+import { RadioInput } from 'Components/Inputs/RadioInput';
+import { TextInput } from 'Components/Inputs/TextInput';
+import { useFormikContext } from 'formik';
 import { deficiencyOptions } from 'Utils/selectOptionsData';
 
 import {
-  Container,
   Box,
   BoxContent,
+  Container,
   DeficiencyContainer,
-  LabelText,
-  InputCheckBoxContainer,
-  TextInputContainer,
-  PCDOptions,
-  InputRadioContainer,
   FileContainer,
+  InputCheckBoxContainer,
+  InputRadioContainer,
+  LabelText,
+  PCDOptions,
+  TextInputContainer,
 } from './style';
 
-interface ErrorProps {
+type Step4FormikValues = {
   deficiencies?: string[];
   isPcd?: string;
-}
+};
 
 export const Step4: FC = () => {
-  const { values } = useFormikContext<ErrorProps>();
+  const { values } = useFormikContext<Step4FormikValues>();
 
   return (
     <Container>
@@ -72,7 +71,7 @@ export const Step4: FC = () => {
             </FileContainer>
           </BoxContent>
         )}
-        {values.deficiencies?.find((values: any) => values === 'Outro') && (
+        {values.deficiencies?.find((value: string) => value === 'Outro') && (
           <TextInputContainer>
             <label>Qual outra deficiência você possui?</label>
             <TextInput

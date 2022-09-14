@@ -4,17 +4,14 @@
     "baseUrl": "./src",
     "rootDir": ".",
     "paths": {
-      "@root/*": ["./*"],
+      "@root/*": ["./*"]
     },
     "target": "ES6",
     "module": "CommonJS",
     "allowSyntheticDefaultImports": true,
     "noImplicitReturns": true
   },
-  "include": [
-    "**/*.ts",
-    "cucumber.mjs"
-  ],
+  "include": ["**/*.ts", "cucumber.mjs"],
   "ts-node": {
     "require": ["tsconfig-paths/register"]
   }

@@ -1,15 +1,15 @@
 import React, { FC } from 'react';
-import {
-  Wrapper,
-  Image,
-  TextWrapper,
-  MainText,
-  MainTitle,
-  Button,
-} from './styles';
+import { ApiStayTuned } from 'Api/StayTuned';
 import useMobile from 'Hooks/useMobile';
 
-import { ApiStayTuned } from 'Api/StayTuned';
+import {
+  Button,
+  MainText,
+  MainTitle,
+  StyledImage,
+  TextWrapper,
+  Wrapper,
+} from './styles';
 
 export interface Props {
   data: ApiStayTuned;
@@ -26,7 +26,7 @@ export const StayTuned: FC<Props> = ({ data }) => {
             <MainTitle>{data.title}</MainTitle>
             <MainText>{data.description}</MainText>
           </TextWrapper>
-          <Image src={data.image.url} alt={data.image.alternativeText} />
+          <StyledImage src={data.image.url} alt={data.image.alternativeText} />
           <Button href={data.link}>Saiba Mais</Button>
         </Wrapper>
       ) : (
@@ -36,7 +36,7 @@ export const StayTuned: FC<Props> = ({ data }) => {
             <MainText>{data.description}</MainText>
             <Button href={data.link}>Saiba Mais</Button>
           </TextWrapper>
-          <Image src={data.image.url} alt={data.image.alternativeText} />
+          <StyledImage src={data.image.url} alt={data.image.alternativeText} />
         </Wrapper>
       )}
     </>

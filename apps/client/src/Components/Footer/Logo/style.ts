@@ -1,8 +1,7 @@
-import styled, { css } from 'styled-components';
-
 import { ExternalLinkButton } from 'Components/Buttons/ExternalLinkButton';
 import { Text } from 'Components/Typography/Text';
-import { Mobile, DesktopSmall } from 'Utils/breakpoints';
+import styled, { css } from 'styled-components';
+import { DesktopSmall, Mobile } from 'Utils/breakpoints';
 
 export const LogoContainer = styled.div`
   display: flex;

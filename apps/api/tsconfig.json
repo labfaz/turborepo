@@ -1,6 +1,21 @@
 {
   "extends": "@labfaz/tsconfig/node16.json",
   "compilerOptions": {
-    "esModuleInterop": true
-  }
+    "esModuleInterop": true,
+    "jsx": "react",
+
+    "lib": ["ES2020", "ES2017.Object"],
+
+    // baseUrl for absolute imports
+    "baseUrl": "src",
+
+    // build/source file location
+    "rootDir": "src",
+    "outDir": "dist",
+
+    // typeOrm config
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
+  },
 }

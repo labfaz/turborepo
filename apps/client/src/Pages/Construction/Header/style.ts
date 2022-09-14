@@ -1,7 +1,6 @@
-import styled, { css } from 'styled-components';
-
-import { Mobile } from 'Utils/breakpoints';
 import { ExternalLinkButton } from 'Components/Buttons/ExternalLinkButton';
+import styled, { css } from 'styled-components';
+import { Mobile } from 'Utils/breakpoints';
 
 export const Container = styled.div`
   display: flex;

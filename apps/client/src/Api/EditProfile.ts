@@ -1,6 +1,9 @@
+/* eslint-disable @cspell/spellchecker */
+/* eslint-disable abcsize/abcsize */
 import { api, SuccessObject } from 'Api';
+import type { FormikValues } from 'formik';
 
-const bodyFormParse = (values: any) => {
+const bodyFormParse = (values: FormikValues) => {
   const formData = new FormData();
 
   formData.append('email', values.email);
@@ -43,8 +46,8 @@ const bodyFormParse = (values: any) => {
   formData.append('artist[address][city]', values.artist?.address?.city);
   formData.append('artist[address][cep]', values.artist?.address?.cep);
   formData.append(
-    'artist[address][neighbourhood]',
-    values.artist?.address?.neighbourhood
+    'artist[address][neighborhood]',
+    values.artist?.address?.neighborhood
   );
   formData.append('artist[address][number]', values.artist?.address?.number);
   formData.append(
@@ -137,7 +140,7 @@ const bodyFormParse = (values: any) => {
   return formData;
 };
 
-export const EditProfile = async (values: any, token: string) => {
+export const EditProfile = async (values: FormikValues, token: string) => {
   const formParsed = bodyFormParse(values);
 
   return api

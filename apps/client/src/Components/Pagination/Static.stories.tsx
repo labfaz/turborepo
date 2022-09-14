@@ -10,17 +10,19 @@ storiesOf('Components/Pagination/Static', module)
   .add('empty', () => <Pagination items={items} />)
   .add('static render', () => (
     <Pagination items={items}>
-      <p>static rendering. though i don't see why you would ever do this</p>
+      <p>
+        static rendering. though i don&apos;t see why you would ever do this
+      </p>
     </Pagination>
   ))
-  .add('dinamic render', () => (
+  .add('dynamic render', () => (
     <Pagination items={items}>
-      {(items) => (
+      {
         <ul>
           {items.map((i) => (
             <li>{i}</li>
           ))}
         </ul>
-      )}
+      }
     </Pagination>
   ));

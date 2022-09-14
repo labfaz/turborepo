@@ -1,8 +1,9 @@
-import { SocialNetworksLabfaz } from 'Api/SocialNetworksLabfaz';
+/* eslint-disable @cspell/spellchecker */
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-
+import { StaticRouter } from 'react-router-dom';
+import { SocialNetworksLabfaz } from 'Api/SocialNetworksLabfaz';
 import render from 'Utils/render';
+
 import Mobile from './';
 
 const mockedData: SocialNetworksLabfaz = {
@@ -17,18 +18,18 @@ const mockedData: SocialNetworksLabfaz = {
 it('renders header component', () => {
   expect(() =>
     render(
-      <BrowserRouter>
+      <StaticRouter>
         <Mobile data={mockedData} />
-      </BrowserRouter>
+      </StaticRouter>
     )
   ).not.toThrow();
 });
 
 describe('Check content of Page', () => {
   const { getByText, getAllByRole } = render(
-    <BrowserRouter>
+    <StaticRouter>
       <Mobile data={mockedData} />
-    </BrowserRouter>
+    </StaticRouter>
   );
 
   it('check construction image', () => {

@@ -1,8 +1,5 @@
 {
-  "extends": "../../tsconfig.json",
-  
-  "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./dist",
-  },
+  "extends": "@labfaz/tsconfig/react-library.json",
+  "include": ["."],
+  "exclude": ["dist", "build", "node_modules"]
 }

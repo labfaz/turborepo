@@ -1,15 +1,18 @@
 import React, { FC, useState } from 'react';
-
-import { Formik, Form, FormikHelpers } from 'formik';
-
-import { Wrapper, FormButton, Span, Message } from './styles';
+import { askResetPassword } from 'Api/PasswordReset';
 import { InputText, InputTextContainer } from 'Components/Login/style';
 import { Modal } from 'Components/Modal/PasswordRecoverModal';
+import { Form, Formik, FormikHelpers } from 'formik';
 
-import { askResetPassword } from 'Api/PasswordReset';
+import { FormButton, Message, Span, Wrapper } from './styles';
+
 interface FormProps {
   email: string;
 }
+
+type ErrorTypes = {
+  email?: string;
+};
 
 export const AskReset: FC = () => {
   const [emailStatus, setEmailStatus] = useState('');
@@ -39,7 +42,7 @@ export const AskReset: FC = () => {
   };
 
   const validateSubmit = (values: FormProps) => {
-    const errors: any = {};
+    const errors: ErrorTypes = {};
 
     if (!values.email) {
       errors.email = 'Required';

@@ -1,10 +1,9 @@
 import React, { FC } from 'react';
 
-import image from './ErrorCircle.png';
 import { ImageConstruction } from './styles';
 
-export const Image: FC = () => {
-  return <ImageConstruction src={image} alt="error" />;
+export const Image: FC<{ alt?: string }> = ({ alt }) => {
+  return <ImageConstruction alt={alt || 'Imagem de erro'} />;
 };
 
 export default Image;

@@ -1,13 +1,12 @@
 import React, { FC } from 'react';
-
+import { RadioInput } from 'Components/Inputs/RadioInput';
 import { TextInput } from 'Components/Inputs/TextInput';
 import { useFormikContext } from 'formik';
-import { RadioInput } from 'Components/Inputs/RadioInput';
 
 import {
   Container,
-  ContentContainer,
   Content,
+  ContentContainer,
   InputRadioContainer,
 } from './style';
 
@@ -26,7 +25,7 @@ export const Step4: FC = () => {
       <ContentContainer>
         <Content>
           <label htmlFor="gender" className="radioLabel">
-            Gênero <p className="obrigatory"> *</p>
+            Gênero <p className="required"> *</p>
             {errors.artist?.gender && (
               <span className="errorMessage">{errors.artist.gender}</span>
             )}
@@ -82,7 +81,7 @@ export const Step4: FC = () => {
             className="radioLabel"
             style={{ marginTop: '1.54rem' }}
           >
-            Identidade de Genero <p className="obrigatory"> *</p>
+            Identidade de Gênero <p className="required"> *</p>
             {errors.artist?.gender_identity && (
               <span className="errorMessage">
                 {errors.artist.gender_identity}
@@ -114,7 +113,9 @@ export const Step4: FC = () => {
               type="radio"
               name="artist.gender_specific"
               value="não-binário"
+              // eslint-disable-next-line @cspell/spellchecker
               label="Não-binárie"
+              // eslint-disable-next-line @cspell/spellchecker
               information="pessoa não binárie é quem não se identifica com um gênero exclusivamente, podem não se reconhecer com a identidade de gênero 'homem' ou 'mulher', ou podem se caracterizar como uma mistura entre os dois."
             />
           </InputRadioContainer>

@@ -1,6 +1,7 @@
-import styled, { css } from 'styled-components';
-import { Title } from 'Components/Typography/Title';
 import { Text } from 'Components/Typography/Text';
+import { Title } from 'Components/Typography/Title';
+import Image from 'next/image';
+import styled, { css } from 'styled-components';
 import { DesktopSmall, Mobile, MobileLarge } from 'Utils/breakpoints';
 
 export const Container = styled.div`
@@ -43,7 +44,7 @@ export const TitleWrapper = styled.div`
 
 export const MainTitle = styled(Title)`
   color: var(--color-text-white);
-  font-size: var(--font-size-title-xxxlarge);
+  font-size: var(--font-size-title-xxx-large);
 
   ${Mobile(css`
     width: 100%;
@@ -51,7 +52,7 @@ export const MainTitle = styled(Title)`
   `)}
 
   ${DesktopSmall(css`
-    font-size: var(--font-size-title-xlarge);
+    font-size: var(--font-size-title-x-large);
   `)}
 `;
 
@@ -73,7 +74,7 @@ export const TitleText = styled(Text)`
   `)}
 `;
 
-export const Image = styled.img`
+export const StyledImage = styled(Image)`
   width: 680px;
   height: 650px;
   border-radius: 50%;

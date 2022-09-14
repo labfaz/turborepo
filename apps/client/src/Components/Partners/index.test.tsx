@@ -1,25 +1,18 @@
 import React from 'react';
+import type { HomePartners } from 'Api/HomePartners';
+import Partners from 'Components/Partners';
 import render from 'Utils/render';
 
-import Partners from 'Components/Partners';
 import Display from './Display';
 
-const mockedData = [
+const mockedData: HomePartners[] = [
   {
     name: 'Partner1',
-    logo: [
-      {
-        url: '',
-      },
-    ],
+    logo: Image,
   },
   {
     name: 'Partner2',
-    logo: [
-      {
-        url: '',
-      },
-    ],
+    logo: Image,
   },
 ];
 

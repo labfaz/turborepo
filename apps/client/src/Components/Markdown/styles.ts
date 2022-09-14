@@ -1,7 +1,8 @@
+import Image from 'next/image';
 import styled, { css } from 'styled-components';
 import { Mobile } from 'Utils/breakpoints';
 
-export const Image = styled.img`
+export const StyledImage = styled(Image)`
   width: 100%;
   height: auto;
   object-fit: cover;

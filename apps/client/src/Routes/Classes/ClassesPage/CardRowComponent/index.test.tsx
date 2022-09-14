@@ -1,9 +1,10 @@
+/* eslint-disable @cspell/spellchecker */
 import React from 'react';
+import { StaticRouter } from 'react-router-dom';
+import { Course } from 'Api/Courses';
 import render from 'Utils/render';
-import { BrowserRouter } from 'react-router-dom';
 
 import CardRowComponent from '.';
-import { Course } from 'Api/Courses';
 
 const courseExample: Course = {
   id: 'p-weRYkb5n_w5czMTx6BC',
@@ -41,7 +42,7 @@ const RowExample = {
 it('renders CardRowComponent', () => {
   expect(() =>
     render(
-      <BrowserRouter>
+      <StaticRouter>
         <CardRowComponent
           title={RowExample.title}
           subtitle={RowExample.subtitle}
@@ -49,14 +50,14 @@ it('renders CardRowComponent', () => {
           color={RowExample.color}
           fontColor={RowExample.fontColor}
         />
-      </BrowserRouter>
+      </StaticRouter>
     )
   ).not.toThrow();
 });
 
 describe('Check content of CardRowComponent', () => {
   const { getByText } = render(
-    <BrowserRouter>
+    <StaticRouter>
       <CardRowComponent
         title={RowExample.title}
         subtitle={RowExample.subtitle}
@@ -64,7 +65,7 @@ describe('Check content of CardRowComponent', () => {
         color={RowExample.color}
         fontColor={RowExample.fontColor}
       />
-    </BrowserRouter>
+    </StaticRouter>
   );
 
   it('checks if title rendered', () => {

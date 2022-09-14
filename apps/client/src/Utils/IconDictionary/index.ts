@@ -1,8 +1,9 @@
+/* eslint-disable @cspell/spellchecker */
 import ceacImg from './ceac.png';
 import cnpjImg from './cnpj.png';
-import drtImg from './drt.png';
 import certificadoImg from './com certificado.png';
 import cursoImg from './curso.png';
+import drtImg from './drt.png';
 import figurinoImg from './figurino.png';
 import idiomasImg from './idiomas.png';
 import liveImg from './live.png';
@@ -37,8 +38,9 @@ export const IconNames = [
   'assistivas',
 ] as const;
 export type IconName = typeof IconNames[number];
+export type ImageType = typeof assistivasImg;
 
-export const iconDict: { [i in IconName]: string } = {
+export const iconDict: { [i in IconName]: ImageType } = {
   ceac: ceacImg,
   cnpj: cnpjImg,
   drt: drtImg,

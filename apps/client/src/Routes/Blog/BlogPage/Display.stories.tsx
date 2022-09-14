@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { BlogBannerInfo } from 'Api/BlogBannerInfo';
+import { BlogPost } from 'Api/BlogPost';
+import { mockImage } from 'Utils/Image';
 
 import BlogPage from './Display';
-import { BlogBannerInfo } from 'Api/BlogBannerInfo';
-import { mockImage } from 'Utils/Image';
-import { BlogPost } from 'Api/BlogPost';
 
 const data: BlogBannerInfo = {
   title: 'Blog',

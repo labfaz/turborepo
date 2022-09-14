@@ -1,24 +1,24 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-
+import { StaticRouter } from 'react-router-dom';
 import render from 'Utils/render';
+
 import Header from './index';
 
 it('renders header component', () => {
   expect(() =>
     render(
-      <BrowserRouter>
+      <StaticRouter>
         <Header />
-      </BrowserRouter>
+      </StaticRouter>
     )
   ).not.toThrow();
 });
 
-describe('Check links succesfully redirects to another page', () => {
+describe('Check links successfully redirects to another page', () => {
   const { getByText, getByRole, getByTestId } = render(
-    <BrowserRouter>
+    <StaticRouter>
       <Header />
-    </BrowserRouter>
+    </StaticRouter>
   );
   it('check link of home page and text logo', () => {
     expect(getByTestId('home').closest('a')).toHaveAttribute('href', '/');
@@ -57,10 +57,11 @@ describe('Check links succesfully redirects to another page', () => {
 
 describe('Check user session links', () => {
   const { getByText } = render(
-    <BrowserRouter>
+    <StaticRouter>
       <Header />
-    </BrowserRouter>
+    </StaticRouter>
   );
+  // eslint-disable-next-line @cspell/spellchecker
   it('check signin button', () => {
     expect(getByText('ENTRAR').closest('a')).toHaveAttribute('href', '/login');
   });
@@ -68,6 +69,7 @@ describe('Check user session links', () => {
   it('check sign up button', () => {
     expect(getByText('CADASTRE-SE').closest('a')).toHaveAttribute(
       'href',
+      // eslint-disable-next-line @cspell/spellchecker
       '/signup'
     );
   });

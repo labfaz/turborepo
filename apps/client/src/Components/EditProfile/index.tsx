@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-
+import { User } from 'Context/LoggedUserToken';
 import useMobile from 'Hooks/useMobile';
+
 import { Mobile } from './Mobile';
 import { Web } from './Web';
-import { User } from 'Context/LoggedUserToken';
 
 interface SingUpProps {
   button_type: 'submit' | 'button' | 'reset';

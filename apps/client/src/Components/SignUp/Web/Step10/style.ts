@@ -1,6 +1,5 @@
-import styled, { css } from 'styled-components';
-
 import { TextInput } from 'Components/Inputs/TextInput';
+import styled, { css } from 'styled-components';
 import { DesktopSmall } from 'Utils/breakpoints';
 
 export const Container = styled.div`
@@ -29,7 +28,7 @@ export const Container = styled.div`
       `)}
     }
 
-    .obrigatory {
+    .required {
       color: red;
       display: inline;
     }
@@ -109,6 +108,7 @@ export const InputText = styled(TextInput)`
   right: 0;
 `;
 
+// eslint-disable-next-line @cspell/spellchecker
 export const CnpjText = styled(TextInput)`
   top: 75%;
 

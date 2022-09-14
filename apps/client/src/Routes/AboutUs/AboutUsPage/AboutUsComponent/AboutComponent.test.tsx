@@ -1,9 +1,9 @@
 import React from 'react';
+import { AboutUsData } from 'Api/AboutUs';
+import { mockImage } from 'Utils/Image';
 import render from 'Utils/render';
 
 import About from '.';
-import { AboutUsData } from 'Api/AboutUs';
-import { mockImage } from 'Utils/Image';
 
 const image = mockImage({
   url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsegredosdomundo.r7.com%2Fwp-content%2Fuploads%2F2019%2F10%2Fornitorrinco-principais-caracteristicas-10-curiosidades-4.jpg&f=1&nofb=1',
@@ -49,7 +49,7 @@ describe('About us component', () => {
 
   it('Should render Images', () => {
     const { getByRole } = render(<About data={mockedData.about_us_data} />);
-    data.about_us_data.forEach((data) => {
+    data.about_us_data.forEach(() => {
       const component = getByRole('img');
       expect(component).toBeVisible();
     });

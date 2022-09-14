@@ -1,20 +1,20 @@
+/* eslint-disable @cspell/spellchecker */
 import React, { FC } from 'react';
-import { useFormikContext } from 'formik';
-
-import { TextInput } from 'Components/Inputs/TextInput';
-import { RadioInput } from 'Components/Inputs/RadioInput';
 import { FileInput } from 'Components/Inputs/FileInput';
+import { RadioInput } from 'Components/Inputs/RadioInput';
+import { TextInput } from 'Components/Inputs/TextInput';
+import { useFormikContext } from 'formik';
 
 import {
   Container,
+  FileContainer,
+  InputRadioContainer,
   LeftSide,
   LeftSideContent,
+  OtherTechnicalArea,
   RightSide,
   RightSideContent,
-  InputRadioContainer,
   SelectContainer,
-  FileContainer,
-  OtherTechnicalArea,
 } from './style';
 
 interface ErrorProps {
@@ -38,7 +38,7 @@ export const Step7: FC = () => {
         <LeftSideContent>
           <label htmlFor="TecnicalArea" className="radioLabel">
             O seu trabalho na técnica está ligado à qual dessas áreas?
-            <p className="obrigatory"> *</p>
+            <p className="required"> *</p>
             {errors.artist?.technical?.areas?.name && (
               <span className="errorMessage">
                 {errors.artist.technical.areas.name}
@@ -199,7 +199,7 @@ export const Step7: FC = () => {
           </SelectContainer>
 
           <label htmlFor="technical_formation" className="radioLabel">
-            Formação técnica e profissional <p className="obrigatory"> *</p>
+            Formação técnica e profissional <p className="required"> *</p>
             {errors.artist?.technical?.areas && (
               <span className="errorMessage">
                 {errors.artist.technical.areas.technical_formation}
@@ -250,7 +250,7 @@ export const Step7: FC = () => {
 
           <FileContainer>
             <label htmlFor="curriculum" className="fileLabel">
-              Curriculo (opcional)
+              Currículo (opcional)
             </label>
 
             <FileInput

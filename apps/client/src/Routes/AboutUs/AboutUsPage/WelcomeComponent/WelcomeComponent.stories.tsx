@@ -1,9 +1,10 @@
+/* eslint-disable @cspell/spellchecker */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-
-import WelcomeComponent from './';
 import { DataObject } from 'Api/AboutUs';
 import { mockImage } from 'Utils/Image';
+
+import WelcomeComponent from './';
 
 const image = mockImage({
   url: 'https://st.depositphotos.com/1002049/2024/i/950/depositphotos_20240775-stock-photo-welcome.jpg',

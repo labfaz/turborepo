@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
+import { Title } from 'Components/Typography/Title';
+
 import { CourseResumeDiv } from '../styles';
 
-import { Title } from 'Components/Typography/Title';
 import List from './List';
 
 interface CourseResumeProps {
@@ -32,7 +33,7 @@ export const CourseResume: FC<CourseResumeProps> = ({
       <Title level={6}> Detalhes da atividade: </Title>
       <List data={details} />
 
-      <Title level={6}> Profesores: </Title>
+      <Title level={6}> Professores: </Title>
       <List data={teachers} />
 
       <Title level={6}> Quem está oferecendo esse curso? </Title>

@@ -1,8 +1,5 @@
 {
-  "extends": [
-    "labfaz",
-    "plugin:tailwindcss/recommended"
-  ],
+  "extends": ["labfaz", "plugin:tailwindcss/recommended"],
   "env": {
     "browser": true,
     "es2021": true
@@ -14,7 +11,5 @@
       "jsx": true
     }
   },
-  "plugins": [
-    "tailwindcss"
-  ]
+  "plugins": ["tailwindcss"]
 }

@@ -1,5 +1,4 @@
 import { RefObject } from 'react';
-
 import useCurrentlyScrolledElement, {
   Options as CurOptions,
 } from 'Hooks/useCurrentlyScrolledElement';
@@ -28,7 +27,7 @@ export const useHashUrlScroll = (
     dynamicScrollDelay = 300,
   } = options ?? {};
 
-  // get currently scrolled element
+  // get scrolled element
   const currentEle = useCurrentlyScrolledElement(refs, { wait, margin });
   const curEleId = currentEle?.id ?? '';
 

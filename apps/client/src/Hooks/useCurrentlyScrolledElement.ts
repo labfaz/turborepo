@@ -10,9 +10,12 @@ export interface Options extends ScrollOptions {
 
 // hook to select from a list of elements which one, if any,
 // has the top of it's containing rectangle above the top of the
-// screen. if there are multiple elements in the array that pass
-// this condition, the one closest to the top is selected
-export default (refs: RefObject<HTMLElement>[], opt: Options) => {
+// screen. if there are elements in the array that pass
+// this condition, the one closest to the top gets selected
+const useCurrentlyScrolledElement = (
+  refs: RefObject<HTMLElement>[],
+  opt: Options
+) => {
   // setup state variable
   const [currentScrolled, setCurrentScrolled] = useState<HTMLElement | null>(
     null
@@ -21,9 +24,11 @@ export default (refs: RefObject<HTMLElement>[], opt: Options) => {
   // on scroll, check if current scrolled element has changed
   useScrollPosition(() => {
     const element = getLowestElementOverTop(refs, opt.margin);
-    setCurrentScrolled(element);
+    setCurrentScrolled(element || null);
   }, opt);
 
   // return element
   return currentScrolled;
 };
+
+export default useCurrentlyScrolledElement;

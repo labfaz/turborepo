@@ -1,0 +1,13 @@
+export declare const localhost = "localhost";
+export declare const protocol = "http";
+export declare const getApiPort: () => number;
+export declare const defaultApiUrl = "api.labfaz.com.br/";
+export declare const getApiUrl: () => string;
+export declare const getStrapiPort: () => number;
+export declare const defaultStrapiHost = "backoffice.labfaz.com.br/";
+export declare const getStrapiHost: () => string;
+export declare const getStrapiUrl: () => string;
+export declare const getClientPort: () => number;
+export declare const defaultClientUrl = "www.labfaz.com.br";
+export declare const getClientUrl: () => string;
+//# sourceMappingURL=index.d.ts.map

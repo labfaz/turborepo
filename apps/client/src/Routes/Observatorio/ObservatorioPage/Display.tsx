@@ -1,16 +1,13 @@
 import React, { FC } from 'react';
-
 import Wireframe from 'Components/Wireframe';
 import styled from 'styled-components';
-
-export interface DisplayProps {}
 
 const Box = styled.div`
   flex-grow: 1;
   display: flex;
 `;
 
-export const Display: FC<DisplayProps> = () => {
+export const Display: FC = () => {
   return (
     <Wireframe>
       {/* <Banner title={title} subtitle={subtitle} image={image} align="left" /> */}

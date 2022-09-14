@@ -1,15 +1,18 @@
 import React, { FC, HTMLAttributes, ReactElement } from 'react';
 import { render } from 'react-dom';
+import { StaticRouter } from 'react-router-dom';
 import { getQueriesForElement } from '@testing-library/dom';
-
-import { BrowserRouter } from 'react-router-dom';
 import GlobalContext from 'Context';
 
+type WrapperType = {
+  children?: React.ReactNode;
+};
+
 // wrap component with necessary context
-const Wrapper: FC = ({ children }) => {
+const Wrapper: FC<WrapperType> = ({ children }) => {
   return (
     <GlobalContext>
-      <BrowserRouter>{children}</BrowserRouter>
+      <StaticRouter>{children}</StaticRouter>
     </GlobalContext>
   );
 };

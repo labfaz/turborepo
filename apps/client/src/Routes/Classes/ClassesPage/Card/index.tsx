@@ -1,30 +1,28 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
-
-import {
-  Container,
-  Image,
-  TextWrapper,
-  CardTitle,
-  DescriptionWrapper,
-  LabelWrapper,
-  SubscribeWrapper,
-  DateContainer,
-  ButtonWrapper,
-  ButtonLayer,
-  Button,
-  ButtonText,
-} from './styles';
+import { Course } from 'Api/Courses';
+import Label from 'Components/Label';
+import { format } from 'date-fns';
 
 import {
   CardDescription,
   DateText,
 } from '../../../../Components/CoursesPresentation/Card/styles';
 
-import Label from 'Components/Label';
-
-import { format } from 'date-fns';
-import { Course } from 'Api/Courses';
+import {
+  Button,
+  ButtonLayer,
+  ButtonText,
+  ButtonWrapper,
+  CardTitle,
+  Container,
+  DateContainer,
+  DescriptionWrapper,
+  LabelWrapper,
+  StyledImage,
+  SubscribeWrapper,
+  TextWrapper,
+} from './styles';
 
 export interface CardProps extends Course {
   tag: string;
@@ -33,6 +31,7 @@ export interface CardProps extends Course {
 const formatDate = (dateStr: string) =>
   format(dateStr, 'DD-MM-YYYY').replace(/-/g, '/');
 
+// eslint-disable-next-line abcsize/abcsize
 export const Card: FC<CardProps> = ({
   id,
   name,
@@ -48,7 +47,7 @@ export const Card: FC<CardProps> = ({
   const firstClassDateStr = class_dates?.length > 0 && class_dates[0];
   const lastClassDate =
     class_dates?.length > 0
-      ? new Date(class_dates[class_dates.length - 1]).getTime()
+      ? new Date(class_dates[class_dates.length - 1] as string).getTime()
       : -Infinity;
   const now = new Date().getTime();
   const subscriptionStart = new Date(subscription_start_date).getTime();
@@ -69,7 +68,7 @@ export const Card: FC<CardProps> = ({
   return (
     <Container>
       <Link to={route}>
-        <Image src={banner} alt="Imagem do banner" />
+        <StyledImage src={banner} alt="Imagem do banner" />
       </Link>
       <TextWrapper>
         <CardTitle>{name}</CardTitle>

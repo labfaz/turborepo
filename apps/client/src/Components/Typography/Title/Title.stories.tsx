@@ -1,67 +1,63 @@
+/* eslint-disable @cspell/spellchecker */
 import React from 'react';
+import { StaticRouter } from 'react-router-dom';
 import { storiesOf } from '@storybook/react';
-import { BrowserRouter } from 'react-router-dom';
 
 import { Title } from './';
 
 storiesOf('Components/Title', module)
   .addParameters({ component: Title })
   .add('title h1', () => (
-    <BrowserRouter>
-      <Title
-        children="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer 
-        porta ligula nibh, nec interdum nunc maximus at."
-        level={1}
-      />
-    </BrowserRouter>
+    <StaticRouter>
+      <Title level={1}>
+        {' '}
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta
+        ligula nibh, nec interdum nunc maximus at.
+      </Title>
+    </StaticRouter>
   ))
 
   .add('Title h2', () => (
-    <BrowserRouter>
-      <Title
-        children="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer 
-        porta ligula nibh, nec interdum nunc maximus at."
-        level={2}
-      />
-    </BrowserRouter>
+    <StaticRouter>
+      <Title level={2}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta
+        ligula nibh, nec interdum nunc maximus at.
+      </Title>
+    </StaticRouter>
   ))
 
   .add('Title h3', () => (
-    <BrowserRouter>
-      <Title
-        children="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer 
-        porta ligula nibh, nec interdum nunc maximus at."
-        level={3}
-      />
-    </BrowserRouter>
+    <StaticRouter>
+      <Title level={3}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta
+        ligula nibh, nec interdum nunc maximus at.
+      </Title>
+    </StaticRouter>
   ))
 
   .add('Title h4', () => (
-    <BrowserRouter>
-      <Title
-        children="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer 
-        porta ligula nibh, nec interdum nunc maximus at."
-        level={4}
-      />
-    </BrowserRouter>
+    <StaticRouter>
+      <Title level={4}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta
+        ligula nibh, nec interdum nunc maximus at.
+      </Title>
+    </StaticRouter>
   ))
 
   .add('Title h5', () => (
-    <BrowserRouter>
-      <Title
-        children="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer 
-        porta ligula nibh, nec interdum nunc maximus at."
-        level={5}
-      />
-    </BrowserRouter>
+    <StaticRouter>
+      <Title level={5}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta
+        ligula nibh, nec interdum nunc maximus at.
+      </Title>
+    </StaticRouter>
   ))
 
   .add('Title h6', () => (
-    <BrowserRouter>
-      <Title
-        children="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer 
-        porta ligula nibh, nec interdum nunc maximus at."
-        level={6}
-      />
-    </BrowserRouter>
+    <StaticRouter>
+      <Title level={6}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta
+        ligula nibh, nec interdum nunc maximus at.
+      </Title>
+    </StaticRouter>
   ));

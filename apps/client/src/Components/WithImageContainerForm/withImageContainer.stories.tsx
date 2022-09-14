@@ -1,10 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import RecoverForm from 'Components/PasswordRecover';
+import { mockImage } from 'Utils/Image';
 
 import WithImageContainerForm from './index';
-import RecoverForm from 'Components/PasswordRecover';
-
-import { mockImage } from 'Utils/Image';
 
 const image = mockImage({
   url: 'https://images.fineartamerica.com/images-medium-large/reflections-of-longs-peak-vertical-image-james-bo-insogna.jpg',
@@ -16,9 +15,9 @@ const image = mockImage({
 });
 
 storiesOf('Components/FormContainer', module)
-  .addParameters({ component: 'FormContaier' })
+  .addParameters({ component: 'FormContainer' })
   .add('list posts', () => (
-    <WithImageContainerForm image={image}>
+    <WithImageContainerForm title="FormContainer" image={image}>
       <RecoverForm />
     </WithImageContainerForm>
   ));

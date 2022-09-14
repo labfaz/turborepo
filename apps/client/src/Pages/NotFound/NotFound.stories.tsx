@@ -1,9 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import NotFound from './';
-import Web from './Web';
 import Mobile from './Mobile';
+import Web from './Web';
+import NotFound from './';
 
 storiesOf('Pages/NotFound', module)
   .addParameters({ component: NotFound })

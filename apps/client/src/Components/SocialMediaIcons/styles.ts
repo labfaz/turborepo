@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
-import { Text } from 'Components/Typography/Text';
 import { ExternalLinkButton } from 'Components/Buttons/ExternalLinkButton';
+import { Text } from 'Components/Typography/Text';
+import styled, { css } from 'styled-components';
 import { Mobile } from 'Utils/breakpoints';
 
 export const Wrapper = styled.div`

@@ -1,19 +1,20 @@
 import React, { FC } from 'react';
+import { CoursePresentation } from 'Api/CoursePresentation';
+import { Homepage } from 'Api/Homepage';
+import { useMobile } from 'Hooks/useMobile';
+
+import Card from './Card';
 import {
+  Button,
+  ButtonLayer,
+  ButtonText,
+  ButtonWrapper,
   Container,
+  CoursesText,
+  CoursesTitle,
   Divider,
   TextContainer,
-  CoursesTitle,
-  CoursesText,
-  ButtonWrapper,
-  ButtonLayer,
-  Button,
-  ButtonText,
 } from './styles';
-import { useMobile } from 'Hooks/useMobile';
-import Card from './Card';
-import { Homepage } from 'Api/Homepage';
-import { CoursePresentation } from 'Api/CoursePresentation';
 
 interface DisplayProps {
   texts: Homepage;

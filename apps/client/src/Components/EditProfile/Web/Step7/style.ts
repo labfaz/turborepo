@@ -31,7 +31,7 @@ export const Container = styled.div`
 
     color: #fafafa;
 
-    .obrigatory {
+    .required {
       color: red;
       display: inline;
       font-size: var(--font-size-short);

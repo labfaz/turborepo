@@ -1,12 +1,10 @@
-import styled, { css } from 'styled-components';
-
-import { DesktopSmall } from 'Utils/breakpoints';
 import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
-
 import { ButtonStyled } from 'Routes/Classes/SubscriptionButton/styles';
+import styled, { css } from 'styled-components';
+import { DesktopSmall } from 'Utils/breakpoints';
 
 export const Container = styled.div`
-  background-color: var(--backgound-black-gray);
+  background-color: var(--background-black-gray);
   padding: 0.5rem 0;
   display: flex;
   justify-content: space-around;
@@ -89,7 +87,7 @@ export const Button = styled(InternalLinkButton)`
   border: none;
   font-size: var(--font-size-large);
   margin: 0 5px;
-  background-color: rbga(297, 0, 97, 1);
+  background-color: rgba(297, 0, 97, 1);
   box-shadow: 1px 1px 0px rgba(255, 236, 153, 1);
 
   :hover {
@@ -117,7 +115,7 @@ export const LogoutButton = styled(ButtonStyled)`
 
   font-weight: bold;
 
-  background-color: rbga(297, 0, 97, 1);
+  background-color: rgba(297, 0, 97, 1);
   box-shadow: 1px 1px 0px rgba(255, 236, 153, 1);
 
   :hover {
@@ -134,7 +132,7 @@ export const LogoutButton = styled(ButtonStyled)`
 
 export const LogIn = styled(InternalLinkButton)`
   color: var(--color-text-beige);
-  background-color: rbga(297, 0, 97, 1);
+  background-color: rgba(297, 0, 97, 1);
   box-shadow: 1px 1px 0px rgba(255, 236, 153, 1);
   padding: 0rem 1rem;
   font-size: var(--font-size-large);

@@ -1,43 +1,128 @@
+/* eslint-disable @cspell/spellchecker */
 import React, { FC } from 'react';
+import { FaCheckCircle, FaCheckSquare } from 'react-icons/fa';
+import { GoGear } from 'react-icons/go';
 import { IoMdCloudDownload } from 'react-icons/io';
 import { MdContactPhone } from 'react-icons/md';
-import { GoGear } from 'react-icons/go';
-
+import { useHistory } from 'react-router';
 import { User } from 'Context/LoggedUserToken';
-
-import { FaCheckCircle, FaCheckSquare } from 'react-icons/fa';
-
-import {
-  Container,
-  ProfileContentContainer,
-  UserBasicInformation,
-  UserTechnicalInformation,
-  Content,
-  UserPhoto,
-  // UserName,
-  UserLocation,
-  NickName,
-  ContentTitle,
-  ContentText,
-  Header,
-  UserPhotoContainer,
-  UserInformation,
-  UserVerified,
-} from './style';
+import { ShowEditProfile } from 'FeatureFlags';
+import Image from 'next/image';
+import { getUserName } from 'Utils/userUtils';
 
 import idiom_icon from '../idiomIcon.svg';
 import isVerified from '../isVerified.svg';
-import { getUserName } from 'Utils/userUtils';
 import { SocialMediaLinks } from '../SocialMediaLink';
-import { useHistory } from 'react-router';
-import { showEditProfile } from 'FeatureFlags';
+
+import {
+  Container,
+  Content,
+  ContentText,
+  ContentTitle,
+  Header,
+  NickName,
+  ProfileContentContainer,
+  UserBasicInformation,
+  UserInformation,
+  // UserName,
+  UserLocation,
+  UserPhoto,
+  UserPhotoContainer,
+  UserTechnicalInformation,
+  UserVerified,
+} from './style';
 
 interface ProfileProps {
   data: User;
-  PersonalProfilePage: boolean;
+  PersonalProfilePage?: boolean;
 }
 
 const currentYear = new Date().getFullYear();
+
+const UserInfo: FC<ProfileProps> = ({ data }) => {
+  return (
+    <UserInformation>
+      <div className="Header">
+        <a href="#Sobre">Sobre</a>
+        {data.artist.accessibility_resources_description && (
+          <a href="#RecursosDeAcessibilidade">Recursos de acessibilidade</a>
+        )}
+        <a href="#Formacao">Formação</a>
+        <a href="#Certificacoes">Certificações</a>
+
+        <a href="#Contato">Contato</a>
+      </div>
+
+      <div className="profileInformation" id="Sobre">
+        <ContentTitle level={1}>Sobre</ContentTitle>
+
+        <div>
+          <ContentText>{data.artist.technical.area[0]?.describe}</ContentText>
+        </div>
+      </div>
+
+      {data.artist.accessibility_resources_description && (
+        <div className="profileInformation" id="RecursosDeAcessibilidade">
+          <ContentTitle level={1}>Recursos de acessibilidade</ContentTitle>
+
+          <ContentText>
+            {data.artist.accessibility_resources_description}
+          </ContentText>
+        </div>
+      )}
+
+      <div className="profileInformation" id="Formacao">
+        <ContentTitle level={1}>Formação</ContentTitle>
+
+        <div>
+          <span>
+            <FaCheckCircle />
+            {data.artist.technical.formation}
+          </span>
+          <ul>
+            {data.artist.technical.idiom &&
+              data.artist.technical.idiom.map((idiom, index) => (
+                <li key={index}>
+                  <Image src={idiom_icon} alt="" /> {idiom.name.toUpperCase()}
+                </li>
+              ))}
+          </ul>
+        </div>
+      </div>
+
+      <div className="profileInformation" id="Certificacoes">
+        <ContentTitle level={1}>Certificações</ContentTitle>
+
+        <div>
+          {data.artist.technical.area[0]?.certificate &&
+            data.artist.technical.area[0]?.certificate.map(
+              (certificate, index) => (
+                <span key={index}>
+                  <FaCheckSquare />
+                  {certificate.name}
+                </span>
+              )
+            )}
+          <ul>
+            {data.artist.technical.is_ceac && <li>CEAC</li>}
+            {data.artist.technical.is_drt && <li>DRT</li>}
+            {data.artist.technical.is_cnpj && <li>CNPJ</li>}
+          </ul>
+        </div>
+      </div>
+
+      <div className="profileInformation" id="Contato">
+        <ContentTitle level={1}>Contato</ContentTitle>
+
+        <div className="socialContainer">
+          <div className="socialContacts">
+            <SocialMediaLinks user={data} />
+          </div>
+        </div>
+      </div>
+    </UserInformation>
+  );
+};
 
 const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
   const history = useHistory();
@@ -53,11 +138,11 @@ const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
           <UserPhotoContainer>
             <UserPhoto>
               {data.artist.photo_url && (
-                <img src={data.artist.photo_url} alt="User avatar" />
+                <Image src={data.artist.photo_url} alt="User avatar" />
               )}
             </UserPhoto>
           </UserPhotoContainer>
-          {showEditProfile && PersonalProfilePage && (
+          {ShowEditProfile() && PersonalProfilePage && (
             <GoGear onClick={() => handleRedirectToEditProfile()} />
           )}
         </Header>
@@ -70,11 +155,11 @@ const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
                 {data.isVerified && (
                   <UserVerified>
                     Verificado Backstage
-                    <img src={isVerified} alt="isVerify" />
+                    <Image src={isVerified} alt="isVerify" />
                   </UserVerified>
                 )}
               </div>
-              <div className="downloadables">
+              <div className="downloadable">
                 {data.artist.curriculum && (
                   <a
                     className="downloadFile"
@@ -114,11 +199,13 @@ const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
           </UserBasicInformation>
           <UserTechnicalInformation>
             <ul>
-              <li>{data.artist.technical.area[0].name.toUpperCase()}</li>
+              <li>{data.artist.technical.area[0]?.name.toUpperCase()}</li>
               <li>
                 EXPERIENCIA:
                 {currentYear -
-                  parseInt(data.artist.technical.area[0].started_year)}
+                  parseInt(
+                    data.artist.technical.area[0]?.started_year as string
+                  )}
                 ANOS
               </li>
               {data.artist.technical.cnpj_type !== 'Nenhum' && (
@@ -126,95 +213,11 @@ const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
               )}
 
               <li>
-                {data.artist.technical.area[0].technical_formation.toUpperCase()}
+                {data.artist.technical.area[0]?.technical_formation.toUpperCase()}
               </li>
             </ul>
           </UserTechnicalInformation>
-          <UserInformation>
-            <div className="Header">
-              <a href="#Sobre">Sobre</a>
-              {data.artist.accessibility_resources_description && (
-                <a href="#RecursosDeAcessibilidade">
-                  Recursos de acessibilidade
-                </a>
-              )}
-              <a href="#Formacao">Formação</a>
-              <a href="#Certificacoes">Certificações</a>
-
-              <a href="#Contato">Contato</a>
-            </div>
-
-            <div className="profileInformation" id="Sobre">
-              <ContentTitle level={1}>Sobre</ContentTitle>
-
-              <div>
-                <ContentText>
-                  {data.artist.technical.area[0].describe}
-                </ContentText>
-              </div>
-            </div>
-
-            {data.artist.accessibility_resources_description && (
-              <div className="profileInformation" id="RecursosDeAcessibilidade">
-                <ContentTitle level={1}>Reursos de acessibilidade</ContentTitle>
-
-                <ContentText>
-                  {data.artist.accessibility_resources_description}
-                </ContentText>
-              </div>
-            )}
-
-            <div className="profileInformation" id="Formacao">
-              <ContentTitle level={1}>Formação</ContentTitle>
-
-              <div>
-                <span>
-                  <FaCheckCircle />
-                  {data.artist.technical.formation}
-                </span>
-                <ul>
-                  {data.artist.technical.idiom &&
-                    data.artist.technical.idiom.map((idiom, index) => (
-                      <li key={index}>
-                        <img src={idiom_icon} alt="" />{' '}
-                        {idiom.name.toUpperCase()}
-                      </li>
-                    ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className="profileInformation" id="Certificacoes">
-              <ContentTitle level={1}>Certificações</ContentTitle>
-
-              <div>
-                {data.artist.technical.area[0].certificate &&
-                  data.artist.technical.area[0].certificate.map(
-                    (certificate, index) => (
-                      <span key={index}>
-                        <FaCheckSquare />
-                        {certificate.name}
-                      </span>
-                    )
-                  )}
-                <ul>
-                  {data.artist.technical.is_ceac && <li>CEAC</li>}
-                  {data.artist.technical.is_drt && <li>DRT</li>}
-                  {data.artist.technical.is_cnpj && <li>CNPJ</li>}
-                </ul>
-              </div>
-            </div>
-
-            <div className="profileInformation" id="Contato">
-              <ContentTitle level={1}>Contato</ContentTitle>
-
-              <div className="socialContainer">
-                <div className="socialContacts">
-                  <SocialMediaLinks user={data} />
-                </div>
-              </div>
-            </div>
-          </UserInformation>
+          <UserInfo data={data} />
         </Content>
       </ProfileContentContainer>
     </Container>

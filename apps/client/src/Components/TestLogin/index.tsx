@@ -1,10 +1,9 @@
 import React, { FC, FormEvent, useCallback, useContext, useState } from 'react';
 import { useHistory } from 'react-router';
-import styled from 'styled-components';
-
-import { CurrentUserTokenContext } from 'Context/LoggedUserToken';
-import { login } from 'Api/Session';
 import { ErrorObject } from 'Api';
+import { login } from 'Api/Session';
+import { CurrentUserTokenContext } from 'Context/LoggedUserToken';
+import styled from 'styled-components';
 
 import Test from './Test';
 
@@ -21,7 +20,7 @@ export const TestLogin: FC = () => {
 
   const handleSubmit = useCallback<React.FormEventHandler<HTMLFormElement>>(
     (e: FormEvent<HTMLFormElement>) => {
-      // manually doing form stuff
+      // manually doing form fields
       e.preventDefault();
       const email = (
         e.currentTarget.querySelector('input#email') as HTMLInputElement

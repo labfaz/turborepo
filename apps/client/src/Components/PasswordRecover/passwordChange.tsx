@@ -1,13 +1,10 @@
 import React, { FC, useCallback, useState } from 'react';
-
-import { Formik, Form, FormikHelpers } from 'formik';
-
-import { Wrapper, FormButton, Span, Message } from './styles';
-import { Modal } from 'Components/Modal/PasswordRecoverModal';
-
-import { InputPassword, InputTextContainer } from 'Components/Login/style';
-
 import { useResetPassword } from 'Api/PasswordReset';
+import { InputPassword, InputTextContainer } from 'Components/Login/style';
+import { Modal } from 'Components/Modal/PasswordRecoverModal';
+import { Form, Formik, FormikHelpers } from 'formik';
+
+import { FormButton, Message, Span, Wrapper } from './styles';
 
 interface FormProps {
   password: string;

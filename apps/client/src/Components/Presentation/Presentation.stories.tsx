@@ -1,12 +1,13 @@
+/* eslint-disable @cspell/spellchecker */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Presentation from './';
 import Display from './Display';
+import Presentation from './';
 
-const mockedTitle: string = 'Exemplo';
-const mockedSubtitle: string = 'Exemplo';
-const mockedVideo: string = 'https://www.youtube.com/watch?v=UrUJyKsLQeU';
+const mockedTitle = 'Exemplo';
+const mockedSubtitle = 'Exemplo';
+const mockedVideo = 'https://www.youtube.com/watch?v=UrUJyKsLQeU';
 
 storiesOf('Components/Presentation', module)
   .addParameters({ component: Presentation })

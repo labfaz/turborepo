@@ -1,22 +1,21 @@
 import React, { FC } from 'react';
-
 import { FileInput } from 'Components/Inputs/FileInput';
+import { useFormikContext } from 'formik';
 
 import {
   Container,
-  ContentContainer,
-  TextLabel,
   Content,
-  InputText,
+  ContentContainer,
   FileContainer,
+  InputText,
+  TextLabel,
 } from './style';
-import { useFormikContext } from 'formik';
 
 interface ErrorProps {
   artist: {
     technical: {
       areas: {
-        describe: String;
+        describe: string;
       };
     };
   };
@@ -31,7 +30,7 @@ export const Step15: FC = () => {
         <Content>
           <TextLabel>
             Descreva quais são as atividades e serviços oferecidos por você{' '}
-            <p className="obrigatory"> *</p>:
+            <p className="required"> *</p>:
             <span className="errorMessage">
               {errors.artist?.technical?.areas?.describe &&
                 errors.artist.technical.areas.describe}
@@ -47,7 +46,7 @@ export const Step15: FC = () => {
             <FileInput
               name="curriculum"
               value="curriculum"
-              label="Clique para enviar curriculo"
+              label="Clique para enviar currículo"
               accept="application/pdf"
             />
           </FileContainer>

@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 
 import {
-  NewsletterContainer,
   Button,
-  Input,
-  Title,
   FormContainer,
+  Input,
+  NewsletterContainer,
+  Title,
 } from './style';
 
 const NewsLetter: FC = () => {

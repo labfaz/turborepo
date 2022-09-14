@@ -1,24 +1,24 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-
+import { StaticRouter } from 'react-router-dom';
 import render from 'Utils/render';
+
 import SkipNav from './Web/index';
 
-it('renders skipnav component', () => {
+it('renders skipNav component', () => {
   expect(() =>
     render(
-      <BrowserRouter>
+      <StaticRouter>
         <SkipNav />
-      </BrowserRouter>
+      </StaticRouter>
     )
   ).not.toThrow();
 });
 
 describe('Check href successfully leading to sections', () => {
   const { getByText } = render(
-    <BrowserRouter>
+    <StaticRouter>
       <SkipNav />
-    </BrowserRouter>
+    </StaticRouter>
   );
 
   it('check anchor of content', () => {

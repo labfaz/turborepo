@@ -1,7 +1,6 @@
-import styled from 'styled-components';
-
-import { Text } from 'Components/Typography/Text';
 import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
+import { Text } from 'Components/Typography/Text';
+import styled from 'styled-components';
 
 interface ContentProps {
   isOpen: boolean;
@@ -46,7 +45,7 @@ export const LabelText = styled(Text)`
     font-size: var(--font-size-small);
   }
 
-  .obrigatory {
+  .required {
     display: inline;
     color: red;
   }

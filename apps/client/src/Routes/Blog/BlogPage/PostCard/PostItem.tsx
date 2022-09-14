@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { BlogPost } from 'Api/BlogPost';
-
 import useMobile from 'Hooks/useMobile';
-import { Wrapper } from './styles';
+
 import Mobile from './Mobile';
+import { Wrapper } from './styles';
 import Web from './Web';
 
 export interface PostItemProps {

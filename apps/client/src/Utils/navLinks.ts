@@ -49,6 +49,7 @@ export const navLinksList: navLink[] = [
   navLinks['busca profissionais'],
 ];
 
+// eslint-disable-next-line @cspell/spellchecker
 export const unloggedNavLinksList: navLink[] = [
   navLinks['login'],
   navLinks['cadastro'],

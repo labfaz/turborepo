@@ -1,8 +1,8 @@
+import { Title } from 'Components/Typography/Title';
 import styled, { css } from 'styled-components';
+import { MobileSmall } from 'Utils/breakpoints';
 
 import RectangleImage from '../Rectangle.png';
-import { MobileSmall } from 'Utils/breakpoints';
-import { Title } from 'Components/Typography/Title';
 
 export interface Props {
   invert?: boolean;
@@ -17,7 +17,7 @@ export const Container = styled.div`
 
 export const Rectangle = styled.div<Props>`
   background-image: url('${css`
-    ${RectangleImage}
+    ${RectangleImage as never}
   `}');
   width: 19rem;
   height: 10rem;

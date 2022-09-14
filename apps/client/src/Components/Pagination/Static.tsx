@@ -6,12 +6,11 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import RcPagination, { PaginationProps as PagProps } from 'rc-pagination';
-
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
+import RcPagination, { PaginationProps as PagProps } from 'rc-pagination';
+import isFunction from 'Utils/isFunction';
 
 import { PaginationControls } from './styles';
-import isFunction from 'Utils/isFunction';
 
 export interface PaginationProps<T> {
   baseProps?: PagProps;
@@ -20,6 +19,7 @@ export interface PaginationProps<T> {
   items: T[];
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unnecessary-type-constraint
 export const Pagination = <T extends any>({
   items,
   baseProps = {},
@@ -36,7 +36,7 @@ export const Pagination = <T extends any>({
     return slicedItems;
   }, [itemsPerPage, page, items]);
 
-  const onChange = useCallback((page) => setPage(page), [setPage]);
+  const onChange = useCallback((page: number) => setPage(page), [setPage]);
   return (
     <>
       {isFunction(children) ? children(renderedItems) : children}

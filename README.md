@@ -64,7 +64,7 @@ Clone the design system example locally or [from GitHub](https://github.com/TMTe
 - `yarn syncpack:fix` - Format all `package.json` files
   - Organise `package.json` files according to a conventional format
   - Ensure that multiple packages requiring the same dependency define the same
-  version
+    version
 - `yarn syncpack:lint` - Lint all packages versions
   - List dependencies which are required by multiple packages, where the version is not the same across every package
   - Check dependency versions follow a consistent format

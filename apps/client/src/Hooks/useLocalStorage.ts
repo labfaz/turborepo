@@ -1,4 +1,5 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { warning } from 'Utils/debugger';
 
 export const Nothing = Symbol('nothing');
 // eslint-disable-next-line no-redeclare
@@ -19,8 +20,9 @@ export const readFromLocalStorage = <T>(key: string): Maybe<T> => {
 export const writeToLocalStorage = <T>(key: string, value: T) => {
   // deal with edge error case
   if (typeof window === 'undefined') {
-    console.warn(
-      `Tentativa de settar localStorage key ${key}, mas window não existe`
+    warning(
+      'useLocalStorage',
+      `Tentativa de definir localStorage key ${key}, mas window não existe`
     );
     return;
   }
@@ -30,7 +32,10 @@ export const writeToLocalStorage = <T>(key: string, value: T) => {
     window.localStorage.setItem(key, JSON.stringify(value));
     window.dispatchEvent(new Event('local-storage'));
   } catch (error) {
-    console.warn(`Error setting localstorage key ${key}`, error);
+    warning(
+      'useLocalStorage',
+      `Error setting localStorage key ${key} ` + error
+    );
   }
 };
 
@@ -41,7 +46,7 @@ export const useLocalStorage = <T>(
   const [state, setState] = useState<T>(initialValue);
   const initialValueRef = useRef(initialValue);
 
-  // search localstorage for old value once at first render
+  // search localStorage for old value once at first render
   useEffect(() => {
     const item = readFromLocalStorage<T>(key);
     // update stored value to initial state if stored value doesn't exist
@@ -52,7 +57,7 @@ export const useLocalStorage = <T>(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setState, key]);
 
-  // create callback to update state and localstorage
+  // create callback to update state and localStorage
   const updateValue = useCallback<(newValue: T) => void>(
     (newValue) => {
       writeToLocalStorage(key, newValue);

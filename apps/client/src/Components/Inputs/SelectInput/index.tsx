@@ -1,6 +1,7 @@
 import React, { FC, Fragment } from 'react';
-import { useField } from 'formik';
 import { MdArrowDropDownCircle } from 'react-icons/md';
+import { useField } from 'formik';
+
 import { Container, Input } from './style';
 
 interface OptionsProps {
@@ -16,25 +17,26 @@ interface InputProps {
   width?: number;
   height?: number;
   inputMask?: string;
-  obrigatory?: boolean;
-  onChange?: (ev: any) => void;
+  required?: boolean;
+  onChange?: (ev: React.ChangeEvent<HTMLInputElement>) => void;
+
   options: OptionsProps[];
 }
 
 export const SelectInput: FC<InputProps> = ({
   label,
-  placeholder,
+  // placeholder,
   width,
-  value,
-  inputMask,
+  // value,
+  // inputMask,
   height,
   options,
-  obrigatory,
+  required,
   ...props
 }) => {
   const [inputProps, meta] = useField(props);
 
-  let selected = document.getElementById(props.name) as HTMLSelectElement;
+  const selected = document.getElementById(props.name) as HTMLSelectElement;
   if (selected !== null && selected.selectedIndex !== 0) {
     selected.style.color = 'white';
   }
@@ -48,7 +50,7 @@ export const SelectInput: FC<InputProps> = ({
         <div className="labelContainer">
           <div className="labelContent">
             <label htmlFor={props.name}>
-              {label} {obrigatory && <p className="obrigatory"> * </p>}
+              {label} {required && <p className="required"> * </p>}
               {meta.touched && meta.error && (
                 <span className="errorMessage">
                   {meta.touched && meta.error}

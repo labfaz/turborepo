@@ -1,18 +1,16 @@
 import React, { FC } from 'react';
-
-import {
-  showAboutUs,
-  showBlog,
-  showCourses,
-  showObservatorio,
-  showProfileMine,
-  showUserSearch,
-} from 'FeatureFlags';
-
 import { useCurrentUserToken } from 'Context/LoggedUserToken';
+import {
+  ShowAboutUs,
+  ShowBlog,
+  ShowCourses,
+  ShowObservatorio,
+  ShowProfileMine,
+  ShowUserSearch,
+} from 'FeatureFlags';
 import { LinkName, navLinks } from 'Utils/navLinks';
 
-import { NavigationContainer, Navbar, NavLink, Title } from './style';
+import { Navbar, NavigationContainer, NavLink, Title } from './style';
 
 const RenderLink = (name: LinkName) =>
   navLinks[name] && (
@@ -26,14 +24,14 @@ const Navigation: FC = () => {
       <Title>Navegação</Title>
       <Navbar>
         <div>
-          {showAboutUs && RenderLink('about us')}
-          {showCourses && RenderLink('cursos')}
-          {showBlog && RenderLink('blog')}
+          {ShowAboutUs() && RenderLink('about us')}
+          {ShowCourses() && RenderLink('cursos')}
+          {ShowBlog() && RenderLink('blog')}
         </div>
         <div>
-          {showObservatorio && RenderLink('observatorio')}
-          {showUserSearch && RenderLink('busca profissionais')}
-          {RenderLink(isLoggedIn && showProfileMine ? 'perfil' : 'cadastro')}
+          {ShowObservatorio() && RenderLink('observatorio')}
+          {ShowUserSearch() && RenderLink('busca profissionais')}
+          {RenderLink(isLoggedIn && ShowProfileMine() ? 'perfil' : 'cadastro')}
         </div>
       </Navbar>
     </NavigationContainer>

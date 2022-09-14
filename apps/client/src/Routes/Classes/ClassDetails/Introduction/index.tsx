@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
+import Label from 'Components/Label';
+import styled from 'styled-components';
 
 import { Container, MainTitle, Subtitle, TagsWrapper } from './styles';
 
-import Label from 'Components/Label';
-import styled from 'styled-components';
 export interface Props {
   title: string;
   description: string;

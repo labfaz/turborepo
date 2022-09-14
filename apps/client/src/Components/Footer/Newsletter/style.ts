@@ -1,6 +1,5 @@
-import styled, { css } from 'styled-components';
-
 import { Text } from 'Components/Typography/Text';
+import styled, { css } from 'styled-components';
 import { DesktopSmall } from 'Utils/breakpoints';
 
 export const NewsletterContainer = styled.div`
@@ -35,7 +34,7 @@ export const Input = styled.input`
   max-width: 15rem;
   border: none;
   border: 1px solid rgba(255, 255, 255, 0.7);
-  background-color: var(--backgound-black-gray);
+  background-color: var(--background-black-gray);
   padding: 0.5rem 1rem;
   font-size: var(--font-size-large);
 
@@ -59,7 +58,7 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  background-color: var(--backgound-black-gray);
+  background-color: var(--background-black-gray);
   border: 1px solid rgba(255, 255, 255, 0.7);
   /* border: none; */
   color: var(--color-text-white);

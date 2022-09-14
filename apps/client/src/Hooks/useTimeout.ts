@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 const useTimeout = (ms: number, autoStart = false) => {
-  const timeout = useRef<number | null>(null);
+  const timeout = useRef<NodeJS.Timeout | null>(null);
 
   const [done, setDone] = useState(true);
 

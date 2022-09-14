@@ -1,7 +1,5 @@
 import React, { FC } from 'react';
-
 import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
-
 import {
   certificationOptionsPage1,
   certificationOptionsPage2,
@@ -9,12 +7,12 @@ import {
 
 import {
   Container,
+  InputCheckBoxContainer,
+  LabelText,
   LeftSide,
   LeftSideContent,
   RightSide,
   RightSideContent,
-  InputCheckBoxContainer,
-  LabelText,
 } from './style';
 
 export const Step9: FC = () => {
@@ -22,7 +20,7 @@ export const Step9: FC = () => {
     <Container>
       <LeftSide>
         <LeftSideContent>
-          <LabelText>Você possui certificacoes de treinamento?</LabelText>
+          <LabelText>Você possui certificações de treinamento?</LabelText>
 
           {certificationOptionsPage1.map((certificationOption, index) => (
             <InputCheckBoxContainer key={index}>

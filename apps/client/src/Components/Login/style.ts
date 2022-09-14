@@ -1,18 +1,17 @@
-import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
-
-import { DesktopSmall, Mobile } from 'Utils/breakpoints';
-
-import { Title } from 'Components/Typography/Title';
 import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
-import { TextInput } from 'Components/Inputs/TextInput';
 import { PasswordInput } from 'Components/Inputs/PasswordInput';
+import { TextInput } from 'Components/Inputs/TextInput';
+import { Title } from 'Components/Typography/Title';
+import Image from 'next/image';
+import styled, { css } from 'styled-components';
+import { DesktopSmall, Mobile } from 'Utils/breakpoints';
 
 interface ContainerProps {
   openToastMessage: boolean;
 }
 
-export const Img = styled.img`
+export const Img = styled(Image)`
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -32,20 +31,20 @@ export const Container = styled.div`
 export const LoginTitle = styled(Title)`
   color: #fc0061;
 
-  font-size: var(--font-size-title-xxxlarge);
+  font-size: var(--font-size-title-xxx-large);
 
   border-bottom: 2px solid #fc0061;
 
   margin-top: 3.5rem;
 
   ${DesktopSmall(css`
-    font-size: var(--font-size-title-xlarge);
+    font-size: var(--font-size-title-x-large);
   `)}
 
   ${Mobile(css`
     margin-top: 2.1rem;
     border-bottom: none;
-    font-size: var(--font-size-title-xlarge);
+    font-size: var(--font-size-title-x-large);
     line-height: 40px;
   `)}
 `;
@@ -237,7 +236,7 @@ export const Button = styled.button`
   font-size: var(--font-size-large);
   font-weight: 700;
 
-  background-color: rbga(297, 0, 97, 1);
+  background-color: rgba(297, 0, 97, 1);
   box-shadow: 1px 1px 0px rgba(255, 236, 153, 1);
 
   :hover {
@@ -262,7 +261,7 @@ export const RegisterButton = styled(InternalLinkButton)`
 
   white-space: nowrap;
 
-  background-color: rbga(297, 0, 97, 1);
+  background-color: rgba(297, 0, 97, 1);
   box-shadow: 1px 1px 0px rgba(255, 236, 153, 1);
   border: none;
 

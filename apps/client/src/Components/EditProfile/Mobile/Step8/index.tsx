@@ -1,11 +1,11 @@
+/* eslint-disable @cspell/spellchecker */
 import React, { FC } from 'react';
-
 import { TextInput } from 'Components/Inputs/TextInput';
 
 import {
   Container,
-  ContentContainer,
   Content,
+  ContentContainer,
   InputTextContainer,
 } from './style';
 
@@ -18,31 +18,31 @@ export const Step8: FC = () => {
             <TextInput
               name="artist.contact.twitter"
               label="Twitter"
-              placeholder="@seutwitter"
+              placeholder="@seuTwitter"
             />
           </InputTextContainer>
 
           <InputTextContainer>
             <TextInput
               name="artist.contact.linkedin"
-              label="Linkedin"
-              placeholder="@seulinkedin"
+              label="LinkedIn"
+              placeholder="@seuLinkedIn"
             />
           </InputTextContainer>
 
           <InputTextContainer>
             <TextInput
               name="artist.contact.tiktok"
-              label="Tiktok"
-              placeholder="@seutiktok"
+              label="TikTok"
+              placeholder="@seuTikTok"
             />
           </InputTextContainer>
 
           <InputTextContainer>
             <TextInput
               name="artist.contact.youtube"
-              label="Youtube"
-              placeholder="@seuyoutube"
+              label="YouTube"
+              placeholder="@seuYouTube"
             />
           </InputTextContainer>
         </Content>

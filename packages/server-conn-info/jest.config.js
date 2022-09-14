@@ -4,5 +4,4 @@ module.exports = {
     name: 'LIB: CONN-INFO',
     color: 'cyan',
   },
-  
-}
+};

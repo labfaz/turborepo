@@ -1,10 +1,9 @@
-import styled from 'styled-components';
-
-import { Field } from 'formik';
-import { Text } from 'Components/Typography/Text';
-import { RadioInput } from 'Components/Inputs/RadioInput';
 import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
+import { RadioInput } from 'Components/Inputs/RadioInput';
 import { TextInput } from 'Components/Inputs/TextInput';
+import { Text } from 'Components/Typography/Text';
+import { Field } from 'formik';
+import styled from 'styled-components';
 
 interface ContentProps {
   isOpen: boolean;

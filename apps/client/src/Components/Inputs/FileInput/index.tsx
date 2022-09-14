@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
-import { useField, useFormikContext } from 'formik';
 import { IoMdCloudUpload } from 'react-icons/io';
+import { useField, useFormikContext } from 'formik';
 
 import { Container, Input, InputFileText } from './style';
 
@@ -17,19 +17,20 @@ interface InputProps {
   width?: number;
   height?: number;
   inputMask?: string;
-  onChange?: (ev: any) => void;
+  onChange?: (ev: React.ChangeEvent<HTMLInputElement>) => void;
+
   options?: OptionsProps[];
   accept?: string;
 }
 
 export const FileInput: FC<InputProps> = ({
   label,
-  placeholder,
-  width,
+  // placeholder,
+  // width,
   value,
-  inputMask,
-  height,
-  options,
+  // inputMask,
+  // height,
+  // options,
   accept,
   ...props
 }) => {
@@ -55,9 +56,14 @@ export const FileInput: FC<InputProps> = ({
               id="file"
               type="file"
               accept={accept || 'image/*'}
-              onChange={(event: any) => {
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                 updateLabel();
-                setFieldValue(`${value}`, event.currentTarget.files[0]);
+                setFieldValue(
+                  `${value}`,
+                  event.currentTarget.files
+                    ? event.currentTarget.files[0]
+                    : null
+                );
               }}
             />
             <label htmlFor="file" className="fileContent">

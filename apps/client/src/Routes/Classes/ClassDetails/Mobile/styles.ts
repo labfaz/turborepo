@@ -1,5 +1,6 @@
-import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import styled from 'styled-components';
 
 interface CustomProps {
   background_color?: string;
@@ -87,7 +88,7 @@ export const CourseInfoDiv = styled.div<CustomProps>`
   }
 `;
 
-export const Image = styled.img`
+export const StyledImage = styled(Image)`
   width: 100vw;
   height: 360px;
   object-fit: cover;

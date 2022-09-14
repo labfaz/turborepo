@@ -1,6 +1,6 @@
 import React from 'react';
+import { StaticRouter } from 'react-router-dom';
 import render from 'Utils/render';
-import { BrowserRouter } from 'react-router-dom';
 
 import Card from '.';
 
@@ -25,18 +25,18 @@ const cardExample = [
 it('renders Card component', () => {
   expect(() =>
     render(
-      <BrowserRouter>
+      <StaticRouter>
         <Card courses={cardExample} isMobile={true} />
-      </BrowserRouter>
+      </StaticRouter>
     )
   ).not.toThrow();
 });
 
 describe('Check content of Card component', () => {
   const { getByText, getByRole } = render(
-    <BrowserRouter>
+    <StaticRouter>
       <Card courses={cardExample} isMobile={true} />
-    </BrowserRouter>
+    </StaticRouter>
   );
 
   it('checks if title rendered', () => {

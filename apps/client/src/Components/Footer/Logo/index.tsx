@@ -1,16 +1,16 @@
 import React, { FC } from 'react';
 import {
   FaFacebookSquare,
-  FaTwitterSquare,
   FaGooglePlusSquare,
-  FaLinkedin,
-  FaYoutubeSquare,
   FaInstagramSquare,
+  FaLinkedin,
+  FaTwitterSquare,
+  FaYoutubeSquare,
 } from 'react-icons/fa';
-
-import Logo from 'Components/Logo';
 import { SocialNetworksLabfaz } from 'Api/SocialNetworksLabfaz';
-import { LogoContainer, Icon, IconContainer, Title } from './style';
+import Logo from 'Components/Logo';
+
+import { Icon, IconContainer, LogoContainer, Title } from './style';
 
 interface LogoProps {
   data: SocialNetworksLabfaz;

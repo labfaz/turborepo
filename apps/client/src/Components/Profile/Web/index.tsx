@@ -1,35 +1,35 @@
+/* eslint-disable @cspell/spellchecker */
 import React, { FC } from 'react';
-import { IoMdCloudDownload } from 'react-icons/io';
-import { GoGear } from 'react-icons/go';
-
-import { User } from 'Context/LoggedUserToken';
-
 import { FaCheckCircle, FaCheckSquare } from 'react-icons/fa';
-
-import {
-  Container,
-  ProfileContentContainer,
-  Aside,
-  Content,
-  UserPhoto,
-  AsideHeader,
-  // UserName,
-  UserLocation,
-  SocialMedias,
-  ButtonContainer,
-  NickName,
-  ContentHeader,
-  ContentTitle,
-  ContentText,
-  UserVerified,
-} from './style';
+import { GoGear } from 'react-icons/go';
+import { IoMdCloudDownload } from 'react-icons/io';
+import { useHistory } from 'react-router';
+import { User } from 'Context/LoggedUserToken';
+import { ShowEditProfile } from 'FeatureFlags';
+import Image from 'next/image';
+import { getUserName } from 'Utils/userUtils';
 
 import idiom_icon from '../idiomIcon.svg';
 import isVerified from '../isVerified.svg';
-import { getUserName } from 'Utils/userUtils';
 import { SocialMediaLinks } from '../SocialMediaLink';
-import { useHistory } from 'react-router';
-import { showEditProfile } from 'FeatureFlags';
+
+import {
+  Aside,
+  AsideHeader,
+  ButtonContainer,
+  Container,
+  Content,
+  ContentHeader,
+  ContentText,
+  ContentTitle,
+  NickName,
+  ProfileContentContainer,
+  SocialMedias,
+  // UserName,
+  UserLocation,
+  UserPhoto,
+  UserVerified,
+} from './style';
 
 interface ProfileProps {
   data: User;
@@ -38,79 +38,77 @@ interface ProfileProps {
 
 const currentYear = new Date().getFullYear();
 
-const Web: FC<ProfileProps> = ({ data, personalProfilePage }) => {
+const AsideContent: FC<ProfileProps> = ({ data, personalProfilePage }) => {
   const history = useHistory();
 
   const handleRedirectToEditProfile = () => {
     history.push('/edit-profile');
   };
+  return (
+    <Aside>
+      <AsideHeader>
+        <UserPhoto>
+          {data.artist.photo_url && (
+            <Image src={data.artist.photo_url} alt="User avatar" />
+          )}
+        </UserPhoto>
+        <NickName level={1}>{getUserName(data)}</NickName>
+        {/* <UserName level={2}>{data.artist?.name}</UserName> */}
+        {data.isVerified && (
+          <UserVerified>
+            Verificado Backstage
+            <Image src={isVerified} alt="isVerify" />
+          </UserVerified>
+        )}
+      </AsideHeader>
 
+      <UserLocation>
+        {data.artist.address.city}, {data.artist.address.state}
+      </UserLocation>
+
+      <hr />
+
+      <SocialMedias>
+        <SocialMediaLinks user={data} ContainerElement="li" />
+      </SocialMedias>
+
+      <hr />
+
+      <ButtonContainer>
+        {data.artist.curriculum && (
+          <a className="downloadFile" href={data.artist.curriculum} download>
+            <IoMdCloudDownload /> BAIXAR CV
+          </a>
+        )}
+
+        {data.artist.medicalReport && (
+          <a className="downloadFile" href={data.artist.medicalReport} download>
+            <IoMdCloudDownload /> BAIXAR LAUDO
+          </a>
+        )}
+
+        {ShowEditProfile() && personalProfilePage && (
+          <button
+            type="button"
+            className="editProfile"
+            onClick={() => handleRedirectToEditProfile()}
+          >
+            <GoGear /> EDITAR PERFIL
+          </button>
+        )}
+      </ButtonContainer>
+
+      <hr className="sideDivider" />
+    </Aside>
+  );
+};
+
+const Web: FC<ProfileProps> = ({ data, personalProfilePage }) => {
   return (
     <Container>
       <ProfileContentContainer>
-        <Aside>
-          <AsideHeader>
-            <UserPhoto>
-              {data.artist.photo_url && (
-                <img src={data.artist.photo_url} alt="User avatar" />
-              )}
-            </UserPhoto>
-            <NickName level={1}>{getUserName(data)}</NickName>
-            {/* <UserName level={2}>{data.artist?.name}</UserName> */}
-            {data.isVerified && (
-              <UserVerified>
-                Verificado Backstage
-                <img src={isVerified} alt="isVerify" />
-              </UserVerified>
-            )}
-          </AsideHeader>
-
-          <UserLocation>
-            {data.artist.address.city}, {data.artist.address.state}
-          </UserLocation>
-
-          <hr />
-
-          <SocialMedias>
-            <SocialMediaLinks user={data} ContainerElement="li" />
-          </SocialMedias>
-
-          <hr />
-
-          <ButtonContainer>
-            {data.artist.curriculum && (
-              <a
-                className="downloadFile"
-                href={data.artist.curriculum}
-                download
-              >
-                <IoMdCloudDownload /> BAIXAR CV
-              </a>
-            )}
-
-            {data.artist.medicalReport && (
-              <a
-                className="downloadFile"
-                href={data.artist.medicalReport}
-                download
-              >
-                <IoMdCloudDownload /> BAIXAR LAUDO
-              </a>
-            )}
-
-            {showEditProfile && personalProfilePage && (
-              <button
-                type="button"
-                className="editProfile"
-                onClick={() => handleRedirectToEditProfile()}
-              >
-                <GoGear /> EDITAR PERFIL
-              </button>
-            )}
-          </ButtonContainer>
-
-          <hr className="sideDivider" />
-        </Aside>
+        {/* Função menor foi separada para organização. */}
+        <AsideContent data={data} personalProfilePage={personalProfilePage} />
 
         <Content>
           <ContentHeader>
@@ -126,20 +124,22 @@ const Web: FC<ProfileProps> = ({ data, personalProfilePage }) => {
 
             <div>
               <ContentText>
-                {data.artist.technical.area[0].describe}
+                {data.artist.technical.area[0]?.describe}
               </ContentText>
               <ul>
-                <li>{data.artist.technical.area[0].name.toUpperCase()}</li>
+                <li>{data.artist.technical.area[0]?.name.toUpperCase()}</li>
                 <li>
                   EXPERIENCIA :
                   {` ${
                     currentYear -
-                    parseInt(data.artist.technical.area[0].started_year)
+                    parseInt(
+                      data.artist.technical.area[0]?.started_year as string
+                    )
                   } `}
                   ANOS
                 </li>
                 <li>
-                  {data.artist.technical.area[0].technical_formation.toUpperCase()}
+                  {data.artist.technical.area[0]?.technical_formation.toUpperCase()}
                 </li>
 
                 {data.artist.technical.cnpj_type !== 'Nenhum' && (
@@ -174,7 +174,7 @@ const Web: FC<ProfileProps> = ({ data, personalProfilePage }) => {
                 {data.artist.technical.idiom &&
                   data.artist.technical.idiom.map((idiom, index) => (
                     <li key={index}>
-                      <img src={idiom_icon} alt={idiom.name} /> {idiom.name}
+                      <Image src={idiom_icon} alt={idiom.name} /> {idiom.name}
                     </li>
                   ))}
               </ul>
@@ -185,8 +185,8 @@ const Web: FC<ProfileProps> = ({ data, personalProfilePage }) => {
             <ContentTitle level={1}>Certificações</ContentTitle>
 
             <div>
-              {data.artist.technical.area[0].certificate &&
-                data.artist.technical.area[0].certificate.map(
+              {data.artist.technical.area[0]?.certificate &&
+                data.artist.technical.area[0]?.certificate.map(
                   (certificate, index) => (
                     <span key={index}>
                       <FaCheckSquare />

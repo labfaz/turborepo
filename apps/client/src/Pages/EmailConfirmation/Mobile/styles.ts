@@ -1,7 +1,5 @@
+import { Container, Rectangle, Text } from 'Pages/Construction/Mobile/style';
 import styled from 'styled-components';
-
-import { Text, Rectangle } from 'Pages/Construction/Mobile/style';
-import { Container } from 'Pages/Construction/Mobile/style';
 
 export const ErrorContainer = styled(Container)`
   min-height: auto;

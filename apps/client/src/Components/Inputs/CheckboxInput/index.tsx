@@ -13,23 +13,19 @@ export interface InputProps {
   text?: string;
   inputMask?: string;
   inputRightSide?: boolean;
+  children?: React.ReactNode;
 }
 
 export const CheckboxInput: FC<InputProps> = ({
   label,
   type,
-  placeholder,
-  width,
   value,
-  inputMask,
-  text,
-  height,
   children,
   ...props
 }) => {
   return (
     <Container>
-      <Input type="checkbox" id={value} {...props} value={value} />
+      <Input type={type || 'checkbox'} id={value} {...props} value={value} />
 
       <div className="checkbox_input"></div>
 

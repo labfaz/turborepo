@@ -1,9 +1,9 @@
 import React from 'react';
-import render from 'Utils/render';
+import { AboutUsData } from 'Api/AboutUs';
 import { mockImage } from 'Utils/Image';
+import render from 'Utils/render';
 
 import WelcomeComponent from './index';
-import { AboutUsData } from 'Api/AboutUs';
 
 const image = mockImage({
   url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsegredosdomundo.r7.com%2Fwp-content%2Fuploads%2F2019%2F10%2Fornitorrinco-principais-caracteristicas-10-curiosidades-4.jpg&f=1&nofb=1',
@@ -30,7 +30,7 @@ const data = {
 
 describe('About us component', () => {
   const mockedData: AboutUsData = data;
-  it('render component whiout errors', () => {
+  it('render component without errors', () => {
     expect(() => render(<WelcomeComponent data={mockedData.welcome_data} />));
   });
 
@@ -44,7 +44,7 @@ describe('About us component', () => {
     );
   });
 
-  it('Should render image with corret alt', () => {
+  it('Should render image with correct alt', () => {
     const Welcome = render(<WelcomeComponent data={mockedData.welcome_data} />);
     const image = Welcome.getByRole('img');
 

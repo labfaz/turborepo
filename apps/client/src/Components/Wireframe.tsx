@@ -1,11 +1,9 @@
+import type { ReactNode } from 'react';
 import React, { FC } from 'react';
-import styled from 'styled-components';
-import useLocalStorage from 'Hooks/useLocalStorage';
-
-import FullPage from 'Components/FullPage';
 import Footer from 'Components/Footer';
+import FullPage from 'Components/FullPage';
 import Header from 'Components/Header';
-import SkipNav from 'Components/SkipNav';
+import styled from 'styled-components';
 
 const Container = styled(FullPage)`
   display: flex;
@@ -13,12 +11,6 @@ const Container = styled(FullPage)`
 
   --background-color: var(--background-black);
   background-color: var(--background-color);
-
-  &.contrast * {
-    color: #ff0 !important;
-    text-shadow: 1px 1px 0 #000 !important;
-    filter: contrast(120%);
-  }
 `;
 
 const Content = styled.div`
@@ -29,18 +21,16 @@ const Content = styled.div`
   justify-content: center;
 `;
 
-export const Wireframe: FC = ({ children }) => {
-  const [isContrasted, setIsContrasted] = useLocalStorage<boolean | undefined>(
-    'highContrast',
-    false
-  );
+type TWireframe = {
+  children?: ReactNode;
+};
 
+export const Wireframe: FC<TWireframe> = ({ children }) => {
   return (
-    <Container className={isContrasted ? 'contrast' : ''}>
-      <SkipNav setIsContrasted={setIsContrasted} />
+    <Container>
       <Header />
-      <Content id="content">{children}</Content>
-      <Footer id="footer" />
+      <Content>{children}</Content>
+      <Footer />
     </Container>
   );
 };

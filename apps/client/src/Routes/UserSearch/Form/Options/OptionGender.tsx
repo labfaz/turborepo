@@ -1,15 +1,16 @@
+/* eslint-disable @cspell/spellchecker */
 import React, { Dispatch, FC, SetStateAction } from 'react';
+// import { Text } from "Components/Typography/Text"
+import { UserSearchParams } from 'Api/UserSearch';
+import { Title } from 'Components/Typography/Title';
+
 import {
-  OptionDiv,
-  BadgeInput,
   BadgeDiv,
+  BadgeInput,
+  OptionDiv,
   OptionWrapper,
 } from '../../UserSearchPage/style';
 
-import { Title } from 'Components/Typography/Title';
-// import { Text } from "Components/Typography/Text"
-
-import { UserSearchParams } from 'Api/UserSearch';
 interface OptionsProps {
   setFunction: Dispatch<SetStateAction<UserSearchParams>>;
 }
@@ -63,7 +64,7 @@ export const OptionGender: FC<OptionsProps> = ({ setFunction }) => {
               const value = target.checked;
               setFunction((formData) => {
                 const updateFormData = { ...formData };
-                updateFormData['LBTQOnly'] = value;
+                updateFormData['LGBTQOnly'] = value;
                 updateFormData['showNothing'] = false;
                 return updateFormData;
               });

@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 import {
+  Desktop,
+  DesktopLarge,
   DesktopSmall,
   Mobile,
   MobileSmall,
-  Desktop,
-  DesktopLarge,
 } from 'Utils/breakpoints';
 
 export const Container = styled.div`
@@ -86,6 +86,7 @@ export const Subtitle = styled.p`
   `)}
 `;
 
+// eslint-disable-next-line @cspell/spellchecker
 export const YoutubePlayerResponsive = styled.div`
   margin: 0;
   padding: 0;

@@ -1,8 +1,8 @@
+import { Title } from 'Components/Typography/Title';
 import styled, { css } from 'styled-components';
+import { DesktopLarge, DesktopSmall } from 'Utils/breakpoints';
 
 import RectangleImage from '../Rectangle.png';
-import { DesktopLarge, DesktopSmall } from 'Utils/breakpoints';
-import { Title } from 'Components/Typography/Title';
 
 export const Container = styled.div`
   display: flex;
@@ -28,7 +28,7 @@ export const Triangle = styled.div`
 `;
 
 export const Rectangle = styled.div`
-  background-image: url(${RectangleImage});
+  background-image: url(${RectangleImage as never});
   height: 20rem;
   display: flex;
   justify-content: space-between;

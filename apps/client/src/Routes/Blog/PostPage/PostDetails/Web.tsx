@@ -1,18 +1,15 @@
 import React, { FC } from 'react';
-
-import {
-  MainTextContainer,
-  PostTitle,
-  DateContainer,
-  Date,
-  Divisor,
-} from './styles';
-
+import Markdown from 'Components/Markdown';
+import SocialMediaIcons from 'Components/SocialMediaIcons';
 import { formatPostDate } from 'Utils/formatPostDate';
 
-import Markdown from 'Components/Markdown';
-
-import SocialMediaIcons from 'Components/SocialMediaIcons';
+import {
+  Date,
+  DateContainer,
+  Divisor,
+  MainTextContainer,
+  PostTitle,
+} from './styles';
 
 interface DisplayProps {
   title: string;
@@ -22,7 +19,7 @@ interface DisplayProps {
 
 export const Web: FC<DisplayProps> = ({ title, created_at, content }) => {
   const yearRegExp = /[0-9]{4}/;
-  const isYear = yearRegExp.test(formatPostDate(created_at)?.hour);
+  const isYear = yearRegExp.test(formatPostDate(created_at)?.hour as string);
 
   return (
     <>

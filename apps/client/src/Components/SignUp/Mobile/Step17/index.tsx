@@ -1,20 +1,21 @@
+/* eslint-disable @cspell/spellchecker */
+import type { ChangeEvent } from 'react';
 import React, { FC } from 'react';
-import { useFormikContext } from 'formik';
-
 import { RadioInput } from 'Components/Inputs/RadioInput';
+import { useFormikContext } from 'formik';
 // import { TextInput } from 'Components/Inputs/TextInput'
 import { OnlyNumbers } from 'Utils/inputRegex';
 
 import {
+  CnpjContainer,
+  CnpjContent,
   Container,
-  ContentContainer,
   Content,
+  ContentContainer,
   InputRadioContainer,
+  InputText,
   LabelText,
   TextContainer,
-  CnpjContainer,
-  CpnjContent,
-  InputText,
 } from './style';
 
 interface Step17Props {
@@ -33,7 +34,7 @@ export const Step17: FC = () => {
       <ContentContainer>
         <Content>
           <LabelText>
-            Você possui CNPJ? <p className="obrigatory"> *</p>
+            Você possui CNPJ? <p className="required"> *</p>
             {errors.artist?.technical?.is_cnpj && (
               <span className="errorMessage">
                 {errors.artist.technical.is_cnpj}
@@ -76,7 +77,7 @@ export const Step17: FC = () => {
                   placeholder="Digite seu CNPJ"
                   label="Número do CNPJ"
                   inputMask="99.999.999/9999-99"
-                  onChange={(ev: any) =>
+                  onChange={(ev: ChangeEvent<HTMLInputElement>) =>
                     setFieldValue('cnpj_number', OnlyNumbers(ev.target.value))
                   }
                 />
@@ -89,7 +90,7 @@ export const Step17: FC = () => {
       {values.artist.technical.is_cnpj === 'true' && (
         <CnpjContainer>
           <ContentContainer>
-            <CpnjContent>
+            <CnpjContent>
               <LabelText>Seu CNPJ se enquadra em:</LabelText>
 
               <InputRadioContainer>
@@ -145,7 +146,7 @@ export const Step17: FC = () => {
                   label="Outro"
                 />
               </InputRadioContainer>
-            </CpnjContent>
+            </CnpjContent>
           </ContentContainer>
         </CnpjContainer>
       )}

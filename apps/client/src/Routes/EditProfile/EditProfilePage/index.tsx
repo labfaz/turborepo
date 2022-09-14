@@ -1,7 +1,7 @@
+import React, { FC } from 'react';
 import { useCurrentUser } from 'Api/Profile';
 import LoadingFullPage from 'Components/LoadingFullPage';
 import Error from 'Pages/Error';
-import React, { FC } from 'react';
 
 import Display from './Display';
 

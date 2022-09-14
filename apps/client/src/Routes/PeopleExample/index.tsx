@@ -1,8 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { Route, RouteComponentProps, Switch } from 'react-router-dom';
-import { Router } from 'Routes';
-
 import LoadingFullPage from 'Components/LoadingFullPage';
+import { Router } from 'Routes';
 
 const ListAllPeopleExample = lazy(() => import('./ListAllPeople'));
 const ShowPersonExample = lazy(() => import('./ShowPerson'));

@@ -3,7 +3,7 @@ import React, { FC, useCallback } from 'react';
 import Display from './Display';
 
 export const LoginPage: FC = () => {
-  const handleSubmit = useCallback(() => {}, []);
+  const handleSubmit = useCallback(() => undefined, []);
 
   return <Display onSubmit={handleSubmit} />;
 };

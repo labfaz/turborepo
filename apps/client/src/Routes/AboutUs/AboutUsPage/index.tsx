@@ -1,22 +1,20 @@
 import React, { FC } from 'react';
+import { useAboutUsData, useTeamData } from 'Api/AboutUs';
+import { useAboutUsBannerInfo } from 'Api/AboutUsBannerInfo';
+import LoadingFullPage from 'Components/LoadingFullPage';
+import Error from 'Pages/Error';
+import { mockImage } from 'Utils/Image';
 
 import Display from './Display';
 
-import Error from 'Pages/Error';
-import LoadingFullPage from 'Components/LoadingFullPage';
-
-import { mockImage } from 'Utils/Image';
-
-import { useAboutUsBannerInfo } from 'Api/AboutUsBannerInfo';
-import { useAboutUsdata, useTeamData } from 'Api/AboutUs';
-
 export const AboutUsPage: FC = () => {
-  const aboutUs = useAboutUsdata();
+  const aboutUs = useAboutUsData();
   const banner = useAboutUsBannerInfo();
   const team = useTeamData();
 
   const mockBannerInfo = {
     title: 'Sobre nós',
+    // eslint-disable-next-line @cspell/spellchecker
     subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     image: mockImage({
       url: 'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Whats_App_Image_2020_12_19_at_17_23_28_439c4529a0.jpeg',
@@ -48,7 +46,7 @@ export const AboutUsPage: FC = () => {
     return (
       <Display
         about_data={null}
-        team={team.data!}
+        team={team.data || null}
         banner_data={mockBannerInfo}
       />
     );
@@ -60,7 +58,7 @@ export const AboutUsPage: FC = () => {
 
     return (
       <Display
-        about_data={aboutUs.data!}
+        about_data={aboutUs.data || null}
         team={null}
         banner_data={mockBannerInfo}
       />
@@ -71,7 +69,11 @@ export const AboutUsPage: FC = () => {
     // console.log(aboutUs.error);
 
     return (
-      <Display about_data={null} team={team.data!} banner_data={banner.data!} />
+      <Display
+        about_data={null}
+        team={team.data || null}
+        banner_data={banner.data || null}
+      />
     );
   }
 
@@ -82,7 +84,7 @@ export const AboutUsPage: FC = () => {
       <Display
         about_data={aboutUs.data}
         team={null}
-        banner_data={banner.data!}
+        banner_data={banner.data || null}
       />
     );
   }

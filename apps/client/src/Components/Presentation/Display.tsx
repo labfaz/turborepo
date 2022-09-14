@@ -1,14 +1,15 @@
 import React, { FC } from 'react';
-
 import { YoutubePlayer } from 'Components/YoutubePlayer';
+
 import {
   Container,
-  TextBlock,
-  YoutubePlayerResponsive,
-  TextTitle,
-  Subtitle,
   Line,
+  Subtitle,
+  TextBlock,
+  TextTitle,
+  YoutubePlayerResponsive,
 } from './styles';
+
 export interface DisplayProps {
   Title: string;
   SubTitle: string;

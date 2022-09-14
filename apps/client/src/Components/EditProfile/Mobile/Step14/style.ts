@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-
 import { Text } from 'Components/Typography/Text';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -32,7 +31,7 @@ export const LabelText = styled(Text)`
   color: #fafafa;
   position: relative;
 
-  .obrigatory {
+  .required {
     color: red;
   }
 

@@ -1,25 +1,17 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Partners from './';
 import Display from './Display';
+import Partners from './';
 
 const data = [
   {
     name: 'Partner1',
-    logo: [
-      {
-        url: 'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Logo_Sample_8f2bd43037.png',
-      },
-    ],
+    logo: Image,
   },
   {
     name: 'Partner2',
-    logo: [
-      {
-        url: 'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Logo_Sample_8f2bd43037.png',
-      },
-    ],
+    logo: Image,
   },
 ];
 

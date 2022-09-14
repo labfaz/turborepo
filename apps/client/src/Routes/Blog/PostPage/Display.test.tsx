@@ -1,14 +1,14 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-
-import render from 'Utils/render';
-import BlogPageDisplay from './Display';
+import { StaticRouter } from 'react-router-dom';
 import { BlogBannerInfo } from 'Api/BlogBannerInfo';
 import { BlogPost } from 'Api/BlogPost';
 import { mockImage } from 'Utils/Image';
+import render from 'Utils/render';
+
+import BlogPageDisplay from './Display';
 
 const mockPost = (content: string): BlogPost => ({
-  title: 'astgfsdhgdsfgsd',
+  title: 'titulo',
   content,
   description: '',
   id: 213,
@@ -35,9 +35,9 @@ describe('Post page', () => {
     };
     expect(() =>
       render(
-        <BrowserRouter>
+        <StaticRouter>
           <BlogPageDisplay data={mockedData} post={mockPost('')} />
-        </BrowserRouter>
+        </StaticRouter>
       )
     ).not.toThrow();
   });
@@ -57,9 +57,9 @@ describe('Post page', () => {
     };
 
     const { getAllByRole } = render(
-      <BrowserRouter>
+      <StaticRouter>
         <BlogPageDisplay data={mockedData} post={mockPost('')} />
-      </BrowserRouter>
+      </StaticRouter>
     );
 
     expect(getAllByRole('heading', { level: 1 })[0]).toHaveTextContent('Blog');

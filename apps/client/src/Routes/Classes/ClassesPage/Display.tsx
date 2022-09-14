@@ -1,19 +1,15 @@
 import React, { FC } from 'react';
-
-import { MainContainer, MainContent } from './styles';
-
-import Introduction from './Introduction';
-import StayTuned from './StayTuned';
-import CardRowComponent from './CardRowComponent';
-
+import { Course } from 'Api/Courses';
+import { CoursesPageIntroduction } from 'Api/CoursesPageIntroduction';
+import { CoursesPageSections } from 'Api/CoursesPageSections';
+import { ApiStayTuned } from 'Api/StayTuned';
 import Wireframe from 'Components/Wireframe';
-
 import useMobile from 'Hooks/useMobile';
 
-import { CoursesPageIntroduction } from 'Api/CoursesPageIntroduction';
-import { ApiStayTuned } from 'Api/StayTuned';
-import { CoursesPageSections } from 'Api/CoursesPageSections';
-import { Course } from 'Api/Courses';
+import CardRowComponent from './CardRowComponent';
+import Introduction from './Introduction';
+import StayTuned from './StayTuned';
+import { MainContainer, MainContent } from './styles';
 
 export interface Props {
   data: {
@@ -27,6 +23,7 @@ export interface Props {
   sections: CoursesPageSections;
 }
 
+// eslint-disable-next-line abcsize/abcsize
 export const Display: FC<Props> = ({
   data,
   introduction,

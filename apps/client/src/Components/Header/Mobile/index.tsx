@@ -1,30 +1,29 @@
 import React, { FC, useState } from 'react';
 import { FaBars } from 'react-icons/fa';
-
-import {
-  showAboutUs,
-  showBlog,
-  showCourses,
-  showObservatorio,
-  showProfileMine,
-  showUserSearch,
-} from 'FeatureFlags';
-
+import { useHistory } from 'react-router';
 import Logo from 'Components/Logo';
+import { useCurrentUserToken } from 'Context/LoggedUserToken';
 import {
-  Container,
-  ContainerIcon,
+  ShowAboutUs,
+  ShowBlog,
+  ShowCourses,
+  ShowObservatorio,
+  ShowProfileMine,
+  ShowUserSearch,
+} from 'FeatureFlags';
+import { navLink, navLinks } from 'Utils/navLinks';
+
+import {
   Button,
   CloseMenu,
-  NavLink,
+  Container,
+  ContainerIcon,
   IconButton,
   LogoLink,
-  NavBar,
   LogoutButton,
+  NavBar,
+  NavLink,
 } from './style';
-import { useCurrentUserToken } from 'Context/LoggedUserToken';
-import { navLink, navLinks } from 'Utils/navLinks';
-import { useHistory } from 'react-router';
 
 const Link = ({ link, show }: { link: navLink; show: boolean }) =>
   !show ? <></> : <NavLink href={link.path}> {link.label} </NavLink>;
@@ -48,20 +47,20 @@ export const Mobile: FC = () => {
       <div className={open ? 'navBar active' : 'navBar'}>
         <NavBar>
           <NavLink href="/"> HOME </NavLink>
-          {<Link show={showAboutUs} link={navLinks['about us']} />}
-          {<Link show={showCourses} link={navLinks['cursos']} />}
-          {<Link show={showBlog} link={navLinks['blog']} />}
+          {<Link show={ShowAboutUs()} link={navLinks['about us']} />}
+          {<Link show={ShowCourses()} link={navLinks['cursos']} />}
+          {<Link show={ShowBlog()} link={navLinks['blog']} />}
           {
             <Link
-              show={showUserSearch}
+              show={ShowUserSearch()}
               link={navLinks['busca profissionais']}
             />
           }
-          {<Link show={showObservatorio} link={navLinks['observatorio']} />}
+          {<Link show={ShowObservatorio()} link={navLinks['observatorio']} />}
 
           {isLoggedIn ? (
             <>
-              <Link show={showProfileMine} link={navLinks['perfil']} />
+              <Link show={ShowProfileMine()} link={navLinks['perfil']} />
               <LogoutButton onClick={() => handleLogoutUser()}>
                 SAIR
               </LogoutButton>

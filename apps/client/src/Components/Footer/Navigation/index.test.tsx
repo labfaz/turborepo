@@ -1,24 +1,24 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-
+import { StaticRouter } from 'react-router-dom';
 import render from 'Utils/render';
+
 import Navigation from './index';
 
 it('renders Navigation component', () => {
   expect(() =>
     render(
-      <BrowserRouter>
+      <StaticRouter>
         <Navigation />
-      </BrowserRouter>
+      </StaticRouter>
     )
   ).not.toThrow();
 });
 
-describe('Check links succesfully redirects to another page', () => {
+describe('Check links successfully redirects to another page', () => {
   const { getByText, getAllByText } = render(
-    <BrowserRouter>
+    <StaticRouter>
       <Navigation />
-    </BrowserRouter>
+    </StaticRouter>
   );
 
   it('checks text', () => {
@@ -51,14 +51,15 @@ describe('Check links succesfully redirects to another page', () => {
 
 describe('Check user session links', () => {
   const { getByText } = render(
-    <BrowserRouter>
+    <StaticRouter>
       <Navigation />
-    </BrowserRouter>
+    </StaticRouter>
   );
 
   it('check sign up button', () => {
     expect(getByText('CADASTRE-SE').closest('a')).toHaveAttribute(
       'href',
+      // eslint-disable-next-line @cspell/spellchecker
       '/signup'
     );
   });

@@ -1,8 +1,7 @@
-import styled from 'styled-components';
-
 import Header from 'Components/Header';
-import { Title } from 'Components/Typography/Title';
 import { Text } from 'Components/Typography/Text';
+import { Title } from 'Components/Typography/Title';
+import styled from 'styled-components';
 
 interface StepProps {
   currentStep: number;
@@ -116,7 +115,7 @@ export const FormHeader = styled(Header)`
 `;
 
 export const FormTitle = styled(Title)`
-  font-size: var(--font-size-title-xlarge);
+  font-size: var(--font-size-title-x-large);
   color: #ffffff;
 
   margin-left: 1.7rem;

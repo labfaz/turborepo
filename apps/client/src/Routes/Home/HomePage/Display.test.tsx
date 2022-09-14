@@ -1,11 +1,12 @@
+/* eslint-disable @cspell/spellchecker */
 import React from 'react';
-import render from 'Utils/render';
-import { BrowserRouter } from 'react-router-dom';
-
-import HomePageDisplay from './Display';
+import { StaticRouter } from 'react-router-dom';
+import { Homepage } from 'Api/Homepage';
 import { HomepageBannerInfo } from 'Api/HomepageBannerInfo';
 import { HomePartners } from 'Api/HomePartners';
-import { Homepage } from 'Api/Homepage';
+import render from 'Utils/render';
+
+import HomePageDisplay from './Display';
 // import { CoursePresentation } from "Api/CoursePresentation";
 
 const mockedData: HomepageBannerInfo = {
@@ -22,25 +23,17 @@ const mockedData: HomepageBannerInfo = {
   },
 };
 
-const mockedTitle: string = 'Exemplo';
-const mockedSubtitle: string = 'Exemplo';
-const mockedVideo: string = 'https://www.youtube.com/watch?v=UrUJyKsLQeU';
+const mockedTitle = 'Exemplo';
+const mockedSubtitle = 'Exemplo';
+const mockedVideo = 'https://www.youtube.com/watch?v=UrUJyKsLQeU';
 const mockedPartners: HomePartners[] = [
   {
     name: 'Partner1',
-    logo: [
-      {
-        url: 'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Logo_Sample_8f2bd43037.png',
-      },
-    ],
+    logo: Image,
   },
   {
     name: 'Partner2',
-    logo: [
-      {
-        url: 'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Logo_Sample_8f2bd43037.png',
-      },
-    ],
+    logo: Image,
   },
 ];
 
@@ -76,7 +69,7 @@ describe('Home Page', () => {
   it('renders without exploding', () => {
     expect(() =>
       render(
-        <BrowserRouter>
+        <StaticRouter>
           <HomePageDisplay
             data={mockedData}
             title={mockedTitle}
@@ -86,14 +79,14 @@ describe('Home Page', () => {
             coursesText={mockedCoursesTexts}
             // coursesData={mockedCoursesData}
           />
-        </BrowserRouter>
+        </StaticRouter>
       )
     ).not.toThrow();
   });
 
   it('displays the data message', () => {
     const { getAllByRole } = render(
-      <BrowserRouter>
+      <StaticRouter>
         <HomePageDisplay
           data={mockedData}
           title={mockedTitle}
@@ -103,10 +96,10 @@ describe('Home Page', () => {
           coursesText={mockedCoursesTexts}
           // coursesData={mockedCoursesData}
         />
-      </BrowserRouter>
+      </StaticRouter>
     );
 
-    // expect retrieved data to be displayed
+    // expect retrieved data to get displayed
     expect(getAllByRole('heading', { level: 1 })[0]).toHaveTextContent(
       'LABFAZ'
     );

@@ -1,6 +1,6 @@
+import { useMutation, useQuery } from 'react-query';
 import { api, SuccessObject } from 'Api';
 import useFetchApi from 'Hooks/useFetchApi';
-import { useMutation, useQuery } from 'react-query';
 
 export interface Course {
   id: string;
@@ -61,10 +61,7 @@ export interface ExistsSubscription {
   };
 }
 
-export const subscribeToCourse = (
-  courseId: string,
-  userToken: string | undefined
-) =>
+export const subscribeToCourse = (courseId: string, userToken?: string) =>
   api
     .post<SubscriptionDeps>(
       `/courses/${courseId}/subscribe`,
@@ -82,10 +79,7 @@ export const useSubscribeToCouse = (courseId: string, userToken?: string) =>
     subscribeToCourse(courseId, userToken)
   );
 
-export const checkSubscription = (
-  courseId: string,
-  userToken: string | undefined
-) =>
+export const checkSubscription = (courseId: string, userToken?: string) =>
   api
     .get<SuccessObject<ExistsSubscription>>(
       `/courses/${courseId}/subscription`,
@@ -127,8 +121,8 @@ const isAvailable = ({
   // const difference = !!date && timeDifference(date, actualDate)
   // return has_subscription && available && !!difference && difference < 1
   const lastClassDate =
-    class_dates?.length > 0
-      ? new Date(class_dates[class_dates.length - 1]).getTime()
+    class_dates.length > 0
+      ? new Date(class_dates[class_dates.length - 1] as string).getTime()
       : -Infinity;
   const subscriptionStart = new Date(subscription_start_date).getTime();
   const subscriptionFinish = new Date(subscription_finish_date).getTime();
@@ -147,9 +141,13 @@ const sortCourses = (a: Course, b: Course) => {
   if (b_available && !a_available) return 1;
 
   const a_first_class_time =
-    a.class_dates?.length > 0 ? new Date(a.class_dates[0]).getTime() : Infinity;
+    a.class_dates.length > 0
+      ? new Date(a.class_dates[0] as string).getTime()
+      : Infinity;
   const b_first_class_time =
-    b.class_dates?.length > 0 ? new Date(b.class_dates[0]).getTime() : Infinity;
+    b.class_dates.length > 0
+      ? new Date(b.class_dates[0] as string).getTime()
+      : Infinity;
   return a_first_class_time - b_first_class_time;
 };
 

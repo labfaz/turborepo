@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
 import { TeamsData } from 'Api/AboutUs';
+import Drawer from 'Components/Drawer';
+import { Title } from 'Components/Typography/Title';
+
+import { Wrapper } from '../styles';
 
 import StaffCard from './StaffCard';
 import { StaffGrid, StaffHeader } from './styles';
-import { Wrapper } from '../styles';
-import { Title } from 'Components/Typography/Title';
-import Drawer from 'Components/Drawer';
 
 interface StaffProps {
   data: TeamsData;

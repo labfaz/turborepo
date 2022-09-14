@@ -1,10 +1,11 @@
+/* eslint-disable @cspell/spellchecker */
 import React from 'react';
+import { StaticRouter } from 'react-router-dom';
+import { StaffObject, Team, TeamsData } from 'Api/AboutUs';
+import { mockImage } from 'Utils/Image';
 import render from 'Utils/render';
-import { BrowserRouter } from 'react-router-dom';
 
 import Staff from '.';
-import { TeamsData, StaffObject, Team } from 'Api/AboutUs';
-import { mockImage } from 'Utils/Image';
 
 // import { screen, logRoles } from "@testing-library/dom"
 
@@ -50,30 +51,30 @@ describe('Staffs component', () => {
   it('Should render without error', () => {
     expect(() =>
       render(
-        <BrowserRouter>
+        <StaticRouter>
           <Staff data={teams} />
-        </BrowserRouter>
+        </StaticRouter>
       )
     ).not.toThrow();
   });
 
   it('Should render 2 drawers', () => {
     const component = render(
-      <BrowserRouter>
+      <StaticRouter>
         <Staff data={mockedData} />
-      </BrowserRouter>
+      </StaticRouter>
     );
 
     const cards = component.getAllByRole('heading', { level: 1 });
 
-    expect(cards[2].innerHTML).toBe(' Coordenação ');
+    expect(cards[2]?.innerHTML).toBe(' Coordenação ');
   });
 
   it('Should have a header with the staff title', () => {
     const component = render(
-      <BrowserRouter>
+      <StaticRouter>
         <Staff data={mockedData} />
-      </BrowserRouter>
+      </StaticRouter>
     );
 
     const header = component.getAllByRole('heading', { level: 1 });
@@ -83,9 +84,9 @@ describe('Staffs component', () => {
 
   it('Should have a subtitle header', () => {
     const component = render(
-      <BrowserRouter>
+      <StaticRouter>
         <Staff data={mockedData} />
-      </BrowserRouter>
+      </StaticRouter>
     );
 
     const header = component.getByRole('heading', { level: 3 });

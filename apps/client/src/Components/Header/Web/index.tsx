@@ -1,30 +1,28 @@
 import React, { FC } from 'react';
-
-import {
-  showAboutUs,
-  showBlog,
-  showCourses,
-  showProfileMine,
-  showUserSearch,
-  showObservatorio,
-} from 'FeatureFlags';
-
+import { useHistory } from 'react-router';
 import Logo from 'Components/Logo';
-import useEvent from 'Hooks/useEvent';
 import { useCurrentUserToken } from 'Context/LoggedUserToken';
+import {
+  ShowAboutUs,
+  ShowBlog,
+  ShowCourses,
+  ShowObservatorio,
+  ShowProfileMine,
+  ShowUserSearch,
+} from 'FeatureFlags';
+import useEvent from 'Hooks/useEvent';
 import { navLink, navLinks } from 'Utils/navLinks';
 
 import {
-  Container,
-  Navbar,
-  UserSession,
   Button,
-  NavLink,
-  RedirectLink,
+  Container,
   LogIn,
   LogoutButton,
+  Navbar,
+  NavLink,
+  RedirectLink,
+  UserSession,
 } from './style';
-import { useHistory } from 'react-router';
 
 const Link = ({ label, path }: navLink) => (
   <NavLink href={path}> {label} </NavLink>
@@ -50,16 +48,16 @@ export const Web: FC = () => {
         <Logo />
       </RedirectLink>
       <Navbar>
-        {showAboutUs && <Link {...navLinks['about us']} />}
-        {showCourses && <Link {...navLinks['cursos']} />}
-        {showBlog && <Link {...navLinks['blog']} />}
-        {showUserSearch && <Link {...navLinks['busca profissionais']} />}
-        {showObservatorio && <Link {...navLinks['observatorio']} />}
+        {ShowAboutUs() && <Link {...navLinks['about us']} />}
+        {ShowCourses() && <Link {...navLinks['cursos']} />}
+        {ShowBlog() && <Link {...navLinks['blog']} />}
+        {ShowUserSearch() && <Link {...navLinks['busca profissionais']} />}
+        {ShowObservatorio() && <Link {...navLinks['observatorio']} />}
       </Navbar>
       <div className="line" />
       <UserSession>
         {isLoggedIn ? (
-          showProfileMine && (
+          ShowProfileMine() && (
             <>
               <Button href={navLinks['perfil'].path}> PERFIL </Button>
               <LogoutButton onClick={() => handleLogoutUser()}>

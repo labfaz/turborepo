@@ -1,7 +1,9 @@
-import { api, ErrorObject, SuccessObject } from 'Api';
-import { GenderSpecific, User } from 'Context/LoggedUserToken';
+/* eslint-disable @cspell/spellchecker */
 import { useEffect } from 'react';
 import { useQuery } from 'react-query';
+import { api, ErrorObject, SuccessObject } from 'Api';
+import { GenderSpecific, User } from 'Context/LoggedUserToken';
+import { debug } from 'Utils/debugger';
 import { getUserName } from 'Utils/userUtils';
 
 export interface UsersList {
@@ -21,7 +23,7 @@ export const useUsersList = () =>
 export const useUsersListOnce = () => {
   const usersList = useUsersList();
 
-  // make only 1 fetch per visit, as this is a heavy one
+  // make 1 fetch per visit, as this is a heavy one
   useEffect(() => {
     if (!usersList.data) usersList.refetch();
   }, [usersList, usersList.refetch, usersList.data]);
@@ -34,9 +36,9 @@ export interface UserSearchParams {
   city: string;
   area: string;
   nonMenOnly: boolean;
-  LBTQOnly: boolean;
+  LGBTQOnly: boolean;
   drtOnly: boolean;
-  cpnjOnly: boolean;
+  CNPJOnly: boolean;
   ceacOnly: boolean;
   meiOnly: boolean;
   pcdOnly: boolean;
@@ -68,14 +70,15 @@ export const useUserSearch = (params: UserSearchParams): UserSearchResults => {
     return { isLoading: false, users: [], error: undefined };
 
   // pass errors forward, if they exist
-  if (error) return { isLoading: false, error: error!, users: undefined };
+  if (error)
+    return { isLoading: false, error: error || null, users: undefined };
 
   // if loading, pass it forward
   if (isLoading || !data)
     return { isLoading: true, users: undefined, error: undefined };
 
   // prepare data
-  const users = data!.users
+  const users = data.users
     // remove all users that don't fit the criteria
     .filter(filterUser(params))
     // sort the ones left
@@ -88,8 +91,8 @@ const isPrefiroNao = (str: string) => /prefiro n/i.test(str);
 
 const filterUser =
   ({
-    LBTQOnly,
-    cpnjOnly,
+    LGBTQOnly,
+    CNPJOnly,
     drtOnly,
     ceacOnly,
     meiOnly,
@@ -100,14 +103,15 @@ const filterUser =
     city,
     nameOrProfession,
   }: UserSearchParams) =>
+  // eslint-disable-next-line abcsize/abcsize
   (user: User): boolean => {
-    console.log('pcdOnly', pcdOnly);
+    debug('userSearch', 'pcdOnly ' + pcdOnly);
 
     // if a *_filer value is true, the user passes the filter
-    const LGBTQ_filter = !LBTQOnly || isLGBTQ(user);
+    const LGBTQ_filter = !LGBTQOnly || isLGBTQ(user);
     const nonMenOnly_filter = !nonMenOnly || isMale(user);
     const pcdOnly_filter = !pcdOnly || isPcd(user);
-    const cpnj_filter = !cpnjOnly || isCpnj(user);
+    const cnpj_filter = !CNPJOnly || isCnpj(user);
     const drt_filter = !drtOnly || isDrt(user);
     const ceact_filter = !ceacOnly || isCeac(user);
     const mei_filter = !meiOnly || isMei(user);
@@ -122,7 +126,7 @@ const filterUser =
       LGBTQ_filter &&
       nonMenOnly_filter &&
       pcdOnly_filter &&
-      cpnj_filter &&
+      cnpj_filter &&
       drt_filter &&
       ceact_filter &&
       mei_filter &&
@@ -136,7 +140,7 @@ const filterUser =
 //   - if return > 0, b is before a
 //   - if return < 0, a is before b
 const sortUsers = (userA: User, userB: User): number => {
-  // check if one of the users is verified
+  // check if one of the users has verification
   if (userA.isVerified && !userB.isVerified) return -1;
   if (userB.isVerified && !userA.isVerified) return 1;
 
@@ -145,8 +149,8 @@ const sortUsers = (userA: User, userB: User): number => {
   if (hasCurriculum(userB) && !hasCurriculum(userA)) return 1;
 
   // if user has more contact information
-  if (socialAmmount(userA) > socialAmmount(userB)) return -1;
-  if (socialAmmount(userB) > socialAmmount(userA)) return 1;
+  if (socialAmount(userA) > socialAmount(userB)) return -1;
+  if (socialAmount(userB) > socialAmount(userA)) return 1;
 
   // else, return alfabetic order by name
   const aName = getUserName(userA);
@@ -167,7 +171,7 @@ const isLGBTQ = (user: User) =>
 const isMale = (user: User) =>
   !(user.artist.gender === 'masculino' || isPrefiroNao(user.artist.gender));
 const isPcd = (user: User) => !(user.artist?.medicalReport === null);
-const isCpnj = (user: User) => user.artist?.technical?.is_cnpj;
+const isCnpj = (user: User) => user.artist?.technical?.is_cnpj;
 const isDrt = (user: User) => user.artist?.technical?.is_drt;
 const isCeac = (user: User) => user.artist?.technical?.is_ceac;
 // const isNrt = (user: User) => user.artist?.technical?.??????
@@ -179,7 +183,7 @@ const compareStrings = (real: string, filterStr: string) => {
   return processedRead.includes(processedFilter);
 };
 const isInArea = (user: User, area: string) =>
-  compareStrings(user.artist?.technical?.area[0]?.name, area);
+  compareStrings(user.artist?.technical?.area[0]?.name as string, area);
 const isInCity = (user: User, city: string) =>
   compareStrings(user.artist.address.city, city);
 const hasNameOrProfession = (user: User, nameOrProfession: string) =>
@@ -189,7 +193,7 @@ const hasNameOrProfession = (user: User, nameOrProfession: string) =>
 
 const hasCurriculum = (user: User) =>
   !!user.artist.curriculum && user.artist.curriculum !== '';
-const socialAmmount = (user: User) =>
+const socialAmount = (user: User) =>
   Object.keys(user.artist.contact).filter(
     (contact) => !!contact && contact !== ''
   ).length;

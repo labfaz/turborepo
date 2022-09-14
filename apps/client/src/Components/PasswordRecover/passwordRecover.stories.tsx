@@ -1,9 +1,10 @@
 import React from 'react';
-import RecoverForm from '.';
-import PasswordChange from './passwordChange';
-
 import { storiesOf } from '@storybook/react';
 
+import PasswordChange from './passwordChange';
+import RecoverForm from '.';
+
+// eslint-disable-next-line @cspell/spellchecker
 const token = 'aksjdkasjhdkahdkashdkasjdhaskjdhakjdhksjhda';
 
 storiesOf('Components/Recover', module).add('recover', () => <RecoverForm />);

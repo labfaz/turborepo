@@ -1,12 +1,17 @@
-import styled from 'styled-components';
-import { Mobile, DesktopSmall } from 'Utils/breakpoints';
-import { css } from 'styled-components';
-import { Text } from 'Components/Typography/Text';
 import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
+import { Text } from 'Components/Typography/Text';
+import Image from 'next/image';
+import styled, { css } from 'styled-components';
+import { DesktopSmall, Mobile } from 'Utils/breakpoints';
 
-interface GridProps {
-  position: any;
-}
+type GridProps = {
+  position:
+    | {
+        column: number;
+        row: number;
+      }
+    | undefined;
+};
 
 interface ButtonColors {
   colors: string;
@@ -44,8 +49,8 @@ export const Container = styled.div`
 
 export const CardContainer = styled.div<GridProps>`
   grid-area: 'CardContainer';
-  grid-column: ${(p) => p.position.column};
-  grid-row: ${(p) => p.position.row};
+  grid-column: ${(p) => p.position?.column};
+  grid-row: ${(p) => p.position?.row};
   width: 100%;
   background-color: var(--background-pink);
   display: flex;
@@ -60,7 +65,7 @@ export const CardContainer = styled.div<GridProps>`
   `)}
 `;
 
-export const CardImage = styled.img`
+export const CardImage = styled(Image)`
   object-fit: cover;
   object-position: center;
   height: 140px;

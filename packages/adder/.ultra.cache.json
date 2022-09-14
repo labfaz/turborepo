@@ -1,0 +1,12 @@
+{
+  "files": {
+    "dist": "1661183848879.1428",
+    ".babelrc.json": "019c33392924c2c11e7cad9e29e450cfc8190de0",
+    "jest.config.js": "2ddd7b5747616806faeed7955d9c6cba961e90fe",
+    "package.json": "b9f56ea9ba314e79f3686a50c6a36037f936f1f4",
+    "src/index.test.ts": "1e0c61f971a614774ab5b3781010e7d627a2e96f",
+    "src/index.ts": "d7b55851a3e95a05937dd4c33052a887739ed29e",
+    "tsconfig.json": "85b81615bfd81f05ffd8f2fcd8e1413edc3f751d"
+  },
+  "deps": {}
+}

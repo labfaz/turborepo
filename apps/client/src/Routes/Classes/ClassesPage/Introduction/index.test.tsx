@@ -1,10 +1,10 @@
+/* eslint-disable @cspell/spellchecker */
 import React from 'react';
+import { StaticRouter } from 'react-router-dom';
+import { CoursesPageIntroduction } from 'Api/CoursesPageIntroduction';
 import render from 'Utils/render';
-import { BrowserRouter } from 'react-router-dom';
 
 import Introduction from '.';
-
-import { CoursesPageIntroduction } from 'Api/CoursesPageIntroduction';
 
 const introExample: CoursesPageIntroduction = {
   title: 'Lorem & Ipsum',
@@ -23,18 +23,18 @@ const introExample: CoursesPageIntroduction = {
 it('renders Introduction', () => {
   expect(() =>
     render(
-      <BrowserRouter>
+      <StaticRouter>
         <Introduction data={introExample} />
-      </BrowserRouter>
+      </StaticRouter>
     )
   ).not.toThrow();
 });
 
 describe('Check content of Introduction', () => {
   const { getByText, getByRole } = render(
-    <BrowserRouter>
+    <StaticRouter>
       <Introduction data={introExample} />
-    </BrowserRouter>
+    </StaticRouter>
   );
 
   it('checks if title rendered', () => {

@@ -1,13 +1,13 @@
 import React from 'react';
-
 import render from 'Utils/render';
+
 import Newsletter from './index';
 
 it('renders Newsletter component', () => {
   expect(() => render(<Newsletter />)).not.toThrow();
 });
 
-describe('Checks links succesfully redirects to another page', () => {
+describe('Checks links successfully redirects to another page', () => {
   const { getByText, getByTestId } = render(<Newsletter />);
 
   it('checks text', () => {

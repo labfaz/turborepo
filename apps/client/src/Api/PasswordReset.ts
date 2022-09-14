@@ -1,5 +1,5 @@
-import { api, ErrorObject } from 'Api';
 import { useMutation } from 'react-query';
+import { api, ErrorObject } from 'Api';
 
 interface AskResetPassResponseData {
   status: string;

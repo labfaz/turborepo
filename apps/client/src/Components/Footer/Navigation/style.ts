@@ -1,7 +1,6 @@
-import styled, { css } from 'styled-components';
-
 import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
 import { Text } from 'Components/Typography/Text';
+import styled, { css } from 'styled-components';
 import { DesktopSmall } from 'Utils/breakpoints';
 
 export const NavigationContainer = styled.div`

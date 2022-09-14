@@ -1,10 +1,10 @@
+import Image from 'next/image';
 import styled, { css } from 'styled-components';
-
 import {
-  MobileSmall,
   DesktopSmall,
   Mobile,
   MobileLarge,
+  MobileSmall,
 } from 'Utils/breakpoints';
 
 export const Container = styled.div`
@@ -40,7 +40,7 @@ export const Container = styled.div`
   `)}
 `;
 
-export const Frame = styled.img`
+export const Frame = styled(Image)`
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -101,7 +101,7 @@ export const Line = styled.div`
 `;
 
 export const PageTitle = styled.h1`
-  font-size: var(--font-size-title-xxlarge);
+  font-size: var(--font-size-title-xx-large);
   justify-self: center;
   margin-top: 3vh;
   margin-bottom: 2vh;

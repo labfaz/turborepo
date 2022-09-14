@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
-import { BannerDiv, Image } from '../styles';
+
+import { BannerDiv, StyledImage } from '../styles';
 
 export interface BannerProps {
-  img: string;
+  img?: string;
 }
 
 export const Banner: FC<BannerProps> = ({ img }) => {
@@ -11,7 +12,7 @@ export const Banner: FC<BannerProps> = ({ img }) => {
 
   return (
     <BannerDiv>
-      <Image src={img || fallbackImage} />
+      <StyledImage src={img || fallbackImage} />
     </BannerDiv>
   );
 };

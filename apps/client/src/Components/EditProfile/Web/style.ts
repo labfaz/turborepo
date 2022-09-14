@@ -1,6 +1,5 @@
-import styled, { css } from 'styled-components';
-
 import { Title } from 'Components/Typography/Title';
+import styled, { css } from 'styled-components';
 import { DesktopSmall } from 'Utils/breakpoints';
 
 interface StepProps {
@@ -22,11 +21,11 @@ export const Container = styled.div`
   `)}
 `;
 export const FormTitle = styled(Title)`
-  font-size: var(--font-size-title-xxxxlarge);
+  font-size: var(--font-size-title-xxxx-large);
   color: #fc0061;
 
   ${DesktopSmall(css`
-    font-size: var(--font-size-title-xlarge);
+    font-size: var(--font-size-title-x-large);
   `)}
 `;
 

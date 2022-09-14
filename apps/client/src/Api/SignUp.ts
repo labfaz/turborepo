@@ -1,9 +1,12 @@
+/* eslint-disable @cspell/spellchecker */
+/* eslint-disable abcsize/abcsize */
 import { api, SuccessObject } from 'Api';
+import { FormikValues } from 'formik';
 
 const toNumString = (numStr: string) =>
   isNaN(parseInt(numStr)) ? '' : `${parseInt(numStr)}`;
 
-const bodyFormParse = (values: any) => {
+const bodyFormParse = (values: FormikValues) => {
   const formData = new FormData();
 
   formData.append('email', values.email);
@@ -39,8 +42,8 @@ const bodyFormParse = (values: any) => {
   formData.append('artist[address][city]', values.artist?.address?.city);
   formData.append('artist[address][cep]', values.artist?.address?.cep);
   formData.append(
-    'artist[address][neighbourhood]',
-    values.artist?.address?.neighbourhood
+    'artist[address][neighborhood]',
+    values.artist?.address?.neighborhood
   );
   if (values.artist?.address?.number)
     formData.append(
@@ -141,7 +144,7 @@ const headers = {
   'Content-Type': 'multipart/form-data',
 };
 
-export const SignUp = async (values: any) => {
+export const SignUp = async (values: FormikValues) => {
   const formParsed = bodyFormParse(values);
 
   // for (var pair of formParsed.entries()) {

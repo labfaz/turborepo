@@ -1,23 +1,21 @@
 import React, { FC, useRef, useState } from 'react';
-import { useFormikContext } from 'formik';
 import { IoMdArrowDropdownCircle } from 'react-icons/io';
-
-import { TextInput } from 'Components/Inputs/TextInput';
 import { RadioInput } from 'Components/Inputs/RadioInput';
-
+import { TextInput } from 'Components/Inputs/TextInput';
+import { useFormikContext } from 'formik';
 import { certificationOptionsMobile } from 'Utils/selectOptionsData';
 
 import {
-  Container,
-  ContentContainer,
-  Content,
-  InputRadioContainer,
-  SelectContainer,
-  LabelText,
-  CheckboxContainer,
   CertificationOptionsContainer,
+  CheckboxContainer,
+  Container,
+  Content,
+  ContentContainer,
   InputCheckbox,
+  InputRadioContainer,
   InputSelect,
+  LabelText,
+  SelectContainer,
   TechnicalContainer,
 } from './style';
 
@@ -36,7 +34,7 @@ export const Step16: FC = () => {
 
   const { values, errors } = useFormikContext<ErrorProps>();
 
-  const closeModal = (e: any) => {
+  const closeModal = (e: React.MouseEvent<HTMLDivElement>) => {
     if (modalRef.current === e.target) {
       setIsIdiomOptionsOpen(false);
     }
@@ -49,7 +47,7 @@ export const Step16: FC = () => {
           <SelectContainer
             onClick={() => setIsIdiomOptionsOpen(!isIdiomOptionsOpen)}
           >
-            <label>Voce possui certificacoes de treinamento?</label>
+            <label>Voce possui certificações de treinamento?</label>
             <InputSelect>
               Selecione
               <IoMdArrowDropdownCircle />
@@ -57,7 +55,7 @@ export const Step16: FC = () => {
           </SelectContainer>
 
           <LabelText>
-            Você possui Certificação/DRT? <p className="obrigatory"> *</p>
+            Você possui Certificação/DRT? <p className="required"> *</p>
             <span className="errorMessage">
               {errors.artist?.technical?.is_drt &&
                 errors.artist.technical.is_drt}
@@ -94,7 +92,7 @@ export const Step16: FC = () => {
           </TechnicalContainer>
 
           <LabelText>
-            Você possui CEAC? <p className="obrigatory"> *</p>
+            Você possui CEAC? <p className="required"> *</p>
             <span className="errorMessage">
               {errors.artist?.technical?.is_ceac &&
                 errors.artist.technical.is_ceac}

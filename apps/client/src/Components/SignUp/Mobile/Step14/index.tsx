@@ -1,12 +1,12 @@
+/* eslint-disable @cspell/spellchecker */
 import React, { FC } from 'react';
-import { useFormikContext } from 'formik';
-
 import { RadioInput } from 'Components/Inputs/RadioInput';
+import { useFormikContext } from 'formik';
 
 import {
   Container,
-  ContentContainer,
   Content,
+  ContentContainer,
   InputRadioContainer,
   LabelText,
 } from './style';
@@ -30,7 +30,7 @@ export const Step14: FC = () => {
         <Content>
           <LabelText>
             Formação técnica e profissional{' '}
-            <label className="obrigatory"> *</label>
+            <label className="required"> *</label>
             <span>
               {errors.artist?.technical?.areas?.technical_formation &&
                 errors.artist.technical.areas.technical_formation}

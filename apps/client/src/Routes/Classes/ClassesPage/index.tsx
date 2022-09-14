@@ -1,12 +1,10 @@
 import React, { FC } from 'react';
-
-import LoadingFullPage from 'Components/LoadingFullPage';
-import Error from 'Pages/Error';
-
 import { useCourses } from 'Api/Courses';
 import { useCoursesPageIntroduction } from 'Api/CoursesPageIntroduction';
-import { useStayTuned } from 'Api/StayTuned';
 import { useCoursesPageSections } from 'Api/CoursesPageSections';
+import { useStayTuned } from 'Api/StayTuned';
+import LoadingFullPage from 'Components/LoadingFullPage';
+import Error from 'Pages/Error';
 
 import Display from './Display';
 
@@ -69,6 +67,7 @@ export const ClassesPage: FC = () => {
         stayTuned={stayTuned.data}
         sections={{
           first_subtitle: '',
+          // eslint-disable-next-line @cspell/spellchecker
           first_title: 'Cursos IATEC',
           second_title: 'Oficinas',
           second_subtitle: '',

@@ -1,20 +1,16 @@
 import React, { FC } from 'react';
-
 import { Course } from 'Api/Courses';
+import Wireframe from 'Components/Wireframe';
+import useMobile from 'Hooks/useMobile';
 
 import About from './About';
 import Details from './Details';
 import Introduction from './Introduction';
-
-import Wireframe from 'Components/Wireframe';
-
+import MobileCoursePage from './Mobile';
 import { Container, FirstRow, SecondRow } from './styles';
 
-import useMobile from 'Hooks/useMobile';
-import MobileCoursePage from './Mobile';
-
 export interface Props {
-  data: Course;
+  data: Course | null;
 }
 
 export const Display: FC<Props> = ({ data }) => {
@@ -32,25 +28,28 @@ export const Display: FC<Props> = ({ data }) => {
             <Container>
               <FirstRow>
                 <Introduction
-                  title={data?.name}
-                  description={data?.short_description}
-                  tags={data?.tags}
+                  title={data?.name as string}
+                  description={data?.short_description as string}
+                  tags={data?.tags as string[]}
                 />
-                <About about={data?.about} requirements={data?.requirements} />
+                <About
+                  about={data?.about as string}
+                  requirements={data?.requirements as string}
+                />
               </FirstRow>
               <SecondRow>
                 <Details
-                  id={data?.id}
-                  teacher={data?.teacher}
-                  details={data?.detail}
-                  font={data?.fonte}
-                  banner={data?.banner}
-                  start_date={data?.subscription_start_date}
-                  finish_date={data?.subscription_finish_date}
-                  class_dates={data?.class_dates}
-                  link={data?.link}
-                  available={data?.available}
-                  has_subscription={data?.has_subscription}
+                  id={data?.id as string}
+                  teacher={data?.teacher as string[]}
+                  details={data?.detail as string[]}
+                  font={data?.fonte as string[]}
+                  banner={data?.banner as string}
+                  start_date={data?.subscription_start_date as string}
+                  finish_date={data?.subscription_finish_date as string}
+                  class_dates={data?.class_dates as string[]}
+                  link={data?.link as string}
+                  available={data?.available as boolean}
+                  has_subscription={data?.has_subscription as boolean}
                 />
               </SecondRow>
             </Container>

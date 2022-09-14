@@ -78,7 +78,7 @@ export const Container = styled.div<ContainerProps>`
 
       position: relative;
 
-      .obrigatory {
+      .required {
         display: inline;
         color: red;
 

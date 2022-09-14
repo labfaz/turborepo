@@ -1,6 +1,6 @@
 import { strapi } from 'Api';
-import { Asset2Image, Image } from 'Utils/Image';
 import useFetchApi from 'Hooks/useFetchApi';
+import { Asset2Image, Image } from 'Utils/Image';
 import StrapiAsset from 'Utils/StrapiAsset';
 
 export interface CoursesPageIntroduction {

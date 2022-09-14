@@ -1,28 +1,26 @@
 import React, { FC, useState } from 'react';
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { Course } from 'Api/Courses';
-
-import { CourseInfoDiv, TagContainer, DrawerButton } from '../styles';
-
-import { Title } from 'Components/Typography/Title';
-import { Text } from 'Components/Typography/Text';
 import Label from 'Components/Label';
-import Details from './Details';
-
+import { Text } from 'Components/Typography/Text';
+import { Title } from 'Components/Typography/Title';
+import { format } from 'date-fns';
 import Button from 'Routes/Classes/SubscriptionButton';
 
-import { format } from 'date-fns';
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { CourseInfoDiv, DrawerButton, TagContainer } from '../styles';
+
+import Details from './Details';
 
 interface CourseResumeProps {
-  course: Course;
+  course: Course | null;
 }
 
 export const CourseInfo: FC<CourseResumeProps> = ({ course }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const finish_date = course.subscription_finish_date;
+  const finish_date = course?.subscription_finish_date;
   const now = new Date().getTime();
-  const finish = new Date(finish_date).getTime();
+  const finish = new Date(finish_date as string).getTime();
   const passedFinish = finish < now;
 
   return (
@@ -37,9 +35,9 @@ export const CourseInfo: FC<CourseResumeProps> = ({ course }) => {
         })}
       </TagContainer>
       <Button
-        courseId={course?.id}
-        isAvailabe={course?.available}
-        link={course?.link}
+        courseId={course?.id as string}
+        isAvailable={course?.available}
+        link={course?.link as string}
         hasSubscription={course?.has_subscription}
       >
         {' '}
@@ -58,9 +56,9 @@ export const CourseInfo: FC<CourseResumeProps> = ({ course }) => {
 
       <Details
         isOpen={isOpen}
-        details={course?.detail}
-        teachers={course?.teacher}
-        fonte={course?.fonte}
+        details={course?.detail as string[]}
+        teachers={course?.teacher as string[]}
+        fonte={course?.fonte as string[]}
       />
 
       <DrawerButton onClick={() => setIsOpen(!isOpen)}>

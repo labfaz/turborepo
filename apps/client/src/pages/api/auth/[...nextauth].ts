@@ -1,4 +1,4 @@
-// Prisma adapter for NextAuth, optional and can be removed
+// Prisma adapter for NextAuth, optional and can get removed
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import NextAuth, { type NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';

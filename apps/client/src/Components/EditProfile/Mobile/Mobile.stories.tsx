@@ -1,13 +1,13 @@
 import React from 'react';
+import { StaticRouter } from 'react-router-dom';
 import { storiesOf } from '@storybook/react';
-import { BrowserRouter } from 'react-router-dom';
 
 import { Mobile } from '.';
 
 storiesOf('Components/SignUp', module)
   .addParameters({ component: Mobile })
   .add('mobile', () => (
-    <BrowserRouter>
-      <Mobile buttonType="button" />
-    </BrowserRouter>
+    <StaticRouter>
+      <Mobile buttonType="button" token="" />
+    </StaticRouter>
   ));

@@ -1,12 +1,14 @@
-import styled, { css } from 'styled-components';
-import { Title } from 'Components/Typography/Title';
-import { Text } from 'Components/Typography/Text';
 import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
-import { Mobile, DesktopSmall } from 'Utils/breakpoints';
+import { Text } from 'Components/Typography/Text';
+import { Title } from 'Components/Typography/Title';
+import Image from 'next/image';
+import styled, { css } from 'styled-components';
+import { DesktopSmall, Mobile } from 'Utils/breakpoints';
+
 import {
-  DescriptionBox,
   BottomWrapper,
   DateWrapper,
+  DescriptionBox,
 } from '../../../../Components/CoursesPresentation/Card/styles';
 
 export const Container = styled.div`
@@ -29,7 +31,7 @@ export const Container = styled.div`
   `)}
 `;
 
-export const Image = styled.img`
+export const StyledImage = styled(Image)`
   width: 100%;
   height: 250px;
   border-radius: 14px 14px 0 0;

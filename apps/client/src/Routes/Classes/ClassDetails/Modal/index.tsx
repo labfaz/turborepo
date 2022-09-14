@@ -1,9 +1,8 @@
-import React, { FC, useState, useRef } from 'react';
-
-import { Container, LinkModal, Button, Notification } from './styles';
-
+import React, { FC, useRef, useState } from 'react';
 import { format } from 'date-fns';
 import { timeDifference } from 'Utils/formatPostDate';
+
+import { Button, Container, LinkModal, Notification } from './styles';
 
 export interface Props {
   available: boolean;

@@ -1,12 +1,13 @@
+/* eslint-disable @cspell/spellchecker */
 import React from 'react';
+import { StaticRouter } from 'react-router-dom';
 import render from 'Utils/render';
-import { BrowserRouter } from 'react-router-dom';
 
 import Card, { CardProps } from '.';
 
 const cardExample: CardProps = {
   id: '123abc',
-  name: 'IX Workshop de Iluminacao',
+  name: 'IX Workshop de Iluminação',
   tag: 'audiovisual',
   short_description:
     'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.',
@@ -30,18 +31,18 @@ const cardExample: CardProps = {
 it('renders Card component', () => {
   expect(() =>
     render(
-      <BrowserRouter>
+      <StaticRouter>
         <Card {...cardExample} />
-      </BrowserRouter>
+      </StaticRouter>
     )
   ).not.toThrow();
 });
 
 describe('Check content of Card component', () => {
   const { getByText, getByRole } = render(
-    <BrowserRouter>
+    <StaticRouter>
       <Card {...cardExample} />
-    </BrowserRouter>
+    </StaticRouter>
   );
 
   it('checks if name rendered', () => {

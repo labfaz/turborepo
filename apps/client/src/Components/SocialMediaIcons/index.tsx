@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
-import { Wrapper, ShareText, IconsWrapper, IconDiv } from './styles';
 import {
-  AiFillLinkedin,
-  AiFillGooglePlusSquare,
-  AiFillTwitterSquare,
   AiFillFacebook,
+  AiFillGooglePlusSquare,
+  AiFillLinkedin,
+  AiFillTwitterSquare,
   AiOutlineWhatsApp,
 } from 'react-icons/ai';
-
 import { useMobile } from 'Hooks/useMobile';
+
+import { IconDiv, IconsWrapper, ShareText, Wrapper } from './styles';
 
 export const SocialMediaIcons: FC = () => {
   const isMobile = useMobile();

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styled, { css } from 'styled-components';
 import { DesktopSmall, Mobile } from 'Utils/breakpoints';
 
@@ -48,7 +49,7 @@ export const Logos = styled.div`
   `)};
 `;
 
-export const Image = styled.img`
+export const StyledImage = styled(Image)`
   height: 4rem;
   object-fit: contain;
 

@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
-
-import useMobile from 'Hooks/useMobile';
 import Mobile from 'Components/Header/Mobile';
 import Web from 'Components/Header/Web';
+import useMobile from 'Hooks/useMobile';
 
 export const Header: FC = () => {
   if (useMobile()) return <Mobile />;

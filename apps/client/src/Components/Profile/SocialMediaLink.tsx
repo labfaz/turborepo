@@ -1,16 +1,17 @@
+/* eslint-disable @cspell/spellchecker */
 import React, { ElementType, FC } from 'react';
-
 import { IconType } from 'react-icons';
-import { MdEmail } from 'react-icons/md';
-import { SiTiktok } from 'react-icons/si';
 import {
   FaFacebookSquare,
   FaInstagramSquare,
+  FaLinkedin,
   FaTwitterSquare,
   FaYoutubeSquare,
-  FaLinkedin,
 } from 'react-icons/fa';
-
+import { MdEmail } from 'react-icons/md';
+import { SiTiktok } from 'react-icons/si';
+import ExternalLink from 'Components/ExternalLink';
+import { User } from 'Context/LoggedUserToken';
 import {
   getFacebookLink,
   getInstagramLink,
@@ -19,9 +20,6 @@ import {
   getTwitterLink,
   getYoutubeLink,
 } from 'Utils/userUtils';
-
-import ExternalLink from 'Components/ExternalLink';
-import { User } from 'Context/LoggedUserToken';
 
 export interface SocialMediaLinkProps {
   label: string;

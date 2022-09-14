@@ -40,7 +40,7 @@ export const Content = styled.div`
       font-size: var(--font-size-small);
     }
 
-    .obrigatory {
+    .required {
       display: inline;
       color: red;
     }

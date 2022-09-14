@@ -1,21 +1,20 @@
 import React, { FC, useRef, useState } from 'react';
+import { IoMdArrowDropdownCircle } from 'react-icons/io';
+import { RadioInput } from 'Components/Inputs/RadioInput';
+import { TextInput } from 'Components/Inputs/TextInput';
 import { useFormikContext } from 'formik';
 
-import { RadioInput } from 'Components/Inputs/RadioInput';
-
 import {
+  CheckboxContainer,
   Container,
-  ContentContainer,
   Content,
-  SelectContainer,
+  ContentContainer,
   IdiomOptionsContainer,
   InputSelect,
-  CheckboxContainer,
-  OtherTechnicalArea,
   LabelText,
+  OtherTechnicalArea,
+  SelectContainer,
 } from './style';
-import { TextInput } from 'Components/Inputs/TextInput';
-import { IoMdArrowDropdownCircle } from 'react-icons/io';
 
 interface ErrorProps {
   artist: {
@@ -34,7 +33,7 @@ export const Step13: FC = () => {
   const [isIdiomOptionsOpen, setIsIdiomOptionsOpen] = useState(false);
   const modalRef = useRef<HTMLInputElement | null>(null);
 
-  const closeModal = (e: any) => {
+  const closeModal = (e: React.MouseEvent<HTMLDivElement>) => {
     if (modalRef.current === e.target) {
       setIsIdiomOptionsOpen(false);
     }
@@ -49,7 +48,7 @@ export const Step13: FC = () => {
           >
             <LabelText>
               O seu trabalho na técnica está ligado à qual dessas áreas?
-              <label className="obrigatory"> *</label>
+              <label className="required"> *</label>
               <span>
                 {errors.artist?.technical?.areas?.name &&
                   errors.artist.technical.areas.name}
@@ -85,7 +84,7 @@ export const Step13: FC = () => {
               name="artist.technical.areas.started_year"
               placeholder="2010"
               inputMask="9999"
-              obrigatory
+              required
             />
           </SelectContainer>
         </Content>

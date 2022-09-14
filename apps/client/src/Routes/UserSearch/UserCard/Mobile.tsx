@@ -1,20 +1,23 @@
+/* eslint-disable @cspell/spellchecker */
 import React, { FC } from 'react';
-import {
-  Container,
-  MobileWrapper,
-  MobileMainContent,
-  Image,
-  Description,
-  CardTitle,
-  TextWrapper,
-  LabelWrapper,
-  VerifiedWrapper,
-  TitleWrapper,
-} from './styles';
+import { Link } from 'react-router-dom';
+import Image from 'next/image';
 
 import Label from '../../../Components/Label';
 import { getIcon } from '../../../Utils/IconDictionary';
-import { Link } from 'react-router-dom';
+
+import {
+  CardTitle,
+  Container,
+  Description,
+  LabelWrapper,
+  MobileMainContent,
+  MobileWrapper,
+  StyledImage,
+  TextWrapper,
+  TitleWrapper,
+  VerifiedWrapper,
+} from './styles';
 import verifiedIcon from './verified.png';
 
 interface UserCardData {
@@ -44,13 +47,13 @@ export const Mobile: FC<UserCardData> = ({ data }) => {
       <Container>
         <MobileWrapper>
           <MobileMainContent>
-            <Image src={photo} />
+            <StyledImage src={photo} />
             <TextWrapper>
               <TitleWrapper>
                 <CardTitle>{name}</CardTitle>
                 {isVerified ? (
                   <VerifiedWrapper>
-                    <img src={verifiedIcon} alt="verificade" />
+                    <Image src={verifiedIcon} alt="verificade" />
                   </VerifiedWrapper>
                 ) : (
                   <></>

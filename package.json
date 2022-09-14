@@ -11,24 +11,55 @@
     }
   },
   "cspell": {
+    "import": [
+      "@cspell/dict-pt-br/cspell-ext.json"
+    ],
     "words": [
       "abcsize",
+      "backoffice",
+      "binárie",
+      "ceac",
+      "cisgênero",
+      "commitlint",
+      "djpfs",
       "documentarians",
+      "formik",
       "gitmoji",
-      "slugified",
-      "trpc",
+      "hookform",
+      "IATEC",
+      "labfaz",
+      "LABFAZBLACK",
+      "LABFAZPINK",
+      "LGBTQ",
+      "NBIN",
       "NEXTAUTH",
+      "observatorio",
+      "Pageview",
+      "PageView",
+      "slugified",
+      "strapi",
       "superjson",
+      "syncpack",
       "tailwindcss",
-      "typesafe"
-    ]
+      "todes",
+      "trpc",
+      "typesafe",
+      "unlogged",
+      "verificade",
+      "vlibras",
+      "Wireframe"
+    ],
+    "language": "en,pt,pt-BR"
   },
   "dependencies": {
-    "@mdx-js/preact": "1"
+    "@cspell/dict-pt-br": "^2.1.3",
+    "@mdx-js/preact": "1",
+    "@types/jest": "^29.0.0"
   },
   "devDependencies": {
     "@changesets/cli": "2.22.0",
     "@commitlint/config-conventional": "17.0.3",
+    "@testing-library/jest-dom": "^5.16.5",
     "commitizen": "4.2.4",
     "commitizen-emoji": "1.0.5",
     "commitlint": "17.0.3",
@@ -36,7 +67,7 @@
     "danger-plugin-lint-report": "1.7.0",
     "danger-plugin-todos": "1.3.1",
     "danger-plugin-yarn": "1.5.1",
-    "eslint": "8.21.0",
+    "eslint": "8.23.0",
     "eslint-config-labfaz": "0.0.0",
     "husky": "8.0.0",
     "lint-staged": "13.0.3",

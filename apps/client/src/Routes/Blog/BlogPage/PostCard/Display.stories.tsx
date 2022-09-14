@@ -1,8 +1,8 @@
 import React from 'react';
+import { StaticRouter } from 'react-router-dom';
 import { storiesOf } from '@storybook/react';
-import { BrowserRouter } from 'react-router-dom';
-
 import { BlogPost } from 'Api/BlogPost';
+
 import PostCardDisplay from './Display';
 // import Web from './Web'
 // import Mobile from './Mobile'
@@ -23,9 +23,9 @@ const posts = Array.from({ length: 4 }, () => samplePost);
 storiesOf('Pages/Blog/PostCard', module)
   .addParameters({ component: PostCardDisplay })
   .add('responsive', () => (
-    <BrowserRouter>
+    <StaticRouter>
       <PostCardDisplay posts={posts} />
-    </BrowserRouter>
+    </StaticRouter>
   ));
-// .add("web", () => <BrowserRouter><Web {...posts[0]} /></BrowserRouter>)
-// .add("mobile", () => <BrowserRouter><Mobile {...posts[0]}/></BrowserRouter>)
+// .add("web", () => <StaticRouter><Web {...posts[0]} /></StaticRouter>)
+// .add("mobile", () => <StaticRouter><Mobile {...posts[0]}/></StaticRouter>)

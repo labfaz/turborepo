@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { FaWhatsapp, FaRegEnvelope } from 'react-icons/fa';
+import { FaRegEnvelope, FaWhatsapp } from 'react-icons/fa';
 
-import { ContactContainer, Icon, Title, Subtitle } from './style';
+import { ContactContainer, Icon, Subtitle, Title } from './style';
 
 interface ContactProps {
   phone: string;

@@ -1,6 +1,5 @@
-import styled, { css } from 'styled-components';
-
 import { Text } from 'Components/Typography/Text';
+import styled, { css } from 'styled-components';
 import { DesktopSmall } from 'Utils/breakpoints';
 
 export const Container = styled.div`

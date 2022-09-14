@@ -1,20 +1,21 @@
-// the object form of an image to be used by visual components
+// the object form of an image to use by visual components
 
 import StrapiAsset from './StrapiAsset';
 
 export type imageExtension = string;
 export type imageMime = string;
 
-export interface Image {
+export type Image = {
   url: string;
-  alternativeText: string;
-  caption: string;
-  width: number;
-  height: number;
-  ext: imageExtension;
-}
+  alternativeText?: string;
+  caption?: string;
+  width?: number;
+  height?: number;
+  ext?: imageExtension;
+  name?: string;
+};
 
-// transform a strapi asset object into an image object (remove unecessary info)
+// transform a strapi asset object into an image object (remove unnecessary info)
 export const Asset2Image = ({
   url,
   alternativeText,

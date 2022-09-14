@@ -1,12 +1,13 @@
 import React from 'react';
+import { StaticRouter } from 'react-router-dom';
 import { storiesOf } from '@storybook/react';
-import { BrowserRouter } from 'react-router-dom';
-
-import Drawer from '.';
 import StaffCard from 'Routes/AboutUs/AboutUsPage/StaffComponent/StaffCard';
 import { mockImage } from 'Utils/Image';
 
+import Drawer from '.';
+
 const description =
+  // eslint-disable-next-line @cspell/spellchecker
   'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus.';
 const title = 'TEAM #1';
 
@@ -30,8 +31,10 @@ const Card = <StaffCard data={staff} />;
 storiesOf('Components/Drawer', module)
   .addParameters({ component: Drawer })
   .add('Drawer', () => (
-    <BrowserRouter>
+    <StaticRouter>
       {' '}
-      <Drawer description={description} teamName={title} children={Card} />{' '}
-    </BrowserRouter>
+      <Drawer description={description} teamName={title}>
+        {Card}
+      </Drawer>{' '}
+    </StaticRouter>
   ));

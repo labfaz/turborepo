@@ -1,16 +1,16 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-
+import { StaticRouter } from 'react-router-dom';
 import render from 'Utils/render';
+
 import ObservatorioPageDisplay from './Display';
 
 describe('Observatorio Page', () => {
   it('renders without exploding', () => {
     expect(() =>
       render(
-        <BrowserRouter>
+        <StaticRouter>
           <ObservatorioPageDisplay />
-        </BrowserRouter>
+        </StaticRouter>
       )
     ).not.toThrow();
   });

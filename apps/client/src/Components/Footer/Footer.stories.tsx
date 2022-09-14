@@ -1,13 +1,12 @@
 import React from 'react';
+import { StaticRouter } from 'react-router-dom';
 import { storiesOf } from '@storybook/react';
-import { BrowserRouter } from 'react-router-dom';
-
 import Footer from 'Components/Footer';
 
 storiesOf('Components/Footer', module)
   .addParameters({ component: Footer })
   .add('footer', () => (
-    <BrowserRouter>
+    <StaticRouter>
       <Footer />
-    </BrowserRouter>
+    </StaticRouter>
   ));

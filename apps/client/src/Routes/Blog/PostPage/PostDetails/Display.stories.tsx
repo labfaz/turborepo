@@ -1,8 +1,9 @@
+/* eslint-disable @cspell/spellchecker */
 import React from 'react';
+import { StaticRouter } from 'react-router-dom';
 import { storiesOf } from '@storybook/react';
-import { BrowserRouter } from 'react-router-dom';
-
 import { BlogPost } from 'Api/BlogPost';
+
 import PostDetails from './Display';
 
 const post: BlogPost = {
@@ -25,7 +26,7 @@ const post: BlogPost = {
 storiesOf('Pages/Blog/PostDetails', module)
   .addParameters({ component: PostDetails })
   .add('responsive', () => (
-    <BrowserRouter>
+    <StaticRouter>
       <PostDetails post={post} />
-    </BrowserRouter>
+    </StaticRouter>
   ));

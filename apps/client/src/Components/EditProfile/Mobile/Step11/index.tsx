@@ -1,26 +1,23 @@
-import { useFormikContext } from 'formik';
-import React, { FC } from 'react';
-import { useRef } from 'react';
-import { useState } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import { IoMdArrowDropdownCircle } from 'react-icons/io';
 import { RadioInput } from 'Components/Inputs/RadioInput';
-
+import { useFormikContext } from 'formik';
 import { formationOptions, idiomOptions } from 'Utils/selectOptionsData';
 
 import {
-  Container,
-  ContentContainer,
-  Content,
-  InputRadioContainer,
-  SelectContainer,
-  LabelText,
-  InputRadio,
-  InputSelect,
-  OptionsContainer,
   CheckboxContainer,
+  Container,
+  Content,
+  ContentContainer,
   InputCheckbox,
+  InputRadio,
+  InputRadioContainer,
+  InputSelect,
   InputText,
   InputTextContainer,
+  LabelText,
+  OptionsContainer,
+  SelectContainer,
 } from './style';
 
 interface Step11Props {
@@ -38,7 +35,7 @@ export const Step11: FC = () => {
   const [isIdiomOptionsOpen, setIsIdiomOptionsOpen] = useState(false);
   const modalRef = useRef<HTMLInputElement | null>(null);
 
-  const closeModal = (e: any) => {
+  const closeModal = (e: React.MouseEvent<HTMLDivElement>) => {
     if (modalRef.current === e.target) {
       setIsIdiomOptionsOpen(false);
     }
@@ -49,7 +46,7 @@ export const Step11: FC = () => {
       <ContentContainer>
         <Content>
           <LabelText>
-            Formação escolar <p className="obrigatory"> *</p>
+            Formação escolar <p className="required"> *</p>
             {errors.artist?.technical?.formation && (
               <span className="errorMessage">
                 {errors.artist.technical.formation}
@@ -81,7 +78,7 @@ export const Step11: FC = () => {
           </SelectContainer>
 
           {values.artist?.technical?.idiom.find(
-            (values: any) => values === 'Outro'
+            (value: string) => value === 'Outro'
           ) && (
             <InputTextContainer>
               <LabelText>Qual outro idioma?</LabelText>

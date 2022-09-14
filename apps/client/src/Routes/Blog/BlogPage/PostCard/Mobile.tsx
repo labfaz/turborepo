@@ -1,26 +1,26 @@
 import React, { FC } from 'react';
+import { formatPostDate } from 'Utils/formatPostDate';
+import type { Image } from 'Utils/Image';
 
 import {
-  MainTextContainer,
-  PostTitle,
-  Description,
-  Image,
   Button,
   ButtonContainer,
+  ButtonLayer,
   ButtonText,
   ButtonWrapper,
-  ButtonLayer,
-  DateContainer,
   Date,
+  DateContainer,
+  Description,
   Divisor,
+  MainTextContainer,
+  PostTitle,
+  StyledImage,
 } from './styles';
-
-import { formatPostDate } from 'Utils/formatPostDate';
 
 interface DisplayProps {
   title: string;
   description: string;
-  image: any;
+  image: Image | null;
   created_at: string;
   id: number;
 }
@@ -39,7 +39,7 @@ export const Mobile: FC<DisplayProps> = ({
       <MainTextContainer to={route}>
         <PostTitle>{title}</PostTitle>
         <Description>{description}</Description>
-        {!!image && <Image src={image.url} alt={image.name} />}
+        {!!image && <StyledImage src={image.url} alt={image.name} />}
       </MainTextContainer>
       <ButtonWrapper>
         <ButtonContainer>

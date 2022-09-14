@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import { useField } from 'formik';
+import { IoMdInformationCircle } from 'react-icons/io';
 import InputMask from 'react-input-mask';
+import { useField } from 'formik';
 
 import { Container, Input } from './style';
-import { IoMdInformationCircle } from 'react-icons/io';
 
 export interface InputProps {
   label?: string;
@@ -13,8 +13,9 @@ export interface InputProps {
   height?: number;
   inputMask?: string;
   informationText?: string;
-  obrigatory?: boolean;
-  onChange?: (ev: any) => void;
+  required?: boolean;
+  onChange?: (ev: React.ChangeEvent<HTMLInputElement>) => void;
+  children?: React.ReactNode;
 }
 
 export const TextInput: FC<InputProps> = ({
@@ -23,9 +24,9 @@ export const TextInput: FC<InputProps> = ({
   width,
   inputMask,
   height,
-  obrigatory,
+  required,
   informationText,
-  children,
+  // children,
   ...props
 }) => {
   const [inputProps, meta] = useField(props);
@@ -42,7 +43,7 @@ export const TextInput: FC<InputProps> = ({
               <>
                 {label}
 
-                {obrigatory && <p className="obrigatory"> * </p>}
+                {required && <p className="required"> * </p>}
 
                 {informationText && (
                   <>

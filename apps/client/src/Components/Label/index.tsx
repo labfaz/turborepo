@@ -1,10 +1,11 @@
 import React, { FC } from 'react';
+import type { StaticImageData } from 'next/image';
 
-import { Container, LabelText, LabelImage } from './styles';
+import { Container, LabelImage, LabelText } from './styles';
 
 export interface LabelProps {
   name: string;
-  image?: string;
+  image?: StaticImageData;
   lightMode?: boolean;
   alt?: string;
 }

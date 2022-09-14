@@ -15,6 +15,7 @@
 //   .add("empty list", () => <ListAllPeople people={[]}/>)
 //   .add("non-empty list", () => <ListAllPeople people={peopleTest}/>)
 //   // .addParameters({ docs: { page: null } })
+// eslint-disable-next-line @cspell/spellchecker
 //   // .addParameters({ docs: { page: <div>fsdfgggggggggggggggggggg</div> }})
 
 export {};

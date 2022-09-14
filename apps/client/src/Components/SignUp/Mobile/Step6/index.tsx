@@ -1,14 +1,14 @@
+/* eslint-disable @cspell/spellchecker */
 import React, { FC } from 'react';
-
 import { RadioInput } from 'Components/Inputs/RadioInput';
+import { useFormikContext } from 'formik';
 
 import {
   Container,
-  ContentContainer,
   Content,
+  ContentContainer,
   InputRadioContainer,
 } from './style';
-import { useFormikContext } from 'formik';
 
 interface ErrorProps {
   artist: {
@@ -24,7 +24,7 @@ export const Step6: FC = () => {
       <ContentContainer>
         <Content>
           <label htmlFor="race" className="radioLabel">
-            Etnia <p className="obrigatory"> *</p>
+            Etnia <p className="required"> *</p>
             {errors.artist?.race && (
               <span className="errorMessage">{errors.artist.race}</span>
             )}

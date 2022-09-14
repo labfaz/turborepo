@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom';
+import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
+import { Text } from 'Components/Typography/Text';
+import { Title } from 'Components/Typography/Title';
+import Image from 'next/image';
 import styled, { css } from 'styled-components';
 import { Mobile } from 'Utils/breakpoints';
-import { Title } from 'Components/Typography/Title';
-import { Text } from 'Components/Typography/Text';
-import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
-import { Link } from 'react-router-dom';
 
 interface DateProps {
   size: string;
@@ -100,7 +101,7 @@ export const Description = styled(Text)`
   `)}
 `;
 
-export const Image = styled.img`
+export const StyledImage = styled(Image)`
   width: 100%;
   height: 400px;
   object-fit: cover;
@@ -153,7 +154,7 @@ export const Button = styled(InternalLinkButton)`
   border: none;
   border-radius: 2.16px;
 
-  background-color: rbga(297, 0, 97, 1);
+  background-color: rgba(297, 0, 97, 1);
   box-shadow: 1px 1px 0px rgba(255, 236, 153, 1);
 
   :hover {

@@ -95,7 +95,7 @@ export const Container = styled.div<ContainerProps>`
       font-size: var(--font-size-large);
     `)}
 
-    .obrigatory {
+    .required {
       display: inline;
       color: red;
 

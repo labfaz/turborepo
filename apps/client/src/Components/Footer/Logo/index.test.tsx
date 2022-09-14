@@ -1,36 +1,37 @@
+/* eslint-disable @cspell/spellchecker */
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-
+import { StaticRouter } from 'react-router-dom';
+import type { SocialNetworksLabfaz } from 'Api/SocialNetworksLabfaz';
 import render from 'Utils/render';
+
 import LogoFooter from './';
 
-const mockedData = {
+const mockedData: SocialNetworksLabfaz = {
   facebook: 'https://www.facebook.com',
   twitter: 'https://www.twitter.com',
   googlePlus: 'https://www.google.com',
   linkedin: 'https://linkedin.com',
   instagram: 'https://instagram.com',
   youtube: 'https://youtube.com',
-  ddd: 61,
-  phone: 912345678,
+  phone: '61912345678',
   email: 'contato@labfaz.com.br',
 };
 
 it('renders footer logo subcomponent', () => {
   expect(() =>
     render(
-      <BrowserRouter>
+      <StaticRouter>
         <LogoFooter data={mockedData} />
-      </BrowserRouter>
+      </StaticRouter>
     )
   ).not.toThrow();
 });
 
-describe('Checks content Logo redered', () => {
+describe('Checks content Logo rendered', () => {
   const { getByTestId, getByText } = render(
-    <BrowserRouter>
+    <StaticRouter>
       <LogoFooter data={mockedData} />
-    </BrowserRouter>
+    </StaticRouter>
   );
   it('checks link to facebook', () => {
     expect(getByTestId('facebook')).toHaveAttribute(

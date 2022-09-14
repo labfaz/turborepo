@@ -1,11 +1,13 @@
 import React, { FC } from 'react';
+
 import Image from '../Image';
+
 import {
   ErrorContainer,
-  TitleText,
-  SubtitleText,
-  MobileRectangle,
   ImageRectangle,
+  MobileRectangle,
+  SubtitleText,
+  TitleText,
   TopWrapper,
 } from './styles';
 
@@ -19,7 +21,7 @@ export const Mobile: FC<Props> = ({ status, message }) => {
     <ErrorContainer>
       <TopWrapper>
         <ImageRectangle>
-          <Image />
+          <Image alt="Imagem de erro" />
         </ImageRectangle>
       </TopWrapper>
       <MobileRectangle invert={true}>

@@ -58,10 +58,10 @@ const getCheckedBoxes = (text: string): string[] => {
  * Extract checked text from markdown checkbox
  */
 const getUncheckedBoxes = (text: string): string[] => {
-  const UNCHECKEDBOXES = /^[\t ]*-[\t ]*\[[\t ]*\][\t ]*(.+?)$/gim;
+  const uncheckedBoxes = /^[\t ]*-[\t ]*\[[\t ]*\][\t ]*(.+?)$/gim;
 
   // Full Text => ["- [ ] Unchecked", "- [  ] Also Unchecked"]
-  const rawMatches = text.match(UNCHECKEDBOXES);
+  const rawMatches = text.match(uncheckedBoxes);
   if (!rawMatches || rawMatches.length === 0) {
     return [];
   }
@@ -69,7 +69,7 @@ const getUncheckedBoxes = (text: string): string[] => {
   // Extract unchecked text from markdown checkbox
   // "- [ ] Unchecked" => "Unchecked"
   return rawMatches
-    .map((result) => new RegExp(UNCHECKEDBOXES.source, 'mi').exec(result))
+    .map((result) => new RegExp(uncheckedBoxes.source, 'mi').exec(result))
     .filter(Boolean)
     .map((res) => res && res[1]) as string[];
 };

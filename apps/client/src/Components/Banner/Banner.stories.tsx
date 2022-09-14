@@ -1,27 +1,28 @@
+/* eslint-disable @cspell/spellchecker */
 import React from 'react';
+import { StaticRouter } from 'react-router-dom';
 import { storiesOf } from '@storybook/react';
-import { BrowserRouter } from 'react-router-dom';
 
 import Banner from './';
 
 storiesOf('Components/Banner', module)
   .addParameters({ component: Banner })
   .add('bannerCenter', () => (
-    <BrowserRouter>
+    <StaticRouter>
       <Banner
         title="LABFAZ"
         subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta
           ligula nibh, nec interdum nunc maximus at."
         hrefKnowMore="/about"
       />
-    </BrowserRouter>
+    </StaticRouter>
   ))
   .add('bannerLeft', () => (
-    <BrowserRouter>
+    <StaticRouter>
       <Banner
         title="Blog"
         subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
         align="left"
       />
-    </BrowserRouter>
+    </StaticRouter>
   ));

@@ -1,17 +1,18 @@
+/* eslint-disable @cspell/spellchecker */
 import React, { FC } from 'react';
+import { RadioInput } from 'Components/Inputs/RadioInput';
 import { useFormikContext } from 'formik';
 
 import {
   Container,
+  InformationText,
+  InputRadioContainer,
+  InputText,
   LeftSide,
   LeftSideContent,
   RightSide,
   RightSideContent,
-  InputRadioContainer,
-  InformartionText,
-  InputText,
 } from './style';
-import { RadioInput } from 'Components/Inputs/RadioInput';
 
 interface ErrorProps {
   artist: {
@@ -32,7 +33,7 @@ export const Step2: FC = () => {
           <div className="raceContainer">
             <div>
               <label htmlFor="gender">
-                Etnia <p className="obrigatory"> *</p>
+                Etnia <p className="required"> *</p>
                 {errors.artist?.race && (
                   <span className="errorMessage"> Campo obrigatório</span>
                 )}
@@ -76,7 +77,7 @@ export const Step2: FC = () => {
             </div>
             <div className="genderContainer">
               <label htmlFor="gender">
-                Gênero <p className="obrigatory"> *</p>
+                Gênero <p className="required"> *</p>
                 {errors.artist?.gender && (
                   <span className="errorMessage">Campo obrigatório</span>
                 )}
@@ -122,7 +123,7 @@ export const Step2: FC = () => {
           </div>
           <div className="genderIdentityContainer">
             <label htmlFor="gender_identity">
-              Identidade de Genero <p className="obrigatory"> *</p>
+              Identidade de Gênero <p className="required"> *</p>
               {errors.artist?.gender_specific && (
                 <span className="errorMessage">Campo obrigatório</span>
               )}
@@ -138,13 +139,14 @@ export const Step2: FC = () => {
                 identifica (socialmente e psicologicamente) como um homem. Desta
                 forma, pode-se dizer que trata-se de um homem cisgênero.'
               />
-              <InformartionText>
+              <InformationText>
                 Pessoa cisgênero consiste no/a indivíduo/a que se identifica com
-                o seu "gênero de nascença". Por exemplo: um indivíduo que possui
-                características biológicas típicas do gênero masculino e que se
-                identifica (socialmente e psicologicamente) como um homem. Desta
-                forma, pode-se dizer que trata-se de um homem cisgênero.
-              </InformartionText>
+                o seu &quot;gênero de nascença&quot;. Por exemplo: um indivíduo
+                que possui características biológicas típicas do gênero
+                masculino e que se identifica (socialmente e psicologicamente)
+                como um homem. Desta forma, pode-se dizer que trata-se de um
+                homem cisgênero.
+              </InformationText>
             </InputRadioContainer>
 
             <InputRadioContainer>
@@ -160,7 +162,7 @@ export const Step2: FC = () => {
                 características físicas femininas, mas que se identifica como um
                 homem."
               />
-              <InformartionText>
+              <InformationText>
                 pessoa transexual/transgênero é o(a) indivíduo(a) que se
                 identifica com um gênero diferente daquele que lhe foi atribuído
                 biologicamente no nascimento. Por exemplo: uma pessoa que nasce
@@ -168,7 +170,7 @@ export const Step2: FC = () => {
                 mas que se sente do gênero feminino; ou o indivíduo que possui
                 características físicas femininas, mas que se identifica como um
                 homem.
-              </InformartionText>
+              </InformationText>
             </InputRadioContainer>
 
             <InputRadioContainer>
@@ -181,12 +183,12 @@ export const Step2: FC = () => {
                 identidade de gênero 'homem' ou 'mulher', ou podem
                 se caracterizar como uma mistura entre os dois."
               />
-              <InformartionText>
+              <InformationText>
                 pessoa não binárie é quem não se identifica com um gênero
                 exclusivamente, podem não se reconhecer com a identidade de
-                gênero 'homem' ou 'mulher', ou podem se caracterizar como uma
-                mistura entre os dois.
-              </InformartionText>
+                gênero &quot;homem&quot; ou &quot;mulher&quot;, ou podem se
+                caracterizar como uma mistura entre os dois.
+              </InformationText>
             </InputRadioContainer>
 
             <InputRadioContainer>
@@ -204,7 +206,7 @@ export const Step2: FC = () => {
         <RightSideContent>
           <div className="sexual_orientation">
             <label htmlFor="artist.sexual_orientation">
-              Qual a sua orientação sexual? <p className="obrigatory"> *</p>
+              Qual a sua orientação sexual? <p className="required"> *</p>
               {errors.artist?.sexual_orientation && (
                 <span className="errorMessage">Campo obrigatório</span>
               )}
@@ -216,12 +218,12 @@ export const Step2: FC = () => {
                 label="Assexual"
                 information="Assexualidade é a falta total, parcial ou condicional de atração sexual a qualquer pessoa, com pouco ou inexistente interesse nas atividades sexuais humanas. Pode ser considerada uma orientação sexual ou a falta de uma"
               />
-              <InformartionText>
+              <InformationText>
                 Assexualidade é a falta total, parcial ou condicional de atração
                 sexual a qualquer pessoa, com pouco ou inexistente interesse nas
                 atividades sexuais humanas. Pode ser considerada uma orientação
                 sexual ou a falta de uma
-              </InformartionText>
+              </InformationText>
             </InputRadioContainer>
 
             <InputRadioContainer>
@@ -231,11 +233,11 @@ export const Step2: FC = () => {
                 label="Bissexual"
                 information="Orientação sexual bissexual é atração romântica, atração sexual ou comportamento sexual voltado tanto a homens e como a mulheres, ou por mais de um sexo ou gênero."
               />
-              <InformartionText>
+              <InformationText>
                 Orientação sexual bissexual é atração romântica, atração sexual
                 ou comportamento sexual voltado tanto a homens e como a
                 mulheres, ou por mais de um sexo ou gênero.
-              </InformartionText>
+              </InformationText>
             </InputRadioContainer>
 
             <InputRadioContainer>
@@ -245,10 +247,10 @@ export const Step2: FC = () => {
                 label="Heterossexual"
                 information="Orientação sexual heterossexual é atração romântica e/ou sexual entre pessoas do gênero oposto ao seu"
               />
-              <InformartionText>
+              <InformationText>
                 Orientação sexual heterossexual é atração romântica e/ou sexual
                 entre pessoas do gênero oposto ao seu
-              </InformartionText>
+              </InformationText>
             </InputRadioContainer>
 
             <InputRadioContainer>
@@ -258,12 +260,12 @@ export const Step2: FC = () => {
                 label="Pansexual"
                 information="Pansexual é a denominação que abarca quem sente atração física, desejo sexual e amor independentemente de sexo ou identidade de gênero. Confundido com a bissexualidade, que é definida como a atração por mais de um gênero, em geral homem ou mulher"
               />
-              <InformartionText>
+              <InformationText>
                 Pansexual é a denominação que abarca quem sente atração física,
                 desejo sexual e amor independentemente de sexo ou identidade de
                 gênero. Confundido com a bissexualidade, que é definida como a
                 atração por mais de um gênero, em geral homem ou mulher
-              </InformartionText>
+              </InformationText>
             </InputRadioContainer>
 
             <InputRadioContainer>
@@ -273,10 +275,10 @@ export const Step2: FC = () => {
                 label="Homossexualidade Lésbica"
                 information="é a denominação em que uma mulher sente-se atraída afetiva e/ou sexualmente por outra mulher"
               />
-              <InformartionText>
+              <InformationText>
                 é a denominação em que uma mulher sente-se atraída afetiva e/ou
                 sexualmente por outra mulher
-              </InformartionText>
+              </InformationText>
             </InputRadioContainer>
 
             <InputRadioContainer>
@@ -286,10 +288,10 @@ export const Step2: FC = () => {
                 label="Homossexualidade Gay"
                 information="é a denominação em que um homem sente-se atraído afetiva e/ou sexualmente por outro homem"
               />
-              <InformartionText>
+              <InformationText>
                 é a denominação em que um homem sente-se atraído afetiva e/ou
                 sexualmente por outro homem
-              </InformartionText>
+              </InformationText>
             </InputRadioContainer>
 
             <InputRadioContainer>

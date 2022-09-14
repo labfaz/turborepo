@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
+import { HomePartners } from 'Api/HomePartners';
 
 import Display from './Display';
-
-import { HomePartners } from 'Api/HomePartners';
 
 export interface PartnersProps {
   partners: HomePartners[];

@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
 import { Image } from 'Utils/Image';
 
-import { Container, TitleBanner, Subtitle, KnowMoreButton } from './style';
+import { Container, KnowMoreButton, Subtitle, TitleBanner } from './style';
 
 export interface BannerProps {
-  title: string;
-  subtitle: string;
+  title?: string;
+  subtitle?: string;
   hrefKnowMore?: string;
   align?: string;
-  image?: Image;
+  image?: Image | null;
 }
 
 export const Banner: FC<BannerProps> = ({

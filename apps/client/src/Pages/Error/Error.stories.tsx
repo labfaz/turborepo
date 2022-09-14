@@ -1,12 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Error from '.';
-import Web from './Web';
 import Mobile from './Mobile';
+import Web from './Web';
+import Error from '.';
 
-const exampleStatus: number = 500;
-const exampleMessage: string = 'Internal server error';
+const exampleStatus = 500;
+const exampleMessage = 'Internal server error';
 
 storiesOf('Components/Error', module)
   .addParameters({ component: Error })

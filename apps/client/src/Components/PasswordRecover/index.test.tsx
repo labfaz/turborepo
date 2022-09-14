@@ -1,38 +1,37 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-
-import Render from 'Utils/render';
-import { AskReset } from './';
-import { PasswordChange } from './passwordChange';
-
+import { StaticRouter } from 'react-router-dom';
 import { render } from '@testing-library/react';
+import Render from 'Utils/render';
 
-it('Shoud render ask reset form properly', () => {
+import { PasswordChange } from './passwordChange';
+import { AskReset } from './';
+
+it('Should render ask reset form properly', () => {
   expect(() =>
     Render(
-      <BrowserRouter>
+      <StaticRouter>
         <AskReset />
-      </BrowserRouter>
+      </StaticRouter>
     )
   ).not.toThrow();
 });
 
 it('Should have a text input page title', () => {
   const Component = render(
-    <BrowserRouter>
+    <StaticRouter>
       <AskReset />
-    </BrowserRouter>
+    </StaticRouter>
   ).getByRole('textbox');
 
   expect(Component).toBeTruthy();
 });
 
-it('Shoud render reset password form properly', () => {
+it('Should render reset password form properly', () => {
   expect(() =>
     Render(
-      <BrowserRouter>
+      <StaticRouter>
         <PasswordChange token="" />
-      </BrowserRouter>
+      </StaticRouter>
     )
   ).not.toThrow();
 });

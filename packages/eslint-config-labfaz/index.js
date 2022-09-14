@@ -17,7 +17,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@cspell/recommended',
     'plugin:abcsize/recommended',
-    'plugin:i18next/recommended',
+    // 'plugin:i18next/recommended',
     'next/core-web-vitals',
     'prettier',
   ],

@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 
 import {
   Container,
-  ContentContainer,
   Content,
+  ContentContainer,
   InputText,
   InputTextContainer,
 } from './style';
@@ -18,7 +18,7 @@ export const Step1: FC = () => {
               name="artist.name"
               label="Nome"
               placeholder="Digite seu nome"
-              obrigatory
+              required
             />
           </InputTextContainer>
 
@@ -34,8 +34,8 @@ export const Step1: FC = () => {
           <InputTextContainer>
             <InputText
               name="artist.artistic_name"
-              label="Nome Artistico"
-              placeholder="Digite seu nome artistico"
+              label="Nome Artístico"
+              placeholder="Digite seu nome artístico"
             />
           </InputTextContainer>
         </Content>
