@@ -44,6 +44,7 @@ export const Step3: FC = () => {
         <LeftSideContent>
           <AvatarInput>
             <Image
+              layout="fill"
               src={
                 values.profilePicture
                   ? URL.createObjectURL(values.profilePicture)

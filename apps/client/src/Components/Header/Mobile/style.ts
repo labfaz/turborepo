@@ -53,14 +53,21 @@ export const NavLink = styled(InternalLinkButton)`
 export const Button = styled(InternalLinkButton)<PropsButton>`
   --font-size-short: 11px;
   display: flex;
-  ${(props) =>
-    props.BackgroundColor === 'login'
-      ? 'background-color: var(--background-pink);'
-      : 'background-color: var(--color-text-yellow);'};
-  ${(props) =>
-    props.BackgroundColor === 'login'
-      ? 'color: var(--color-text-yellow);'
-      : 'color: var(--background-pink);'};
+  ${(p: PropsButton) =>
+    `background-color: ${
+      p.BackgroundColor === 'login'
+        ? 'var(--background-pink);'
+        : 'var(--color-text-yellow);'
+    } !important;
+    
+    
+    color: ${
+      p.BackgroundColor === 'login'
+        ? 'var(--color-text-yellow);'
+        : 'var(--background-pink);'
+    } !important;
+    `}
+
   justify-content: center;
   align-items: center;
   height: 2rem;

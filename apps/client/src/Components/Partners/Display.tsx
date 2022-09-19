@@ -24,6 +24,7 @@ export const Display: FC<HomePartnersProps> = ({ data }) => {
               key={partner.name}
               src={(partner.logo as unknown as logo)[0].url}
               alt={partner.name}
+              layout="fill"
             />
           );
         })}

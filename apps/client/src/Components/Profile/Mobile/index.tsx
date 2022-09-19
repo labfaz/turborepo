@@ -83,7 +83,8 @@ const UserInfo: FC<ProfileProps> = ({ data }) => {
             {data.artist.technical.idiom &&
               data.artist.technical.idiom.map((idiom, index) => (
                 <li key={index}>
-                  <Image src={idiom_icon} alt="" /> {idiom.name.toUpperCase()}
+                  <Image layout="fill" src={idiom_icon} alt="" />{' '}
+                  {idiom.name.toUpperCase()}
                 </li>
               ))}
           </ul>
@@ -138,7 +139,11 @@ const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
           <UserPhotoContainer>
             <UserPhoto>
               {data.artist.photo_url && (
-                <Image src={data.artist.photo_url} alt="User avatar" />
+                <Image
+                  layout="fill"
+                  src={data.artist.photo_url}
+                  alt="User avatar"
+                />
               )}
             </UserPhoto>
           </UserPhotoContainer>
@@ -155,7 +160,7 @@ const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
                 {data.isVerified && (
                   <UserVerified>
                     Verificado Backstage
-                    <Image src={isVerified} alt="isVerify" />
+                    <Image layout="fill" src={isVerified} alt="isVerify" />
                   </UserVerified>
                 )}
               </div>

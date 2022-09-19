@@ -4,7 +4,7 @@ import { Mobile } from 'Utils/breakpoints';
 
 export const StyledImage = styled(Image)`
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   object-position: center;
   margin: 50px 0 -12px 0;

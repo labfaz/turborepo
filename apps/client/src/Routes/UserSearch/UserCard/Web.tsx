@@ -43,7 +43,7 @@ export const Web: FC<UserCardData> = ({ data }) => {
           <CardTitle>{name}</CardTitle>
           {isVerified ? (
             <VerifiedWrapper>
-              <Image src={verifiedIcon} alt="verificade" />
+              <Image layout="fill" src={verifiedIcon} alt="verificade" />
               <VerifiedText>Verificado Backstage</VerifiedText>
             </VerifiedWrapper>
           ) : (

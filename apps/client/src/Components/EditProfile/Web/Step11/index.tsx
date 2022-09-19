@@ -23,6 +23,7 @@ export const Step11: FC = () => {
         <Content>
           <AvatarInput>
             <Image
+              layout="fill"
               src={
                 values.profilePicture
                   ? URL.createObjectURL(values.profilePicture)

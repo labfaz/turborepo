@@ -67,7 +67,7 @@ export const Mobile: FC = () => {
             </>
           ) : (
             <>
-              <Button BackgroundColor={'login'} href={navLinks['login'].path}>
+              <Button href={navLinks['login'].path}>
                 {' '}
                 {navLinks['login'].label}{' '}
               </Button>

@@ -49,7 +49,11 @@ const AsideContent: FC<ProfileProps> = ({ data, personalProfilePage }) => {
       <AsideHeader>
         <UserPhoto>
           {data.artist.photo_url && (
-            <Image src={data.artist.photo_url} alt="User avatar" />
+            <Image
+              layout="fill"
+              src={data.artist.photo_url}
+              alt="User avatar"
+            />
           )}
         </UserPhoto>
         <NickName level={1}>{getUserName(data)}</NickName>
@@ -57,7 +61,7 @@ const AsideContent: FC<ProfileProps> = ({ data, personalProfilePage }) => {
         {data.isVerified && (
           <UserVerified>
             Verificado Backstage
-            <Image src={isVerified} alt="isVerify" />
+            <Image layout="fill" src={isVerified} alt="isVerify" />
           </UserVerified>
         )}
       </AsideHeader>
@@ -174,7 +178,8 @@ const Web: FC<ProfileProps> = ({ data, personalProfilePage }) => {
                 {data.artist.technical.idiom &&
                   data.artist.technical.idiom.map((idiom, index) => (
                     <li key={index}>
-                      <Image src={idiom_icon} alt={idiom.name} /> {idiom.name}
+                      <Image layout="fill" src={idiom_icon} alt={idiom.name} />{' '}
+                      {idiom.name}
                     </li>
                   ))}
               </ul>

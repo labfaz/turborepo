@@ -8,7 +8,13 @@ type ImageType = {
 };
 
 export const Image: FC<ImageType> = ({ alt }) => {
-  return <ImageConstruction src={image} alt={alt || 'Não encontrado'} />;
+  return (
+    <ImageConstruction
+      layout="fill"
+      src={image}
+      alt={alt || 'Não encontrado'}
+    />
+  );
 };
 
 export default Image;

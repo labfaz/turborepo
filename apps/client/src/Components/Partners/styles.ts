@@ -50,6 +50,7 @@ export const Logos = styled.div`
 `;
 
 export const StyledImage = styled(Image)`
+  width: 100%;
   height: 4rem;
   object-fit: contain;
 

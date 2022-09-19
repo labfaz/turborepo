@@ -31,6 +31,7 @@ export const AvatarInput = styled.div`
   border: 3px solid #fc0061;
   background-color: #a3a3a3;
   margin-bottom: 1.94rem;
+  position: relative;
 
   img {
     width: 190px;

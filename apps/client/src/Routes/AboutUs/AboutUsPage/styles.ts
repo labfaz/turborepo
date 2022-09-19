@@ -106,6 +106,7 @@ export const Container = styled.div<ContainerProps>`
 
 export const StyledImage = styled(Image)<ImageProps>`
   width: 100%;
+  height: 100%;
   object-fit: contain;
   object-position: center center;
   margin: auto;
