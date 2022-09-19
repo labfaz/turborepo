@@ -32,6 +32,7 @@ const Contact: FC<ContactProps> = ({ phone, email }) => {
       <Title>Fale com a gente</Title>
       <div className="icons">
         <Icon>
+          {/* eslint-disable-next-line @cspell/spellchecker */}
           <FaWhatsapp name="Whatsapp" />
           <Subtitle>{phoneCorrect}</Subtitle>
         </Icon>

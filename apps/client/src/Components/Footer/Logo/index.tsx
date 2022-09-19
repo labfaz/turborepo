@@ -1,3 +1,4 @@
+/* eslint-disable @cspell/spellchecker */
 import React, { FC } from 'react';
 import {
   FaFacebookSquare,
