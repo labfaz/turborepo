@@ -1,7 +1,18 @@
-import { Then } from '@cucumber/cucumber';
+/* eslint-disable @cspell/spellchecker */
+import { Given, Then } from '@cucumber/cucumber';
 
+import { config } from '@root/support/config';
 import { ICustomWorld } from '@root/support/custom-world';
 import { getImagePath } from '@root/utils/imageHelpers';
+
+Given(
+  'estar na página {string}',
+  async function (this: ICustomWorld, slug: string) {
+    const page = this.page!; // eslint-disable-line @typescript-eslint/no-non-null-assertion
+    // navigate to the app
+    await page.goto(`${config.BASE_URL}/${slug}`);
+  }
+);
 
 Then(
   'faz uma captura de tela {string}',
